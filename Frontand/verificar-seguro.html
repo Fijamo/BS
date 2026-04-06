@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Seguro</title>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <!-- Botão voltar -->
+        <div class="mb-3">
+            <a href="index.html" class="btn btn-secondary">Voltar</a>
+        </div>
+
+
+        <h1 class="text-center mb-4">🔍 Verificar Seguro</h1>
+
+        <div class="card p-4 shadow-sm">
+            <form>
+                <div class="mb-3">
+                    <label for="numeroApolice" class="form-label">Número da Apólice *</label>
+                    <input type="text" id="numeroApolice" class="form-control" placeholder="Digite o número da apólice">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nomeCliente" class="form-label">Nome do Cliente *</label>
+                    <input type="text" id="nomeCliente" class="form-control" placeholder="Digite o nome completo">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Verificar Seguro</button>
+            </form>
+
+            <!-- Resultado inline -->
+            <div class="mt-4" id="resultado" style="font-weight: 600;">
+                <span id="statusSeguro"><!-- Status do seguro aparecerá aqui --></span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

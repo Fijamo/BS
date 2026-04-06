@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar Cliente</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+
+<body>
+
+    <div class="container my-5">
+
+        <!-- Botão voltar -->
+        <a href="index.html" class="btn btn-light mb-4 d-inline-flex align-items-center">
+            <i class="bi bi-arrow-left me-2"></i> Voltar</a>
+
+        <h1 class="text-center mb-4">Pesquisar Cliente</h1>
+
+        <!-- Pesquisa e filtro -->
+        <div
+            class="pesquisa-container mb-4 p-4 rounded shadow-sm bg-white d-flex flex-wrap gap-3 justify-content-center align-items-center">
+            <div class="position-relative" style="width: 380px;">
+                <i class="bi bi-search pesquisa-icone"></i>
+                <input type="text" class="form-control pesquisa-input"
+                    placeholder="Pesquisar por nome ou nº apólice...">
+            </div>
+
+            <select class="form-select filtro-status">
+                <option value="todas">Todas as apólices</option>
+                <option value="ativa">Ativa</option>
+                <option value="vencida">Vencida</option>
+                <option value="cancelada">Cancelada</option>
+            </select>
+        </div>
+
+        <!-- Resultados -->
+        <div class="resultados">
+            <div class="alert alert-secondary text-center">Digite um nome ou número de apólice para pesquisar.</div>
+
+            <!-- Exemplo de cliente -->
+            <div
+                class="cliente-card p-4 mb-3 rounded shadow-sm d-flex flex-wrap justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-person-circle fs-3"></i>
+                    <div>
+                        <div class="fw-bold fs-5">João Silva</div>
+                        <div class="text-muted small">Apólice: 12345</div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="cliente-card p-4 mb-3 rounded shadow-sm d-flex flex-wrap justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-person-circle fs-3"></i>
+                    <div>
+                        <div class="fw-bold fs-5">Maria Pereira</div>
+                        <div class="text-muted small">Apólice: 67890</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
