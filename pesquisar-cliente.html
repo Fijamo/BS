@@ -1,0 +1,75 @@
+<!-- Define o uso do padrão HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação do documento -->
+    <meta charset="UTF-8">
+    <!-- Faz a página adaptar-se a diferentes tamanhos de ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título mostrado na aba do navegador -->
+    <title>Pesquisar Cliente</title>
+    <!-- Liga esta página ao ficheiro CSS principal -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-pesquisa">
+    <!-- Área principal da página de pesquisa -->
+    <main class="app-page-shell">
+        <!-- Cartão central que agrupa o cabeçalho e os resultados -->
+        <section class="app-page-card app-page-card-wide">
+            <!-- Cabeçalho da página com navegação de regresso e contexto da tela -->
+            <div class="app-page-head">
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+                <span class="app-kicker">Pesquisa</span>
+                <h1>Pesquisar cliente</h1>
+                <p>Pesquise todas as apólices digitando o nome do cliente ou filtre diretamente pelo estado da apólice.</p>
+            </div>
+
+            <!-- Área que explica os dois tipos de pesquisa disponíveis -->
+            <div class="search-empty-state">Pode pesquisar por nome do cliente ou, se preferir, selecionar apenas o estado da apólice para ver os resultados.</div>
+
+            <!-- Formulário do modo de pesquisa por nome ou apólice -->
+            <form class="app-form-grid" id="form-pesquisa-nome">
+                <div class="search-result-card app-field-full">
+                    <div class="app-form-grid app-form-grid-2">
+                        <label class="app-field">
+                            <span>Pesquisa por nome ou apólice</span>
+                            <input type="text" id="campoPesquisaNome" name="query" placeholder="Digite o nome do cliente ou nº da apólice">
+                        </label>
+
+                        <div class="app-form-actions">
+                            <button type="submit" class="app-btn app-btn-primary">Pesquisar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Formulário do modo de pesquisa por estado -->
+            <form class="app-form-grid" id="form-pesquisa-estado">
+                <div class="search-result-card app-field-full">
+                    <div class="app-form-grid app-form-grid-2">
+                        <label class="app-field">
+                            <span>Pesquisa por estado</span>
+                            <select id="selectEstadoPesquisa" name="status">
+                                <option value="todas">Todas as apólices</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="vencido">Vencido</option>
+                            </select>
+                        </label>
+
+                        <div class="app-form-actions">
+                            <button type="submit" class="app-btn app-btn-secondary">Filtrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Título visual da área onde os resultados da pesquisa são apresentados -->
+            <div class="app-section-title">Resultados da pesquisa</div>
+
+            <!-- Área que apresenta os resultados encontrados -->
+            <div class="search-results" id="resultadoPesquisa"></div>
+        </section>
+    </main>
+
+</body>
+</html>

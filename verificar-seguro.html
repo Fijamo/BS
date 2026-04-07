@@ -1,0 +1,55 @@
+<!-- Define o documento como HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação do documento -->
+    <meta charset="UTF-8">
+    <!-- Faz a página adaptar-se a vários tamanhos de ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título mostrado na aba do navegador -->
+    <title>Verificar Seguro</title>
+    <!-- Liga esta página ao ficheiro CSS principal -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-formulario pagina-verificar-seguro">
+    <!-- Área principal da funcionalidade de verificação -->
+    <main class="app-page-shell">
+        <!-- Cartão central com cabeçalho e formulário -->
+        <section class="app-page-card">
+            <!-- Cabeçalho da página com contexto e navegação -->
+            <div class="app-page-head">
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+                <span class="app-kicker">Validação</span>
+                <h1>Verificar seguro</h1>
+                <p>Consulte rapidamente o estado de uma apólice pesquisando por nome do cliente ou pelo número da apólice.</p>
+            </div>
+
+            <!-- Formulário usado para validar uma apólice específica -->
+            <form class="app-form-grid app-form-grid-2" id="form-verificar-seguro">
+                <!-- Campo para escolher o tipo de pesquisa -->
+                <label class="app-field">
+                    <span>Pesquisar por</span>
+                    <select id="tipoPesquisaSeguro" required>
+                        <option value="apolice">Número da apólice</option>
+                        <option value="nome">Nome do cliente</option>
+                    </select>
+                </label>
+
+                <!-- Campo único que recebe o nome ou o número da apólice -->
+                <label class="app-field">
+                    <span>Valor da pesquisa</span>
+                    <input type="text" id="valorPesquisaSeguro" placeholder="Digite o número da apólice ou o nome do cliente" required>
+                </label>
+
+                <!-- Área de ações do formulário -->
+                <div class="app-form-actions app-field-full">
+                    <button type="submit" class="app-btn app-btn-primary">Verificar seguro</button>
+                </div>
+            </form>
+
+            <!-- Espaço onde pode ser exibido o resultado da verificação -->
+            <div class="app-inline-status" id="resultado"></div>
+        </section>
+    </main>
+</body>
+</html>

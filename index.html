@@ -1,0 +1,154 @@
+<!-- Define que este ficheiro usa o padrão HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação do documento para suportar acentos -->
+    <meta charset="UTF-8">
+    <!-- Faz a página adaptar-se a diferentes tamanhos de ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da aba do navegador -->
+    <title>BS Seguros | Painel</title>
+    <!-- Liga a página ao ficheiro CSS externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-index">
+    <!-- Elemento principal que concentra o conteúdo da página -->
+    <main class="index-shell">
+        <!-- Secção de abertura do painel -->
+        <section class="index-hero">
+            <!-- Contentor central da secção hero -->
+            <div class="container index-hero-grid">
+                <!-- Bloco textual principal do painel -->
+                <div class="index-copy">
+                    <!-- Pequena etiqueta que identifica o tipo de ecrã -->
+                    <span class="index-kicker">Painel operacional</span>
+
+                    <!-- Título principal do painel -->
+                    <h1>Centro de controlo da BS Seguros</h1>
+
+                    <!-- Texto de apresentação do painel -->
+                    <p>
+                        Acompanhe clientes, apólices, sinistros e alertas num único painel,
+                        com acesso rápido às tarefas mais importantes do dia.
+                    </p>
+
+                    <!-- Formulário de pesquisa rápida que envia o utilizador para a página de resultados -->
+                    <form class="index-search" action="pesquisar-cliente.html" method="GET">
+                        <!-- Campo de pesquisa agrupado com o seu rótulo -->
+                        <label class="index-field">
+                            <span>Pesquisar cliente</span>
+                            <input type="text" name="query" placeholder="Pesquisar cliente ou nº da apólice">
+                        </label>
+
+                        <!-- Campo de seleção agrupado com o seu rótulo -->
+                        <label class="index-field">
+                            <span>Estado da apólice</span>
+                            <select name="status">
+                                <option value="todas">Todas as apólices</option>
+                                <option value="ativo">Ativa</option>
+                                <option value="vencido">Vencida</option>
+                            </select>
+                        </label>
+
+                        <!-- Botão que envia a pesquisa para a página de pesquisa de clientes -->
+                        <div class="app-form-actions">
+                            <button type="submit" class="app-btn app-btn-primary">Pesquisar agora</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção dos atalhos principais do sistema -->
+        <section class="index-section">
+            <div class="container">
+                <div class="index-section-head">
+                    <span>Ações rápidas</span>
+                    <h2>Atalhos principais do sistema</h2>
+                </div>
+
+                <div class="index-actions-grid">
+                    <a class="index-action-card" href="cadastrar-cliente.html">
+                        <h3>Cadastrar cliente</h3>
+                    </a>
+
+                    <a class="index-action-card" href="pesquisar-cliente.html">
+                        <h3>Pesquisar cliente</h3>
+                    </a>
+
+                    <a class="index-action-card" href="verificar-seguro.html">
+                        <h3>Verificar seguro</h3>
+                    </a>
+
+                    <a class="index-action-card" href="gerar-relatorio.html">
+                        <h3>Gerar relatórios</h3>
+                    </a>
+
+                    <a class="index-action-card" href="listagem-cliente.html">
+                        <h3>Listagem de clientes</h3>
+                    </a>
+
+                    <a class="index-action-card" href="enviar-lembrete.html">
+                        <h3>Enviar lembrete</h3>
+                    </a>
+
+                    <a class="index-action-card" href="sinistro.html">
+                        <h3>Sinistro e perícia</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de alertas do sistema -->
+        <section class="index-section index-section-soft">
+            <div class="container">
+                <div class="index-section-head">
+                    <span>Monitorização</span>
+                    <h2>Alertas e métricas do momento</h2>
+                </div>
+
+                <div class="index-alert-grid">
+                    <article class="index-alert-card danger">
+                        <div class="alert-mark">!</div>
+                        <div>
+                            <h3>Apólices vencendo</h3>
+                            <p>3 contratos precisam de atenção imediata.</p>
+                        </div>
+                    </article>
+
+                    <article class="index-alert-card warning">
+                        <div class="alert-mark">$</div>
+                        <div>
+                            <h3>Pagamentos atrasados</h3>
+                            <p>5 clientes com pendências financeiras.</p>
+                        </div>
+                    </article>
+
+                    <article class="index-alert-card info">
+                        <div class="alert-mark">+</div>
+                        <div>
+                            <h3>Novos leads</h3>
+                            <p>2 oportunidades recentes aguardam seguimento.</p>
+                        </div>
+                    </article>
+
+                    <article class="index-alert-card success">
+                        <div class="alert-mark">M</div>
+                        <div>
+                            <h3>Mensagens internas</h3>
+                            <p>1 conversa pendente no fluxo interno.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção final com o botão para sair do sistema -->
+        <section class="index-section index-section-compact">
+            <div class="container index-exit-wrap">
+                <a href="/" class="index-exit-btn">Sair do sistema</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

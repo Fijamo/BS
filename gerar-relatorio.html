@@ -1,0 +1,80 @@
+﻿<!-- Define o uso do padrão HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação do documento -->
+    <meta charset="UTF-8">
+    <!-- Faz a página adaptar-se a diferentes tamanhos de ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título mostrado na aba do navegador -->
+    <title>Gerar Relatório</title>
+    <!-- Liga esta página ao ficheiro CSS principal -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-formulario pagina-relatorio">
+    <!-- Área principal da página -->
+    <main class="app-page-shell">
+        <!-- Cartão central da funcionalidade -->
+        <section class="app-page-card">
+            <!-- Cabeçalho da página -->
+            <div class="app-page-head">
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+                <span class="app-kicker">Análise</span>
+                <h1>Gerar relatório</h1>
+                <p>Defina o tipo do relatório, a periodicidade, a data e a seguradora para preparar o ficheiro final.</p>
+            </div>
+
+            <!-- Formulário principal do relatório -->
+            <form class="app-form-grid app-form-grid-2" id="form-relatorio">
+                <label class="app-field">
+                    <span>Tipo de relatório</span>
+                    <select id="tipoRelatorio" required>
+                        <option value="todos">Todos os seguros</option>
+                        <option value="ativos">Seguros ativos</option>
+                        <option value="vencidos">Seguros vencidos</option>
+                        <option value="proximos">Próximos do vencimento</option>
+                    </select>
+                </label>
+
+                <label class="app-field">
+                    <span>Periodicidade</span>
+                    <select id="periodicidadeRelatorio" required>
+                        <option value="diario">Diário</option>
+                        <option value="semanal">Semanal</option>
+                        <option value="mensal">Mensal</option>
+                    </select>
+                </label>
+
+                <label class="app-field">
+                    <span>Data de referência</span>
+                    <input type="date" id="dataReferenciaRelatorio" required>
+                </label>
+
+                <label class="app-field">
+                    <span>Seguradora</span>
+                    <select id="seguradoraRelatorio">
+                        <option value="geral">Geral</option>
+                        <option value="Emose">Emose</option>
+                        <option value="Indico">Indico</option>
+                        <option value="Horizonte">Horizonte</option>
+                    </select>
+                </label>
+
+                <div class="app-form-actions app-field-full">
+                    <button type="submit" class="app-btn app-btn-success">Gerar relatório</button>
+                    <button type="button" class="app-btn app-btn-secondary" id="btnLimparRelatorio">Limpar</button>
+                </div>
+            </form>
+
+            <!-- Área reservada para mostrar o retorno da geração -->
+            <div class="app-inline-status" id="resultadoRelatorio">Preencha os campos e clique em gerar relatório.</div>
+
+            <!-- Ações finais de download do relatório -->
+            <div class="app-form-actions app-field-full" id="acoesDownloadRelatorio" style="display: none;">
+                <button type="button" class="app-btn app-btn-dark" id="btnBaixarPdf">Baixar PDF</button>
+                <button type="button" class="app-btn app-btn-primary" id="btnBaixarExcel">Baixar Excel</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

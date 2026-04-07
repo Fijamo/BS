@@ -1,0 +1,61 @@
+<!-- Define que o ficheiro utiliza HTML5 -->
+<!DOCTYPE html>
+
+<!-- Inicia o documento HTML em português -->
+<html lang="pt">
+
+<head>
+    <!-- Define a codificação de caracteres da página -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página responder corretamente em vários tamanhos de ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Define o título mostrado na aba do navegador -->
+    <title>Login</title>
+
+    <!-- Liga esta página ao ficheiro CSS externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+
+<!-- Inicia o corpo da página e aplica a classe de estilo da tela de login -->
+<body class="pagina-login">
+    <!-- Área principal que centraliza o painel de login no ecrã -->
+    <main class="login-shell">
+        <!-- Painel visual onde fica o formulário de autenticação -->
+        <section class="login-panel">
+            <!-- Pequena etiqueta que destaca o nome do sistema -->
+            <span class="login-kicker">BS Seguros</span>
+
+            <!-- Título principal do ecrã de entrada -->
+            <h1>Aceder ao sistema</h1>
+
+            <!-- Texto explicativo da função desta página -->
+            <p>Entre com as suas credenciais para abrir o painel operacional.</p>
+
+            <!-- Formulário que envia o utilizador para a página index -->
+            <form action="index.html" method="GET" class="login-form">
+                <!-- Label que agrupa o texto do campo e o próprio campo -->
+                <label class="app-field">
+                    <!-- Texto que identifica o campo -->
+                    <span>Email</span>
+                    <!-- Campo de email que valida automaticamente o formato de correio eletrónico -->
+                    <input type="email" placeholder="Digite o seu email" required>
+                </label>
+
+                <!-- Label do campo de senha -->
+                <label class="app-field">
+                    <!-- Nome do campo de senha -->
+                    <span>Senha</span>
+                    <!-- Campo de palavra-passe que oculta os caracteres digitados -->
+                    <input type="password" placeholder="Digite a sua senha" required>
+                </label>
+
+                <!-- Botão que envia o formulário -->
+                <button type="submit" class="app-btn app-btn-dark login-submit">Entrar</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

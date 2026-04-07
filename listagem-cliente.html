@@ -1,0 +1,72 @@
+<!-- Define o documento em HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação do documento -->
+    <meta charset="UTF-8">
+    <!-- Adapta a página a vários dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da aba -->
+    <title>Listagem de Clientes</title>
+    <!-- Liga ao CSS externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-listagem">
+    <!-- Área principal que envolve todo o conteúdo da listagem -->
+    <main class="app-page-shell">
+        <!-- Cartão central que organiza o cabeçalho e as tabelas -->
+        <section class="app-page-card app-page-card-wide">
+            <!-- Cabeçalho da página com atalho para voltar ao painel -->
+            <div class="app-page-head">
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+                <span class="app-kicker">Carteira</span>
+                <h1>Listagem de clientes</h1>
+                <p>Consulte clientes agrupados por ramo e acompanhe o estado atual das respetivas apólices.</p>
+            </div>
+
+            <!-- Grupo de tabela do ramo automóvel -->
+            <section class="app-table-group">
+                <div class="app-table-label automovel">Automóvel</div>
+                <!-- Contentor que ajuda na organização visual da tabela -->
+                <div class="app-table-wrap">
+                    <table class="app-table">
+                        <thead>
+                            <!-- Cabeçalho com as colunas da carteira automóvel -->
+                            <tr>
+                                <th>Apelido</th>
+                                <th>Nome</th>
+                                <th>Matrícula</th>
+                                <th>Nº Apólice</th>
+                                <th>Datas</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaAutomovel"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Grupo de tabela do ramo vida -->
+            <section class="app-table-group">
+                <div class="app-table-label vida">Vida</div>
+                <div class="app-table-wrap">
+                    <table class="app-table">
+                        <thead>
+                            <!-- Cabeçalho com as colunas da carteira de seguro de vida -->
+                            <tr>
+                                <th>Apelido</th>
+                                <th>Nome</th>
+                                <th>Nº Apólice</th>
+                                <th>Datas</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaVida"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
+
+</body>
+</html>

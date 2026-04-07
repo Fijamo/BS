@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS Seguros</title>
+  
+    <style>
+        :root {
+            --bs-primary: #0f766e;
+            --bs-primary-rgb: 15, 118, 110;
+            --bs-body-font-family: "Manrope", sans-serif;
+            --bg-hero: linear-gradient(135deg, rgba(8, 47, 73, 0.9), rgba(15, 118, 110, 0.72));
+            --bg-page: #f4fbfa;
+            --text-dark: #0f172a;
+            --text-soft: #475569;
+            --card-border: rgba(148, 163, 184, 0.18);
+            --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.14);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text-dark);
+            background:
+                radial-gradient(circle at top left, rgba(45, 212, 191, 0.22), transparent 28%),
+                radial-gradient(circle at top right, rgba(14, 165, 233, 0.18), transparent 22%),
+                var(--bg-page);
+        }
+
+        .navbar {
+            background: rgba(6, 22, 36, 0.78);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-link {
+            font-weight: 600;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--bg-hero);
+            z-index: 1;
+        }
+
+        .hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 7rem 0 4rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .hero h1 {
+            max-width: 760px;
+            margin: 1.4rem 0 1rem;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.05;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 640px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.86);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, #2dd4bf, #0ea5e9);
+            border: none;
+            color: #06263d;
+            font-weight: 800;
+            padding: 0.9rem 1.5rem;
+            box-shadow: 0 16px 30px rgba(45, 212, 191, 0.24);
+        }
+
+        .btn-hero-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            color: #fff;
+            font-weight: 700;
+            padding: 0.9rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            padding: 1.25rem;
+            border-radius: 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+
+        .section {
+            padding: 5.5rem 0;
+        }
+
+        .section-title {
+            max-width: 720px;
+            margin: 0 auto 1rem;
+            text-align: center;
+        }
+
+        .section-title span {
+            color: #0f766e;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+        }
+
+        .section-title h2 {
+            margin-top: 0.75rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+        }
+
+        .section-title p,
+        .info-text {
+            color: var(--text-soft);
+            font-size: 1.05rem;
+        }
+
+        .about-panel,
+        .contact-panel {
+            border: 1px solid var(--card-border);
+            border-radius: 1.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-panel {
+            padding: 2rem;
+        }
+
+        .about-highlight {
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            background: linear-gradient(145deg, #0f766e, #0f172a);
+            color: #fff;
+            height: 100%;
+        }
+
+        .value-card,
+        .service-card {
+            height: 100%;
+            padding: 1.9rem;
+            border: 1px solid var(--card-border);
+            border-radius: 1.4rem;
+            background: #fff;
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .value-card:hover,
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+        }
+
+        .icon-badge {
+            width: 56px;
+            height: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            background: linear-gradient(135deg, #0f766e, #0891b2);
+        }
+
+        .contact-panel {
+            overflow: hidden;
+        }
+
+        .contact-details {
+            padding: 2.2rem;
+            height: 100%;
+            background: linear-gradient(160deg, #0f172a, #134e4a);
+            color: #fff;
+        }
+
+        .contact-details p,
+        .contact-details li {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+        }
+
+        .contact-list li {
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .contact-copy {
+            padding: 2.2rem;
+        }
+
+        footer {
+            background: #061624;
+        }
+
+        @media (max-width: 991.98px) {
+            .hero {
+                text-align: center;
+            }
+
+            .hero p,
+            .hero h1 {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-content {
+                padding-top: 6rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 🔹 Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">BS Seguros</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-3" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 HERO / INÍCIO -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1 class="display-4">Protegemos o que é importante para você</h1>
+            <p class="lead">
+                Sistema de gestão para consultoras e corretoras de seguros com segurança,
+                eficiência e confiança.
+            </p>
+            <a href="login.html" class="btn btn-primary btn-lg">Acessar ao Sistema</a>
+        </div>
+    </section>
+
+    <!-- 🔹 SOBRE -->
+    <section id="sobre" class="section text-center">
+        <div class="container">
+            <h2>Sobre a BS Seguros</h2>
+            <p>
+                A BS Seguros é uma plataforma digital desenvolvida para apoiar consultoras
+                e corretoras de seguros na gestão eficiente de clientes, apólices e serviços.
+                O sistema permite o controle completo das operações, garantindo segurança,
+                organização e melhor atendimento ao cliente.
+            </p>
+        </div>
+    </section>
+
+    <!-- 🔹 MISSÃO, VISÃO, VALORES -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-md-4">
+                    <h3>Missão</h3>
+                    <p>
+                        Oferecer soluções digitais para gestão de seguros, facilitando o trabalho
+                        das consultoras e garantindo segurança aos clientes.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Visão</h3>
+                    <p>
+                        Tornar-se referência em sistemas de gestão de seguros em Moçambique,
+                        promovendo inovação e excelência no setor.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Valores</h3>
+                    <p>
+                        Confiança, transparência, ética, inovação e compromisso com o cliente.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 SERVIÇOS -->
+    <section id="servicos" class="section text-center">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+
+            <div class="row mt-4">
+
+                <div class="col-md-4">
+                    <div class="card p-3 shadow">
+                        <i class="bi bi-people fs-3 d-block mb-2"></i>
+                        <h4><strong>Gestão de Clientes</strong></h4>
+                        <p>Cadastro e acompanhamento completo de clientes.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-3 shadow">
+                        <i class="bi bi-file-earmark-text fs-3 d-block mb-2"></i>
+                        <h4><strong>Gestão de Apólices</strong></h4>
+                        <p>Controle de seguros ativos, vencimentos e renovações.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-3 shadow">
+                        <i class="bi bi-bar-chart-line fs-3 d-block mb-2"></i>
+                        <h4><strong>Relatórios</strong></h4>
+                        <p>Relatórios detalhados para tomada de decisões estratégicas.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 CONTATO -->
+    <section id="contato" class="section bg-light text-center">
+        <div class="container">
+            <h2><strong>Contato</strong></h2>
+            <p>Entre em contacto conosco para mais informações.</p>
+
+            <p><strong>Email:</strong> bonssinais@mail.com</p>
+            <p><strong>Telefone:</strong> +258 87 086 3901</p>
+            <p><strong>Endereço:</strong> Cabo Delgado - Pemba, Moçambique</p>
+        </div>
+    </section>
+
+    <!-- 🔹 RODAPÉ -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2026 BS Seguros | Todos os direitos reservados</p>
+    </footer>
+
+   
+
+</body>
+
+</html>

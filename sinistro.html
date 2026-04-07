@@ -1,0 +1,248 @@
+﻿<!-- Define o uso do HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação do documento -->
+    <meta charset="UTF-8">
+    <!-- Faz a página adaptar-se ao tamanho do ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título mostrado na aba do navegador -->
+    <title>Painel de Sinistro</title>
+    <!-- Liga esta página ao ficheiro CSS principal -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-formulario pagina-sinistro">
+    <!-- Área principal da página de registo de sinistro -->
+    <main class="app-page-shell">
+        <!-- Cartão que concentra o formulário e os destaques da tela -->
+        <section class="app-page-card">
+            <!-- Cabeçalho da funcionalidade -->
+            <div class="app-page-head">
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+                <span class="app-kicker">Sinistros</span>
+                <h1>Painel de sinistro e perícia</h1>
+                <p>Registe a ocorrência, detalhe a perícia e anexe documentos de suporte para seguimento.</p>
+            </div>
+
+            <!-- Cartões rápidos que resumem os blocos mais importantes do processo -->
+            <div class="sinistro-highlights">
+                <article class="sinistro-highlight-card">
+                    <strong>Ocorrência</strong>
+                    <span>Registe data, hora, local e tipo do sinistro com clareza.</span>
+                </article>
+                <article class="sinistro-highlight-card">
+                    <strong>Envolvidos</strong>
+                    <span>Inclua dados da outra parte para facilitar a análise e o contacto.</span>
+                </article>
+                <article class="sinistro-highlight-card">
+                    <strong>Anexos</strong>
+                    <span>Junte vários documentos e imagens numa única submissão.</span>
+                </article>
+            </div>
+
+            <!-- Formulário que envia dados para o ficheiro PHP no backend -->
+            <form action="../Backand/processar_sinistro.php" method="POST" enctype="multipart/form-data" class="app-form-grid app-form-grid-2">
+                <!-- Título visual da primeira secção do formulário -->
+                <div class="app-section-title app-field-full">Dados do sinistro</div>
+
+                <!-- Dados principais do cliente e do tipo de ocorrência -->
+                <label class="app-field">
+                    <span>Cliente</span>
+                    <input type="text" name="cliente" placeholder="Nome do cliente" required>
+                </label>
+
+                <!-- Campo para identificar a apólice relacionada ao sinistro -->
+                <label class="app-field">
+                    <span>Nº da apólice</span>
+                    <input type="text" name="apolice" placeholder="Número da apólice">
+                </label>
+
+                <!-- Lista do tipo de ocorrência registada -->
+                <label class="app-field">
+                    <span>Tipo de sinistro</span>
+                    <select name="tipo">
+                        <option>Acidente</option>
+                        <option>Roubo</option>
+                        <option>Incêndio</option>
+                        <option>Outro</option>
+                    </select>
+                </label>
+
+                <!-- Campo obrigatório para registar a data da ocorrência -->
+                <label class="app-field">
+                    <span>Data do sinistro</span>
+                    <input type="date" name="data_sinistro" required>
+                </label>
+
+                <!-- Campo opcional para complementar a ocorrência com a hora -->
+                <label class="app-field">
+                    <span>Hora do sinistro</span>
+                    <input type="time" name="hora_sinistro">
+                </label>
+
+                <!-- Campo para identificar o local principal da ocorrência -->
+                <label class="app-field">
+                    <span>Local do sinistro</span>
+                    <input type="text" name="local_sinistro" placeholder="Onde ocorreu o sinistro">
+                </label>
+
+                <!-- Campo auxiliar para cidade, bairro ou referência -->
+                <label class="app-field">
+                    <span>Cidade ou bairro</span>
+                    <input type="text" name="zona_sinistro" placeholder="Cidade, bairro ou referência">
+                </label>
+
+                <!-- Select para indicar se alguma autoridade foi acionada -->
+                <label class="app-field">
+                    <span>Autoridade acionada</span>
+                    <select name="autoridade_acionada">
+                        <option>Não</option>
+                        <option>Polícia</option>
+                        <option>Bombeiros</option>
+                        <option>Ambulância</option>
+                        <option>Outra</option>
+                    </select>
+                </label>
+
+                <!-- Campo para guardar o número do auto ou da ocorrência oficial -->
+                <label class="app-field">
+                    <span>Nº do auto ou ocorrência</span>
+                    <input type="text" name="auto_ocorrencia" placeholder="Número do auto, se existir">
+                </label>
+
+                <!-- Campo amplo para descrever o que aconteceu -->
+                <label class="app-field app-field-full">
+                    <span>Descrição</span>
+                    <textarea name="descricao" rows="4" placeholder="Descreva a ocorrência"></textarea>
+                </label>
+
+                <!-- Título visual da secção de análise e acompanhamento -->
+                <div class="app-section-title app-field-full">Perícia e acompanhamento</div>
+
+                <!-- Campo para registar as conclusões da perícia -->
+                <label class="app-field app-field-full">
+                    <span>Resultado da perícia</span>
+                    <textarea name="resultado" rows="4" placeholder="Indique as conclusões da perícia"></textarea>
+                </label>
+
+                <!-- Campo numérico para estimar o prejuízo -->
+                <label class="app-field">
+                    <span>Valor estimado (MZN)</span>
+                    <input type="number" name="valor" placeholder="Valor estimado">
+                </label>
+
+                <!-- Campo para identificar o processo interno -->
+                <label class="app-field">
+                    <span>Número do processo</span>
+                    <input type="text" name="processo" placeholder="Ex.: SIN-2026-001">
+                </label>
+
+                <!-- Estado atual do fluxo do sinistro -->
+                <label class="app-field">
+                    <span>Estado do processo</span>
+                    <select name="estado_processo">
+                        <option>Em análise</option>
+                        <option>Aguardando documentos</option>
+                        <option>Em perícia</option>
+                        <option>Aprovado</option>
+                        <option>Recusado</option>
+                    </select>
+                </label>
+
+                <!-- Campo para indicar o responsável técnico -->
+                <label class="app-field">
+                    <span>Perito responsável</span>
+                    <input type="text" name="perito" placeholder="Nome do perito ou técnico">
+                </label>
+
+                <!-- Campo interno para observações de seguimento -->
+                <label class="app-field app-field-full">
+                    <span>Observações internas</span>
+                    <textarea name="observacoes_internas" rows="3" placeholder="Notas de acompanhamento para uso interno"></textarea>
+                </label>
+
+                <!-- Título visual da secção da outra parte envolvida -->
+                <div class="app-section-title app-field-full">Dados da outra pessoa envolvida</div>
+
+                <!-- Campo para o nome da outra parte envolvida -->
+                <label class="app-field">
+                    <span>Nome da outra pessoa</span>
+                    <input type="text" name="envolvido_nome" placeholder="Nome completo">
+                </label>
+
+                <!-- Campo de contacto da outra parte -->
+                <label class="app-field">
+                    <span>Contacto</span>
+                    <input type="tel" name="envolvido_contacto" placeholder="Telefone ou celular">
+                </label>
+
+                <!-- Documento de identificação da outra parte -->
+                <label class="app-field">
+                    <span>Número do documento</span>
+                    <input type="text" name="envolvido_documento" placeholder="BI, passaporte ou outro documento">
+                </label>
+
+                <!-- Informação do veículo ou identificação semelhante -->
+                <label class="app-field">
+                    <span>Veículo ou matrícula</span>
+                    <input type="text" name="envolvido_veiculo" placeholder="Matrícula ou identificação do veículo">
+                </label>
+
+                <!-- Seguradora associada à outra parte, quando existir -->
+                <label class="app-field">
+                    <span>Seguradora da outra parte</span>
+                    <input type="text" name="envolvido_seguradora" placeholder="Nome da seguradora, se existir">
+                </label>
+
+                <!-- Área livre para detalhes adicionais da outra parte -->
+                <label class="app-field app-field-full">
+                    <span>Observações sobre a outra parte</span>
+                    <textarea name="envolvido_observacoes" rows="3" placeholder="Detalhes adicionais sobre a pessoa ou o veículo envolvido"></textarea>
+                </label>
+
+                <!-- Título visual da secção de testemunhas e documentos -->
+                <div class="app-section-title app-field-full">Testemunhas e apoio documental</div>
+
+                <!-- Campo para a principal testemunha do processo -->
+                <label class="app-field">
+                    <span>Nome da testemunha</span>
+                    <input type="text" name="testemunha_nome" placeholder="Nome da principal testemunha">
+                </label>
+
+                <!-- Contacto da testemunha principal -->
+                <label class="app-field">
+                    <span>Contacto da testemunha</span>
+                    <input type="tel" name="testemunha_contacto" placeholder="Telefone da testemunha">
+                </label>
+
+                <!-- Área de anexos com suporte a múltiplos ficheiros -->
+                <div class="app-section-title app-field-full">Documentos anexos</div>
+
+                <!-- Caixa destacada para facilitar o envio de vários documentos -->
+                <div class="sinistro-upload-box app-field-full">
+                    <label class="app-field">
+                        <span>Anexar documentos</span>
+                        <!-- Permite selecionar vários documentos do computador numa única ação -->
+                        <input type="file" name="arquivos[]" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple>
+                        <small class="app-field-help">Pode anexar relatório, fotos, auto da ocorrência, cópia de documentos e outros ficheiros de suporte.</small>
+                    </label>
+
+                    <!-- Etiquetas visuais com exemplos de anexos úteis para o processo -->
+                    <div class="sinistro-upload-tags">
+                        <span class="sinistro-tag">Fotos do local</span>
+                        <span class="sinistro-tag">BI / Documento</span>
+                        <span class="sinistro-tag">Auto da polícia</span>
+                        <span class="sinistro-tag">Relatório pericial</span>
+                    </div>
+                </div>
+
+                <!-- Botões principais do formulário -->
+                <div class="app-form-actions app-field-full">
+                    <button type="button" class="app-btn app-btn-secondary">Guardar rascunho</button>
+                    <button type="submit" class="app-btn app-btn-success">Enviar relatório</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

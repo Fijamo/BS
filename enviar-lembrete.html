@@ -1,0 +1,137 @@
+<!-- Define que este ficheiro usa HTML5 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação da página -->
+    <meta charset="UTF-8">
+    <!-- Adapta a página a vários dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da aba -->
+    <title>Enviar Lembrete</title>
+    <!-- Liga ao CSS externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-formulario pagina-lembrete">
+    <!-- Área principal da página -->
+    <main class="app-page-shell">
+        <!-- Cartão visual da página -->
+        <section class="app-page-card">
+            <!-- Cabeçalho da página -->
+            <div class="app-page-head">
+                <!-- Link para regressar ao painel -->
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+                <!-- Etiqueta de contexto -->
+                <span class="app-kicker">Comunicação</span>
+                <!-- Título principal -->
+                <h1>Enviar lembrete</h1>
+                <!-- Texto de explicação -->
+                <p>Envie lembretes por email ou prepare uma mensagem normal com os clientes que estão próximos do vencimento das suas apólices.</p>
+            </div>
+
+            <!-- Secção de envio individual por email -->
+            <div class="app-section-title">Lembrete por email</div>
+
+            <form class="app-form-grid app-form-grid-2">
+                <!-- Campo do nome do cliente -->
+                <label class="app-field">
+                    <span>Nome do cliente</span>
+                    <input type="text" placeholder="Digite o nome completo" required>
+                </label>
+
+                <!-- Campo do email -->
+                <label class="app-field">
+                    <span>Email</span>
+                    <input type="email" placeholder="Digite o email" required>
+                </label>
+
+                <!-- Campo de assunto do email -->
+                <label class="app-field app-field-full">
+                    <span>Assunto</span>
+                    <input type="text" placeholder="Ex.: Lembrete de vencimento da apólice" required>
+                </label>
+
+                <!-- Campo de texto maior para a mensagem do email -->
+                <label class="app-field app-field-full">
+                    <span>Mensagem por email</span>
+                    <textarea rows="5" placeholder="Digite a mensagem do lembrete por email" required></textarea>
+                </label>
+
+                <!-- Área de ações do formulário de email -->
+                <div class="app-form-actions app-field-full">
+                    <button type="submit" class="app-btn app-btn-warning">Enviar email</button>
+                </div>
+            </form>
+
+            <!-- Secção de lembrete por mensagem normal -->
+            <div class="app-section-title">Lembrete por mensagem normal</div>
+
+            <!-- Tabela com clientes cujas apólices estão próximas do vencimento -->
+            <div class="app-table-wrap">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Contacto</th>
+                            <th>Nº Apólice</th>
+                            <th>Vencimento</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>José Gomes</td>
+                            <td>+258 87 000 1111</td>
+                            <td>98765</td>
+                            <td>10/02/2027</td>
+                            <td><span class="status-chip proximo">Próximo do vencimento</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ana Cardoso</td>
+                            <td>+258 86 555 2020</td>
+                            <td>45612</td>
+                            <td>15/02/2027</td>
+                            <td><span class="status-chip proximo">Próximo do vencimento</span></td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Pinto</td>
+                            <td>+258 84 321 7788</td>
+                            <td>74125</td>
+                            <td>18/02/2027</td>
+                            <td><span class="status-chip proximo">Próximo do vencimento</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulário para preparar a mensagem agrupada -->
+            <form class="app-form-grid lembrete-form-grouped">
+                <!-- Campo que mostra o tipo de envio -->
+                <label class="app-field">
+                    <span>Tipo de envio</span>
+                    <input type="text" value="Mensagem normal para clientes próximos do vencimento" readonly>
+                </label>
+
+                <!-- Campo para resumo do grupo de clientes -->
+                <label class="app-field">
+                    <span>Grupo selecionado</span>
+                    <input type="text" value="Clientes com apólices próximas do vencimento" readonly>
+                </label>
+
+                <!-- Campo da mensagem agrupada -->
+                <label class="app-field app-field-full">
+                    <span>Mensagem normal</span>
+                    <textarea rows="6" placeholder="Digite a mensagem que será enviada para todos os clientes com apólices próximas do vencimento">Prezado cliente, informamos que a sua apólice está próxima do vencimento. Pedimos que regularize a renovação para manter a sua cobertura ativa. Para mais informações, entre em contacto connosco.</textarea>
+                </label>
+
+                <!-- Área de ações do formulário de mensagem normal -->
+                <div class="app-form-actions app-field-full">
+                    <button type="submit" class="app-btn app-btn-primary">Enviar mensagem normal</button>
+                </div>
+            </form>
+
+            <!-- Área reservada para mostrar mensagens de estado do envio -->
+            <div class="app-inline-status" id="statusEnvio"></div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,1632 @@
+/* Base */
+/* =========================================================
+   BASE
+   Estas regras criam o comportamento inicial do projeto,
+   como margens globais, rolagem suave e cálculo de tamanhos.
+========================================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* =========================================================
+   ESTRUTURA PARTILHADA
+   Estas classes são reutilizadas em várias páginas para
+   contentores centrais, cartões principais e cabeçalhos.
+========================================================= */
+.container {
+    /* Define uma largura máxima confortável e mantém margens laterais em ecrãs pequenos. */
+    width: min(1120px, calc(100% - 2rem));
+    /* Centraliza o contentor horizontalmente. */
+    margin: 0 auto;
+}
+
+.app-page-shell {
+    /* Reaproveita a mesma largura central do sistema. */
+    width: min(1120px, calc(100% - 2rem));
+    /* Centraliza a área principal da página. */
+    margin: 0 auto;
+    /* Adiciona espaço acima e abaixo do conteúdo. */
+    padding: 2rem 0 4rem;
+}
+
+.app-page-card {
+    /* Cria uma borda suave para separar o cartão do fundo. */
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    /* Arredonda os cantos do cartão. */
+    border-radius: 28px;
+    /* Usa um fundo branco semi-transparente. */
+    background: rgba(255, 255, 255, 0.88);
+    /* Adiciona profundidade com sombra. */
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+    /* Cria espaço interno entre borda e conteúdo. */
+    padding: 2rem;
+}
+
+.app-page-card-wide {
+    padding: 2.1rem;
+}
+
+.app-page-head {
+    margin-bottom: 1.6rem;
+}
+
+.app-page-head h1,
+.login-panel h1 {
+    margin: 0.9rem 0 0.8rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.06;
+    color: #0f172a;
+}
+
+.app-page-head p,
+.login-panel p {
+    margin: 0;
+    max-width: 720px;
+    color: #475569;
+    line-height: 1.75;
+}
+
+.app-back-link,
+.app-kicker,
+.login-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.1);
+    color: #0f766e;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.app-back-link {
+    margin-bottom: 1rem;
+}
+
+/* =========================================================
+   BOTÕES PARTILHADOS
+   Aqui ficam as regras comuns dos botões reutilizáveis
+   e as suas variantes de cor e destaque.
+========================================================= */
+.app-btn,
+.pagina-inicio .btn,
+.pagina-index .index-exit-btn,
+.pagina-index .index-action-card {
+    font: inherit;
+}
+
+.app-btn {
+    /* Usa flex para centralizar texto ou ícones dentro do botão. */
+    display: inline-flex;
+    /* Centraliza verticalmente. */
+    align-items: center;
+    /* Centraliza horizontalmente. */
+    justify-content: center;
+    /* Garante um tamanho mínimo agradável. */
+    min-width: 180px;
+    /* Remove aparência pesada de borda padrão. */
+    border: 1px solid transparent;
+    /* Deixa o botão em formato de cápsula. */
+    border-radius: 999px;
+    /* Cria área clicável confortável. */
+    padding: 0.95rem 1.4rem;
+    /* Dá mais destaque ao texto do botão. */
+    font-weight: 800;
+    /* Mostra que o elemento é clicável. */
+    cursor: pointer;
+    /* Remove sublinhado quando o botão for um link. */
+    text-decoration: none;
+    /* Suaviza animações de hover e foco. */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.app-btn:hover,
+.app-btn:focus-visible,
+.pagina-inicio .btn:hover,
+.pagina-inicio .btn:focus-visible,
+.pagina-index .index-exit-btn:hover,
+.pagina-index .index-action-card:hover,
+.pagina-index .index-action-card:focus-visible {
+    transform: translateY(-2px);
+}
+
+.app-btn-primary {
+    background: linear-gradient(135deg, #0f766e, #0891b2);
+    color: #ffffff;
+    box-shadow: 0 18px 34px rgba(8, 145, 178, 0.18);
+}
+
+.app-btn-secondary {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.app-btn-success {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #ffffff;
+    box-shadow: 0 18px 34px rgba(21, 128, 61, 0.18);
+}
+
+.app-btn-warning {
+    background: linear-gradient(135deg, #f59e0b, #b45309);
+    color: #ffffff;
+    box-shadow: 0 18px 34px rgba(180, 83, 9, 0.2);
+}
+
+.app-btn-dark {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #ffffff;
+    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.2);
+}
+
+/* =========================================================
+   FORMULÁRIOS PARTILHADOS
+   Este bloco organiza grelhas, campos, áreas de ações
+   e mensagens de estado dos formulários.
+========================================================= */
+.app-form-grid {
+    /* Ativa CSS Grid para distribuir campos em linhas e colunas. */
+    display: grid;
+    /* Mantém espaço igual entre os elementos do formulário. */
+    gap: 1rem;
+}
+
+.app-form-grid-2 {
+    /* Cria duas colunas com largura igual. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.app-form-grid-4 {
+    /* Cria quatro colunas com largura igual. */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.app-field {
+    /* Coloca o texto do campo e o controlo um abaixo do outro. */
+    display: grid;
+    /* Espaço entre o nome do campo e o input/select/textarea. */
+    gap: 0.5rem;
+    /* Dá mais destaque ao rótulo do campo. */
+    font-weight: 700;
+    /* Define a cor do texto do campo. */
+    color: #0f172a;
+}
+
+.app-field span {
+    font-size: 0.95rem;
+}
+
+.app-section-title {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f766e;
+}
+
+.app-field input,
+.app-field select,
+.app-field textarea {
+    /* Faz o controlo ocupar toda a largura disponível. */
+    width: 100%;
+    /* Desenha uma borda discreta. */
+    border: 1px solid #cbd5e1;
+    /* Arredonda o controlo para um visual moderno. */
+    border-radius: 18px;
+    /* Cria espaço interno para o texto não tocar nas bordas. */
+    padding: 0.95rem 1rem;
+    /* Mantém a mesma família tipográfica da página. */
+    font: inherit;
+    /* Define a cor do texto digitado. */
+    color: #0f172a;
+    /* Fundo branco do controlo. */
+    background: #ffffff;
+    /* Remove o contorno padrão do navegador. */
+    outline: none;
+    /* Suaviza as mudanças visuais do foco. */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-field input:focus,
+.app-field select:focus,
+.app-field textarea:focus {
+    /* Muda a cor da borda quando o campo está ativo. */
+    border-color: #0f766e;
+    /* Cria um halo de foco para facilitar a perceção visual. */
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+}
+
+.app-field-help {
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+/* =========================================================
+   PÁGINA DE SINISTRO
+   Destaques visuais e apoio aos blocos de anexos e secções.
+========================================================= */
+.pagina-sinistro .sinistro-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.pagina-sinistro .sinistro-highlight-card {
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(15, 118, 110, 0.12);
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(240, 253, 250, 0.96), rgba(255, 255, 255, 0.96));
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.pagina-sinistro .sinistro-highlight-card strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+.pagina-sinistro .sinistro-highlight-card span {
+    color: #475569;
+    line-height: 1.65;
+}
+
+.pagina-sinistro .sinistro-upload-box {
+    padding: 1rem;
+    border: 1px dashed rgba(15, 118, 110, 0.28);
+    border-radius: 24px;
+    background: rgba(240, 253, 250, 0.82);
+}
+
+.pagina-sinistro .sinistro-upload-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1rem;
+}
+
+.pagina-sinistro .sinistro-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    color: #0f766e;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.app-field-full {
+    grid-column: 1 / -1;
+}
+
+.app-span-2 {
+    grid-column: span 2;
+}
+
+.app-span-4 {
+    grid-column: span 4;
+}
+
+.app-form-actions {
+    /* Coloca os botões em linha. */
+    display: flex;
+    /* Permite quebrar linha se faltar espaço. */
+    flex-wrap: wrap;
+    /* Espaço entre os botões. */
+    gap: 0.9rem;
+    /* Pequena separação acima da área de ações. */
+    margin-top: 0.4rem;
+}
+
+.app-inline-status {
+    margin-top: 1.25rem;
+    min-height: 1.4rem;
+    font-weight: 700;
+    color: #475569;
+}
+
+/* =========================================================
+   TABELAS E ESTADOS
+   Estas regras controlam a aparência das tabelas, etiquetas
+   de ramo e chips de estado das apólices.
+========================================================= */
+.app-table-group + .app-table-group {
+    margin-top: 1.5rem;
+}
+
+.app-table-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.app-table-label.automovel {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.app-table-label.vida {
+    background: linear-gradient(135deg, #0f766e, #0f9d84);
+}
+
+.app-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.app-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.app-table th,
+.app-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.app-table thead {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.app-table tbody tr:hover {
+    background: #f0fdfa;
+}
+
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.status-chip.ativo {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-chip.proximo {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.status-chip.vencido {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* =========================================================
+   PÁGINA DE PESQUISA
+   Este bloco estiliza a barra de pesquisa, o filtro e
+   os cartões de resultados encontrados.
+========================================================= */
+.search-toolbar {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.search-empty-state {
+    padding: 1rem 1.2rem;
+    border-radius: 18px;
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.search-results {
+    display: grid;
+    gap: 1rem;
+}
+
+.search-result-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 1.2rem;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.search-result-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+}
+
+.search-result-card p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* =========================================================
+   PÁGINA DE LOGIN
+   Regras visuais usadas exclusivamente no ecrã de acesso.
+========================================================= */
+body.pagina-login {
+    min-height: 100vh;
+    display: block;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(45, 212, 191, 0.18), transparent 24%),
+        radial-gradient(circle at right center, rgba(14, 165, 233, 0.16), transparent 24%),
+        linear-gradient(180deg, #ecfeff 0%, #eff6ff 100%);
+}
+
+.login-shell {
+    width: min(440px, calc(100% - 2rem));
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-panel {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-form {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.login-submit {
+    width: 100%;
+    margin-top: 0.2rem;
+}
+
+/* =========================================================
+   PÁGINAS INTERNAS GENÉRICAS
+   Fundo e identidade base das páginas de formulário,
+   listagem e pesquisa.
+========================================================= */
+body.pagina-formulario,
+body.pagina-listagem,
+body.pagina-pesquisa {
+    min-height: 100vh;
+    display: block;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #0f172a;
+    background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 26%),
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 20%),
+        linear-gradient(180deg, #f8fffe 0%, #f8fafc 100%);
+}
+
+/* =========================================================
+   PÁGINA INICIAL
+   Regras exclusivas da landing page do sistema.
+========================================================= */
+body.pagina-inicio {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #0f172a;
+    background:
+        radial-gradient(circle at top left, rgba(45, 212, 191, 0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.18), transparent 22%),
+        #f4fbfa;
+}
+
+.pagina-inicio a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.pagina-inicio .section {
+    padding: 5.5rem 0;
+}
+
+.pagina-inicio .section-no-top {
+    padding-top: 0;
+}
+
+.pagina-inicio .section-white {
+    background: rgba(255, 255, 255, 0.86);
+}
+
+.pagina-inicio .navbar {
+    /* Fixa a barra no topo mesmo durante a rolagem. */
+    position: fixed;
+    /* Encosta ao topo da janela. */
+    top: 0;
+    /* Encosta ao lado esquerdo da janela. */
+    left: 0;
+    /* Faz a barra ocupar toda a largura do ecrã. */
+    width: 100%;
+    /* Mantém a barra acima dos outros elementos. */
+    z-index: 10;
+    /* Fundo escuro semitransparente. */
+    background: rgba(6, 22, 36, 0.78);
+    /* Aplica efeito de vidro desfocado ao fundo. */
+    backdrop-filter: blur(14px);
+    /* Cria sombra abaixo da barra. */
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+}
+
+.pagina-inicio .nav-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 78px;
+}
+
+.pagina-inicio .navbar-brand {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.pagina-inicio .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagina-inicio .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.pagina-inicio .nav-link {
+    padding: 0.8rem 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.pagina-inicio .nav-link:hover,
+.pagina-inicio .nav-link:focus-visible {
+    color: #ffffff;
+}
+
+.pagina-inicio .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 0.9rem 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.pagina-inicio .btn-nav {
+    background: #ffffff;
+    color: #061624;
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.12);
+}
+
+.pagina-inicio .btn-primary {
+    background: linear-gradient(135deg, #2dd4bf, #0ea5e9);
+    color: #06263d;
+    box-shadow: 0 16px 30px rgba(45, 212, 191, 0.24);
+}
+
+.pagina-inicio .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pagina-inicio .btn-dark {
+    background: #061624;
+    color: #ffffff;
+}
+
+.pagina-inicio .hero {
+    /* Permite posicionar pseudo-elementos e imagem dentro da área hero. */
+    position: relative;
+    /* Faz a capa ocupar pelo menos a altura total da janela. */
+    min-height: 100vh;
+    /* Usa flex para alinhar o conteúdo. */
+    display: flex;
+    /* Centraliza verticalmente o conteúdo. */
+    align-items: center;
+    /* Mantém o conteúdo alinhado mais à esquerda em desktop. */
+    justify-content: flex-start;
+    /* Esconde o que ultrapassar os limites da secção. */
+    overflow: hidden;
+    /* Define cor base do texto dentro da capa. */
+    color: #ffffff;
+    /* Mantém o alinhamento do texto à esquerda em desktop. */
+    text-align: left;
+}
+
+.pagina-inicio .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(8, 47, 73, 0.9), rgba(15, 118, 110, 0.72));
+    z-index: 1;
+}
+
+.pagina-inicio .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagina-inicio .hero-content {
+    /* Permite posicionar este conteúdo acima da imagem e da camada escura. */
+    position: relative;
+    /* Coloca o conteúdo acima do overlay. */
+    z-index: 2;
+    /* Cria espaço para a navbar no topo e respiro em baixo. */
+    padding: 7rem 0 4rem;
+}
+
+.pagina-inicio .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.pagina-inicio .hero h1 {
+    max-width: 760px;
+    margin: 1.4rem 0 1rem;
+    color: #ffffff;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.05;
+    font-weight: 800;
+}
+
+.pagina-inicio .hero-text {
+    max-width: 640px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.75;
+}
+
+.pagina-inicio .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagina-inicio .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.pagina-inicio .stat-card {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.pagina-inicio .stat-card strong {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.pagina-inicio .section-title {
+    max-width: 720px;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.pagina-inicio .section-title span {
+    color: #0f766e;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.82rem;
+}
+
+.pagina-inicio .section-title h2 {
+    margin: 0.75rem 0 1rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+}
+
+.pagina-inicio .section-title p,
+.pagina-inicio .info-text {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.pagina-inicio .grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.pagina-inicio .grid-2-uneven {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: stretch;
+}
+
+.pagina-inicio .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pagina-inicio .panel,
+.pagina-inicio .contact-panel {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+}
+
+.pagina-inicio .panel {
+    padding: 2rem;
+}
+
+.pagina-inicio .highlight {
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(145deg, #0f766e, #0f172a);
+    color: #ffffff;
+}
+
+.pagina-inicio .feature-list {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.pagina-inicio .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.pagina-inicio .card {
+    /* Faz o cartão tentar ocupar a altura total da célula da grelha. */
+    height: 100%;
+    /* Espaço interno do cartão. */
+    padding: 1.9rem;
+    /* Borda suave para separar o cartão do fundo. */
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    /* Arredonda os cantos do cartão. */
+    border-radius: 1.4rem;
+    /* Fundo branco do cartão. */
+    background: #ffffff;
+    /* Sombra leve para profundidade. */
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+    /* Suaviza animação do hover. */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pagina-inicio .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+.pagina-inicio .icon-badge,
+.pagina-inicio .symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagina-inicio .icon-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0f766e, #0891b2);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.pagina-inicio .symbol {
+    width: 1.7rem;
+    min-width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.12);
+    color: #0f766e;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.pagina-inicio .contact-panel {
+    overflow: hidden;
+}
+
+.pagina-inicio .contact-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.25fr;
+}
+
+.pagina-inicio .contact-details {
+    padding: 2.2rem;
+    background: linear-gradient(160deg, #0f172a, #134e4a);
+    color: #ffffff;
+}
+
+.pagina-inicio .contact-details p {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.75;
+}
+
+.pagina-inicio .contact-copy {
+    padding: 2.2rem;
+}
+
+.pagina-inicio .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+.pagina-inicio .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+    color: #475569;
+}
+
+.pagina-inicio .footer {
+    background: #061624;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.4rem 0;
+}
+
+.pagina-inicio .footer p {
+    margin: 0;
+}
+
+/* =========================================================
+   PÁGINA INDEX / PAINEL
+   Regras exclusivas do painel principal do sistema.
+========================================================= */
+body.pagina-index {
+    min-height: 100vh;
+    display: block;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #0f172a;
+    background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 26%),
+        radial-gradient(circle at right center, rgba(14, 165, 233, 0.18), transparent 24%),
+        linear-gradient(180deg, #ecfeff 0%, #f8fafc 100%);
+}
+
+.pagina-index .index-shell {
+    padding: 2rem 0 4rem;
+}
+
+.pagina-index .index-hero {
+    padding: 2rem 0 1.5rem;
+}
+
+.pagina-index .index-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.pagina-index .index-copy {
+    /* Borda leve da caixa principal do painel. */
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    /* Arredonda os cantos da caixa. */
+    border-radius: 28px;
+    /* Fundo branco translúcido para contraste com o fundo da página. */
+    background: rgba(255, 255, 255, 0.82);
+    /* Sombra que destaca a caixa do fundo. */
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+    /* Espaço interno confortável para texto e campos. */
+    padding: 2.2rem;
+}
+
+.pagina-index .index-kicker,
+.pagina-index .index-section-head span {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0f766e;
+}
+
+.pagina-index .index-copy h1 {
+    margin: 0.9rem 0 1rem;
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    line-height: 1.04;
+}
+
+.pagina-index .index-copy p {
+    margin: 0;
+    max-width: 650px;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.pagina-index .index-search {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagina-index .index-field {
+    display: grid;
+    gap: 0.55rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.pagina-index .index-field span {
+    font-size: 0.95rem;
+}
+
+.pagina-index .index-field input,
+.pagina-index .index-field select {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 18px;
+    padding: 0.95rem 1rem;
+    font: inherit;
+    color: #0f172a;
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagina-index .index-field input:focus,
+.pagina-index .index-field select:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+}
+
+.pagina-index .index-section {
+    padding: 1.5rem 0;
+}
+
+.pagina-index .index-section-soft {
+    padding-top: 0.7rem;
+}
+
+.pagina-index .index-section-compact {
+    padding-top: 0.8rem;
+}
+
+.pagina-index .index-section-head {
+    margin-bottom: 1.2rem;
+}
+
+.pagina-index .index-section-head h2 {
+    margin: 0.55rem 0 0;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.pagina-index .index-actions-grid {
+    /* Usa flex para permitir centralização da última linha de atalhos. */
+    display: flex;
+    /* Permite quebra em várias linhas. */
+    flex-wrap: wrap;
+    /* Centraliza os itens de cada linha. */
+    justify-content: center;
+    /* Espaço entre os botões. */
+    gap: 1rem;
+}
+
+.pagina-index .index-action-card,
+.pagina-index .index-alert-card {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.pagina-index .index-action-card {
+    /* Usa flex para centrar o texto do botão. */
+    display: flex;
+    /* Centraliza verticalmente. */
+    align-items: center;
+    /* Centraliza horizontalmente. */
+    justify-content: center;
+    /* Define largura flexível em relação à linha. */
+    flex: 0 1 calc(25% - 0.75rem);
+    /* Repete a largura calculada para compatibilidade visual. */
+    width: calc(25% - 0.75rem);
+    /* Define altura mínima para todos os botões parecerem equilibrados. */
+    min-height: 108px;
+    /* Espaço interno do botão. */
+    padding: 1.35rem 1.1rem;
+    /* Centraliza o texto internamente. */
+    text-align: center;
+    /* Borda suave. */
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    /* Mostra o cursor de clique. */
+    cursor: pointer;
+    /* Remove aparência padrão de botão do navegador. */
+    appearance: none;
+    /* Suaviza animações visuais. */
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.pagina-index .index-action-card:hover,
+.pagina-index .index-action-card:focus-visible {
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+    border-color: rgba(15, 118, 110, 0.3);
+    outline: none;
+}
+
+.pagina-index .alert-mark {
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.pagina-index .index-action-card h3,
+.pagina-index .index-alert-card h3 {
+    margin: 0;
+    font-size: 1.08rem;
+}
+
+.pagina-index .index-alert-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.pagina-index .index-alert-grid {
+    /* Usa CSS Grid para distribuir os alertas. */
+    display: grid;
+    /* Cria quatro colunas iguais em ecrãs largos. */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    /* Espaço entre cartões. */
+    gap: 1rem;
+}
+
+.pagina-index .index-alert-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.35rem;
+}
+
+.pagina-index .index-alert-card.danger .alert-mark {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.pagina-index .index-alert-card.warning .alert-mark {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.pagina-index .index-alert-card.info .alert-mark {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.pagina-index .index-alert-card.success .alert-mark {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.pagina-index .index-exit-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.pagina-index .index-exit-btn {
+    /* Usa flex para centrar o texto no botão. */
+    display: inline-flex;
+    /* Centraliza verticalmente o conteúdo. */
+    align-items: center;
+    /* Centraliza horizontalmente o conteúdo. */
+    justify-content: center;
+    /* Define largura mínima confortável. */
+    min-width: 220px;
+    /* Espaço interno do botão. */
+    padding: 1rem 1.5rem;
+    /* Forma arredondada em cápsula. */
+    border-radius: 999px;
+    /* Gradiente vermelho escuro associado à ação de sair. */
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+    /* Texto branco. */
+    color: #ffffff;
+    /* Texto forte para destaque. */
+    font-weight: 800;
+    /* Remove estilo de link. */
+    text-decoration: none;
+    /* Sombra do botão. */
+    box-shadow: 0 18px 36px rgba(127, 29, 29, 0.22);
+    /* Suaviza animações de interação. */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagina-index .index-exit-btn:hover {
+    box-shadow: 0 22px 42px rgba(127, 29, 29, 0.28);
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   Ajustes aplicados quando o ecrã fica menor, para tablets
+   e telemóveis.
+========================================================= */
+@media (max-width: 1100px) {
+    .pagina-index .index-action-card {
+        flex-basis: calc(33.333% - 0.67rem);
+        width: calc(33.333% - 0.67rem);
+    }
+
+    .pagina-index .index-alert-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991px) {
+    .pagina-inicio .nav-shell,
+    .pagina-inicio .nav-menu,
+    .pagina-inicio .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pagina-inicio .nav-shell {
+        padding: 1rem 0;
+    }
+
+    .pagina-inicio .nav-menu,
+    .pagina-inicio .nav-links {
+        width: 100%;
+    }
+
+    .pagina-inicio .nav-link,
+    .pagina-inicio .btn-nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pagina-inicio .hero {
+        text-align: center;
+    }
+
+    .pagina-inicio .hero h1,
+    .pagina-inicio .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pagina-inicio .hero-actions {
+        justify-content: center;
+    }
+
+    .pagina-inicio .grid-2-uneven,
+    .pagina-inicio .grid-3,
+    .pagina-inicio .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .pagina-index .index-search,
+    .app-form-grid-4,
+    .search-toolbar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pagina-sinistro .sinistro-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .app-span-4 {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .pagina-inicio .section {
+        padding: 4rem 0;
+    }
+
+    .pagina-inicio .hero-content {
+        padding-top: 13rem;
+    }
+
+    .pagina-inicio .hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-inicio .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .pagina-index .index-shell,
+    .app-page-shell {
+        padding: 1rem 0 3rem;
+    }
+
+    .pagina-index .index-copy,
+    .pagina-index .index-action-card,
+    .pagina-index .index-alert-card,
+    .app-page-card,
+    .login-panel,
+    .app-table-wrap,
+    .search-result-card {
+        border-radius: 22px;
+    }
+
+    .pagina-index .index-actions-grid,
+    .pagina-index .index-alert-grid,
+    .app-form-grid-2,
+    .app-form-grid-4,
+    .search-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-index .index-action-card {
+        flex-basis: 100%;
+        width: 100%;
+        min-height: 90px;
+    }
+
+    .app-span-2,
+    .app-span-4,
+    .app-field-full {
+        grid-column: auto;
+    }
+
+    .app-form-actions {
+        flex-direction: column;
+    }
+
+    .app-btn {
+        width: 100%;
+    }
+
+    .search-result-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* =========================================================
+   PAGINA DE LEMBRETES
+   Apoio visual da area de email e do envio agrupado.
+========================================================= */
+.pagina-lembrete .app-section-title + .app-form-grid,
+.pagina-lembrete .app-section-title + .app-table-wrap {
+    margin-top: 0.9rem;
+}
+
+.pagina-lembrete .app-table-wrap + .lembrete-form-grouped {
+    margin-top: 1rem;
+}
+
+/* =========================================================
+   PAGINA DE RELATORIOS
+   Destaques, resumo e pre-visualizacao do relatorio.
+========================================================= */
+.pagina-relatorio .relatorio-highlights,
+.pagina-relatorio .relatorio-summary-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.pagina-relatorio .relatorio-highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 1.5rem;
+}
+
+.pagina-relatorio .relatorio-summary-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 1rem 0 1.4rem;
+}
+
+.pagina-relatorio .relatorio-highlight-card,
+.pagina-relatorio .relatorio-summary-card {
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(8, 145, 178, 0.12);
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(239, 246, 255, 0.96), rgba(255, 255, 255, 0.96));
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.pagina-relatorio .relatorio-highlight-card strong,
+.pagina-relatorio .relatorio-summary-card strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #0f172a;
+}
+
+.pagina-relatorio .relatorio-highlight-card span {
+    color: #475569;
+    line-height: 1.65;
+}
+
+.pagina-relatorio .relatorio-summary-card span {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #0f766e;
+}
+
+@media (max-width: 900px) {
+    .pagina-relatorio .relatorio-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .pagina-relatorio .relatorio-highlights,
+    .pagina-relatorio .relatorio-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pagina-relatorio .relatorio-documento {
+    margin-top: 1rem;
+}
+
+.pagina-relatorio .relatorio-documento-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pagina-relatorio .relatorio-documento-head h2 {
+    margin: 0.7rem 0 0.5rem;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.pagina-relatorio .relatorio-documento-head p {
+    margin: 0;
+    color: #475569;
+}
+
+.pagina-relatorio .relatorio-resumo-linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.pagina-relatorio .relatorio-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #0f766e;
+    font-weight: 800;
+    border: 1px solid rgba(8, 145, 178, 0.12);
+}
+
+@media (max-width: 700px) {
+    .pagina-relatorio .relatorio-documento-head {
+        flex-direction: column;
+    }
+}
+
+/* =========================================================
+   MELHORIA DOS BOTOES
+   Reforco visual dos botoes sem JavaScript ou frameworks.
+========================================================= */
+.app-btn,
+.pagina-inicio .btn,
+.pagina-index .index-exit-btn,
+.pagina-index .index-action-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.app-btn::before,
+.pagina-inicio .btn::before,
+.pagina-index .index-exit-btn::before,
+.pagina-index .index-action-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.22s ease;
+    pointer-events: none;
+}
+
+.app-btn,
+.pagina-inicio .btn,
+.pagina-index .index-exit-btn {
+    min-height: 52px;
+    border-radius: 18px;
+    padding: 0.95rem 1.45rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.14);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, filter 0.22s ease;
+}
+
+.app-btn:hover,
+.app-btn:focus-visible,
+.pagina-inicio .btn:hover,
+.pagina-inicio .btn:focus-visible,
+.pagina-index .index-exit-btn:hover,
+.pagina-index .index-exit-btn:focus-visible,
+.pagina-index .index-action-card:hover,
+.pagina-index .index-action-card:focus-visible {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 20px 36px rgba(15, 23, 42, 0.2);
+}
+
+.app-btn:hover::before,
+.app-btn:focus-visible::before,
+.pagina-inicio .btn:hover::before,
+.pagina-inicio .btn:focus-visible::before,
+.pagina-index .index-exit-btn:hover::before,
+.pagina-index .index-exit-btn:focus-visible::before,
+.pagina-index .index-action-card:hover::before,
+.pagina-index .index-action-card:focus-visible::before {
+    opacity: 1;
+}
+
+.app-btn-primary {
+    background: linear-gradient(135deg, #0f766e 0%, #0891b2 52%, #38bdf8 100%);
+    border-color: rgba(8, 145, 178, 0.26);
+    box-shadow: 0 18px 34px rgba(8, 145, 178, 0.24);
+}
+
+.app-btn-secondary {
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    border-color: rgba(148, 163, 184, 0.34);
+    box-shadow: 0 14px 28px rgba(148, 163, 184, 0.2);
+}
+
+.app-btn-success {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 55%, #22c55e 100%);
+    border-color: rgba(21, 128, 61, 0.24);
+    box-shadow: 0 18px 34px rgba(21, 128, 61, 0.24);
+}
+
+.app-btn-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 55%, #b45309 100%);
+    border-color: rgba(180, 83, 9, 0.24);
+    box-shadow: 0 18px 34px rgba(180, 83, 9, 0.26);
+}
+
+.app-btn-dark {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 45%, #0f172a 100%);
+    border-color: rgba(51, 65, 85, 0.34);
+    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.28);
+}
+
+.pagina-inicio .btn-nav {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 14px 26px rgba(255, 255, 255, 0.16);
+}
+
+.pagina-inicio .btn-primary {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 35%, #0ea5e9 100%);
+    border-color: rgba(45, 212, 191, 0.24);
+    box-shadow: 0 18px 34px rgba(45, 212, 191, 0.28);
+}
+
+.pagina-inicio .btn-secondary {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05));
+    box-shadow: 0 14px 26px rgba(15, 23, 42, 0.18);
+}
+
+.pagina-inicio .btn-dark {
+    background: linear-gradient(135deg, #0f172a, #061624);
+    box-shadow: 0 16px 30px rgba(6, 22, 36, 0.24);
+}
+
+.pagina-index .index-action-card {
+    text-decoration: none;
+    color: #0f172a;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(45, 212, 191, 0.16), transparent 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96));
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+}
+
+.pagina-index .index-action-card:hover,
+.pagina-index .index-action-card:focus-visible {
+    border-color: rgba(15, 118, 110, 0.34);
+    background:
+        radial-gradient(circle at top left, rgba(45, 212, 191, 0.22), transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(240, 253, 250, 0.98));
+}
+
+.pagina-index .index-action-card h3 {
+    font-size: 1.08rem;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+}
+
+.pagina-index .index-exit-btn {
+    border-radius: 18px;
+    border: 1px solid rgba(127, 29, 29, 0.28);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 52%, #7f1d1d 100%);
+    box-shadow: 0 18px 36px rgba(127, 29, 29, 0.28);
+}
+
+.pagina-index .index-exit-btn:hover {
+    box-shadow: 0 22px 42px rgba(127, 29, 29, 0.34);
+}

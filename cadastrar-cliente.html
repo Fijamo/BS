@@ -1,0 +1,246 @@
+<!-- Define que este documento segue o padrão HTML5 -->
+<!DOCTYPE html>
+
+<!-- Abre o documento HTML em português -->
+<html lang="pt">
+
+<head>
+    <!-- Define a codificação para suportar acentos corretamente -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página adaptar-se ao tamanho do ecrã do dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título mostrado na aba do navegador -->
+    <title>Cadastro de Cliente</title>
+
+    <!-- Liga a página ao ficheiro de estilos externo -->
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+
+<!-- Corpo da página com classes específicas desta tela de formulário -->
+<body class="pagina-formulario pagina-cadastro-cliente">
+    <!-- Área principal da página -->
+    <main class="app-page-shell">
+        <!-- Cartão visual que envolve todo o formulário -->
+        <section class="app-page-card app-page-card-wide">
+            <!-- Cabeçalho explicativo da página -->
+            <div class="app-page-head">
+                <!-- Link para regressar ao painel principal -->
+                <a href="index.html" class="app-back-link">Voltar ao painel</a>
+
+                <!-- Etiqueta de contexto da página -->
+                <span class="app-kicker">Clientes</span>
+
+                <!-- Título principal da página -->
+                <h1>Cadastro de cliente</h1>
+
+                <!-- Parágrafo de apoio para explicar a função do formulário -->
+                <p>Registe dados do segurado, da apólice e das informações de contacto num único formulário.</p>
+            </div>
+
+            <!-- Formulário principal de cadastro -->
+            <form class="app-form-grid app-form-grid-4" id="form-cadastro-cliente">
+                <!-- Campo para o apelido -->
+                <label class="app-field app-span-2">
+                    <span>Apelido</span>
+                    <input type="text" name="apelido" placeholder="Apelido do cliente" required>
+                </label>
+
+                <!-- Campo para o nome completo -->
+                <label class="app-field app-span-2">
+                    <span>Nome completo</span>
+                    <input type="text" name="nome" placeholder="Nome completo" required>
+                </label>
+
+                <!-- Campo para o número da apólice -->
+                <label class="app-field app-span-2">
+                    <span>Número da apólice</span>
+                    <input type="text" name="apolice" placeholder="Número da apólice" required>
+                </label>
+
+                <!-- Campo select para escolher o ramo do seguro -->
+                <label class="app-field app-span-2">
+                    <span>Ramo</span>
+                    <select name="ramo" required>
+                        <option value="">Selecione o ramo</option>
+                        <option>Automóvel</option>
+                        <option>Acidentes pessoais</option>
+                        <option>Multirriscos</option>
+                        <option>Vida</option>
+                        <option>Acidente de trabalho</option>
+                        <option>Casco marítimo</option>
+                        <option>Fogo</option>
+                        <option>Viagem</option>
+                        <option>Mercadoria</option>
+                        <option>Empreitagem</option>
+                        <option>Responsabilidade civil</option>
+                    </select>
+                </label>
+
+                <!-- Campo para matrícula do veículo -->
+                <label class="app-field app-span-2">
+                    <span>Matrícula do veículo</span>
+                    <input type="text" name="matricula" placeholder="Ex.: ABC-123-MP">
+                </label>
+
+                <!-- Campo para indicar a marca e o modelo do veículo -->
+                <label class="app-field app-span-2">
+                    <span>Marca e modelo</span>
+                    <input type="text" name="marcaModelo" placeholder="Ex.: Toyota Corolla">
+                </label>
+
+                <!-- Campo para indicar o ano de fabrico -->
+                <label class="app-field">
+                    <span>Ano de fabrico</span>
+                    <input type="number" name="anoFabrico" placeholder="Ex.: 2020">
+                </label>
+
+                <!-- Campo para indicar a quilometragem atual -->
+                <label class="app-field">
+                    <span>Quilometragem</span>
+                    <input type="number" name="quilometragem" placeholder="Ex.: 85000">
+                </label>
+
+                <!-- Campo de data de início -->
+                <label class="app-field">
+                    <span>Data de início</span>
+                    <!-- Input do tipo date abre um seletor de data no navegador -->
+                    <input type="date" name="dataInicio">
+                </label>
+
+                <!-- Campo de data de fim -->
+                <label class="app-field">
+                    <span>Data de fim</span>
+                    <input type="date" name="dataFim">
+                </label>
+
+                <!-- Campo numérico para duração -->
+                <label class="app-field">
+                    <span>Duração</span>
+                    <!-- Input do tipo number aceita apenas números -->
+                    <input type="number" name="duracao" placeholder="Ex.: 12">
+                </label>
+
+                <!-- Campo para selecionar o tipo de duração -->
+                <label class="app-field">
+                    <span>Tipo</span>
+                    <select name="tipoDuracao">
+                        <option>Dias</option>
+                        <option>Meses</option>
+                        <option>Anual</option>
+                    </select>
+                </label>
+
+                <!-- Campo para o contacto principal -->
+                <label class="app-field app-span-2">
+                    <span>Contacto principal</span>
+                    <input type="text" name="contactoPrincipal" placeholder="Número principal" required>
+                </label>
+
+                <!-- Campo para o contacto alternativo -->
+                <label class="app-field app-span-2">
+                    <span>Contacto alternativo</span>
+                    <input type="text" name="contactoAlternativo" placeholder="Número alternativo">
+                </label>
+
+                <!-- Campo grande para o endereço -->
+                <label class="app-field app-span-4">
+                    <span>Endereço completo</span>
+                    <input type="text" name="endereco" placeholder="Bairro, rua, cidade e referências" required>
+                </label>
+
+                <!-- Campo para escolher a seguradora -->
+                <label class="app-field app-span-2">
+                    <span>Seguradora</span>
+                    <select name="seguradora" required>
+                        <option value="">Selecione a seguradora</option>
+                        <option>Emose</option>
+                        <option>Indico</option>
+                        <option>Horizonte</option>
+                    </select>
+                </label>
+
+                <!-- Título visual da área de avaliação do estado do veículo -->
+                <div class="app-section-title app-span-4">Avaliação do estado do veículo</div>
+
+                <!-- Campo para classificar o estado geral do veículo -->
+                <label class="app-field app-span-2">
+                    <span>Estado geral do veículo</span>
+                    <select name="estadoVeiculo" required>
+                        <option value="">Selecione o estado</option>
+                        <option>Excelente</option>
+                        <option>Bom</option>
+                        <option>Razoável</option>
+                        <option>Mau</option>
+                    </select>
+                </label>
+
+                <!-- Campo para indicar se existem danos visíveis -->
+                <label class="app-field app-span-2">
+                    <span>Existem danos visíveis?</span>
+                    <select name="danosVisiveis" required>
+                        <option value="">Selecione</option>
+                        <option>Não</option>
+                        <option>Sim, leves</option>
+                        <option>Sim, moderados</option>
+                        <option>Sim, graves</option>
+                    </select>
+                </label>
+
+                <!-- Campo para informar o estado da carroçaria -->
+                <label class="app-field app-span-2">
+                    <span>Estado da carroçaria</span>
+                    <select name="estadoCarrocaria">
+                        <option value="">Selecione</option>
+                        <option>Sem danos</option>
+                        <option>Com riscos</option>
+                        <option>Com amolgadelas</option>
+                        <option>Necessita reparação</option>
+                    </select>
+                </label>
+
+                <!-- Campo para informar o estado dos pneus -->
+                <label class="app-field app-span-2">
+                    <span>Estado dos pneus</span>
+                    <select name="estadoPneus">
+                        <option value="">Selecione</option>
+                        <option>Bom</option>
+                        <option>Desgaste moderado</option>
+                        <option>Desgaste acentuado</option>
+                        <option>Necessita troca</option>
+                    </select>
+                </label>
+
+                <!-- Campo para registar observações da inspeção visual -->
+                <label class="app-field app-span-4">
+                    <span>Observações da avaliação</span>
+                    <textarea name="observacoesAvaliacao" rows="4" placeholder="Descreva o estado do veículo, danos encontrados, conservação e outros detalhes relevantes"></textarea>
+                </label>
+
+                <!-- Campo para indicar o parecer final sobre a segurabilidade -->
+                <label class="app-field app-span-4">
+                    <span>Parecer de segurabilidade</span>
+                    <select name="parecerSegurabilidade" required>
+                        <option value="">Selecione o parecer</option>
+                        <option>Apto para seguro</option>
+                        <option>Apto com ressalvas</option>
+                        <option>Necessita vistoria complementar</option>
+                        <option>Não apto para seguro</option>
+                    </select>
+                </label>
+
+                <!-- Área dos botões do formulário -->
+                <div class="app-form-actions app-span-4">
+                    <!-- Botão principal para guardar o cliente -->
+                    <button type="submit" class="app-btn app-btn-primary">Guardar cliente</button>
+
+                    <!-- Link em formato de botão para cancelar -->
+                    <a href="index.html" class="app-btn app-btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
