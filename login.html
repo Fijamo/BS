@@ -33,25 +33,25 @@
             <!-- Texto explicativo da função desta página -->
             <p>Entre com as suas credenciais para abrir o painel operacional.</p>
 
-            <!-- Formulário que envia o utilizador para a página index -->
+            <!-- Elemento form com atributo action="index.html" que envia dados para a página do painel, method="GET" que usa método GET, class="login-form" aplicando estilos -->
             <form action="index.html" method="GET" class="login-form">
-                <!-- Label que agrupa o texto do campo e o próprio campo -->
+                <!-- Elemento label com atributo class="app-field" que agrupa o rótulo e o campo de entrada para melhor acessibilidade -->
                 <label class="app-field">
                     <!-- Texto que identifica o campo -->
                     <span>Email</span>
-                    <!-- Campo de email que valida automaticamente o formato de correio eletrónico -->
+                    <!-- Elemento input com atributo type="email" que valida automaticamente o formato de correio eletrónico, placeholder="Digite o seu email" exibindo texto de ajuda, required=true obrigando o preenchimento -->
                     <input type="email" placeholder="Digite o seu email" required>
                 </label>
 
-                <!-- Label do campo de senha -->
+                <!-- Elemento label com atributo class="app-field" que agrupa o rótulo e o campo de senha -->
                 <label class="app-field">
                     <!-- Nome do campo de senha -->
                     <span>Senha</span>
-                    <!-- Campo de palavra-passe que oculta os caracteres digitados -->
+                    <!-- Elemento input com atributo type="password" que oculta os caracteres digitados para segurança, placeholder="Digite a sua senha" exibindo texto de ajuda, required=true obrigando o preenchimento -->
                     <input type="password" placeholder="Digite a sua senha" required>
                 </label>
 
-                <!-- Botão que envia o formulário -->
+                <!-- Elemento button com atributo type="submit" que envia o formulário, class="app-btn app-btn-dark login-submit" aplicando estilos de botão escuro -->
                 <button type="submit" class="app-btn app-btn-dark login-submit">Entrar</button>
             </form>
         </section>

@@ -40,7 +40,7 @@
                 </article>
             </div>
 
-            <!-- Formulário que envia dados para o ficheiro PHP no backend -->
+            <!-- Elemento form com atributo action="../Backand/processar_sinistro.php" especificando para onde enviar os dados, method="POST" usando método POST para dados, enctype="multipart/form-data" permitindo envio de ficheiros, class="app-form-grid app-form-grid-2" criando grid com 2 colunas -->
             <form action="../Backand/processar_sinistro.php" method="POST" enctype="multipart/form-data" class="app-form-grid app-form-grid-2">
                 <!-- Título visual da primeira secção do formulário -->
                 <div class="app-section-title app-field-full">Dados do sinistro</div>
@@ -48,18 +48,21 @@
                 <!-- Dados principais do cliente e do tipo de ocorrência -->
                 <label class="app-field">
                     <span>Cliente</span>
+                <!-- Elemento input com atributo type="text" para texto, name="cliente" identificando o parâmetro, placeholder="Nome do cliente" texto de ajuda, required=true obrigando preenchimento -->
                     <input type="text" name="cliente" placeholder="Nome do cliente" required>
                 </label>
 
                 <!-- Campo para identificar a apólice relacionada ao sinistro -->
                 <label class="app-field">
                     <span>Nº da apólice</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="apolice" identificando o parâmetro, placeholder="Número da apólice" texto de ajuda -->
                     <input type="text" name="apolice" placeholder="Número da apólice">
                 </label>
 
                 <!-- Lista do tipo de ocorrência registada -->
                 <label class="app-field">
                     <span>Tipo de sinistro</span>
+                    <!-- Elemento select com atributo name="tipo" identificando o parâmetro, criando lista de tipos de sinistro -->
                     <select name="tipo">
                         <option>Acidente</option>
                         <option>Roubo</option>
@@ -71,30 +74,35 @@
                 <!-- Campo obrigatório para registar a data da ocorrência -->
                 <label class="app-field">
                     <span>Data do sinistro</span>
+                    <!-- Elemento input com atributo type="date" para data, name="data_sinistro" identificando o parâmetro, required=true obrigando preenchimento -->
                     <input type="date" name="data_sinistro" required>
                 </label>
 
                 <!-- Campo opcional para complementar a ocorrência com a hora -->
                 <label class="app-field">
                     <span>Hora do sinistro</span>
+                    <!-- Elemento input com atributo type="time" para hora, name="hora_sinistro" identificando o parâmetro -->
                     <input type="time" name="hora_sinistro">
                 </label>
 
                 <!-- Campo para identificar o local principal da ocorrência -->
                 <label class="app-field">
                     <span>Local do sinistro</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="local_sinistro" identificando o parâmetro, placeholder="Onde ocorreu o sinistro" texto de ajuda -->
                     <input type="text" name="local_sinistro" placeholder="Onde ocorreu o sinistro">
                 </label>
 
                 <!-- Campo auxiliar para cidade, bairro ou referência -->
                 <label class="app-field">
                     <span>Cidade ou bairro</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="zona_sinistro" identificando o parâmetro, placeholder="Cidade, bairro ou referência" texto de ajuda -->
                     <input type="text" name="zona_sinistro" placeholder="Cidade, bairro ou referência">
                 </label>
 
                 <!-- Select para indicar se alguma autoridade foi acionada -->
                 <label class="app-field">
                     <span>Autoridade acionada</span>
+                    <!-- Elemento select com atributo name="autoridade_acionada" identificando o parâmetro, criando lista de gestão de autoridades -->
                     <select name="autoridade_acionada">
                         <option>Não</option>
                         <option>Polícia</option>

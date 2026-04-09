@@ -32,20 +32,25 @@
                         com acesso rápido às tarefas mais importantes do dia.
                     </p>
 
-                    <!-- Formulário de pesquisa rápida que envia o utilizador para a página de resultados -->
+                    <!-- Elemento form com atributo class="index-search" que agrupa campos de pesquisa, action="pesquisar-cliente.html" especificando para onde enviar, method="GET" usando método GET -->
                     <form class="index-search" action="pesquisar-cliente.html" method="GET">
-                        <!-- Campo de pesquisa agrupado com o seu rótulo -->
+                        <!-- Elemento label com atributo class="index-field" agrupando o rótulo e campo, criando uma relação de acessibilidade -->
                         <label class="index-field">
                             <span>Pesquisar cliente</span>
+                            <!-- Elemento input com atributo type="text" para entrada de texto, name="query" identificando o parmetro, placeholder="Pesquisar cliente ou nº da apólice" exibindo texto de ajuda -->
                             <input type="text" name="query" placeholder="Pesquisar cliente ou nº da apólice">
                         </label>
 
-                        <!-- Campo de seleção agrupado com o seu rótulo -->
+                        <!-- Elemento label com atributo class="index-field" agrupando o rótulo e campo select de filtro de estado -->
                         <label class="index-field">
                             <span>Estado da apólice</span>
+                            <!-- Elemento select com atributo name="status" identificando o par em nome-valor, criando uma lista de opções para filtro -->
                             <select name="status">
+                                <!-- Elemento option com atributo value="todas" especificando o valor a enviar, sendo a opção padrão para todas as apólices -->
                                 <option value="todas">Todas as apólices</option>
+                                <!-- Elemento option com atributo value="ativo" para apólices ativas -->
                                 <option value="ativo">Ativa</option>
+                                <!-- Elemento option com atributo value="vencido" para apólices vencidas -->
                                 <option value="vencido">Vencida</option>
                             </select>
                         </label>
@@ -93,7 +98,7 @@
                     </a>
 
                     <a class="index-action-card" href="sinistro.html">
-                        <h3>Sinistro e perícia</h3>
+                        <h3>Sinistro</h3>
                     </a>
                 </div>
             </div>
@@ -146,7 +151,8 @@
         <!-- Secção final com o botão para sair do sistema -->
         <section class="index-section index-section-compact">
             <div class="container index-exit-wrap">
-                <a href="/" class="index-exit-btn">Sair do sistema</a>
+                <!-- Elemento a com atributo href="inicio.html" que redireciona para a página inicial quando clicado, class="index-exit-btn" aplicando estilos de botão de saída -->
+                <a href="inicio.html" class="index-exit-btn">Sair do sistema</a>
             </div>
         </section>
     </main>

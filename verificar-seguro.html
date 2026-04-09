@@ -24,11 +24,12 @@
                 <p>Consulte rapidamente o estado de uma apólice pesquisando por nome do cliente ou pelo número da apólice.</p>
             </div>
 
-            <!-- Formulário usado para validar uma apólice específica -->
+            <!-- Elemento form com atributo class="app-form-grid app-form-grid-2" criando grid com 2 colunas, id="form-verificar-seguro" identificando o formulário -->
             <form class="app-form-grid app-form-grid-2" id="form-verificar-seguro">
                 <!-- Campo para escolher o tipo de pesquisa -->
                 <label class="app-field">
                     <span>Pesquisar por</span>
+                    <!-- Elemento select com atributo id="tipoPesquisaSeguro" para acesso em JavaScript, required=true obrigando seleção -->
                     <select id="tipoPesquisaSeguro" required>
                         <option value="apolice">Número da apólice</option>
                         <option value="nome">Nome do cliente</option>
@@ -38,6 +39,7 @@
                 <!-- Campo único que recebe o nome ou o número da apólice -->
                 <label class="app-field">
                     <span>Valor da pesquisa</span>
+                    <!-- Elemento input com atributo type="text" para texto, id="valorPesquisaSeguro" para acesso em JavaScript, placeholder="Digite o número da apólice ou o nome do cliente", required=true obrigando preenchimento -->
                     <input type="text" id="valorPesquisaSeguro" placeholder="Digite o número da apólice ou o nome do cliente" required>
                 </label>
 
@@ -47,7 +49,7 @@
                 </div>
             </form>
 
-            <!-- Espaço onde pode ser exibido o resultado da verificação -->
+            <!-- Elemento div com atributo class="app-inline-status" exibindo resultado da verificação, id="resultado" para acesso em JavaScript -->
             <div class="app-inline-status" id="resultado"></div>
         </section>
     </main>

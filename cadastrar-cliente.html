@@ -39,23 +39,26 @@
                 <p>Registe dados do segurado, da apólice e das informações de contacto num único formulário.</p>
             </div>
 
-            <!-- Formulário principal de cadastro -->
+            <!-- Elemento form com atributo class="app-form-grid app-form-grid-4" criando um grid com 4 colunas, id="form-cadastro-cliente" identificando o formulário de forma única -->
             <form class="app-form-grid app-form-grid-4" id="form-cadastro-cliente">
-                <!-- Campo para o apelido -->
+                <!-- Elemento label com atributo class="app-field app-span-2" agrupando rótulo e campo, app-span-2 fazendo o campo ocupar 2 colunas -->
                 <label class="app-field app-span-2">
                     <span>Apelido</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="apelido" identificando o parâmetro, placeholder="Apelido do cliente" texto de ajuda, required=true obrigando preenchimento -->
                     <input type="text" name="apelido" placeholder="Apelido do cliente" required>
                 </label>
 
-                <!-- Campo para o nome completo -->
+                <!-- Elemento label com atributo class="app-field app-span-2" agrupando rótulo e campo, app-span-2 ocupando 2 colunas -->
                 <label class="app-field app-span-2">
                     <span>Nome completo</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="nome" identificando o parâmetro, placeholder="Nome completo" texto de ajuda, required=true obrigando preenchimento -->
                     <input type="text" name="nome" placeholder="Nome completo" required>
                 </label>
 
-                <!-- Campo para o número da apólice -->
+                <!-- Elemento label com atributo class="app-field app-span-2" agrupando rótulo e campo, app-span-2 ocupando 2 colunas -->
                 <label class="app-field app-span-2">
                     <span>Número da apólice</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="apolice" identificando o parâmetro, placeholder="Número da apólice" texto de ajuda, required=true obrigando preenchimento -->
                     <input type="text" name="apolice" placeholder="Número da apólice" required>
                 </label>
 

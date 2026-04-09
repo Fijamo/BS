@@ -24,14 +24,15 @@
                 <p>Consulte clientes agrupados por ramo e acompanhe o estado atual das respetivas apólices.</p>
             </div>
 
-            <!-- Grupo de tabela do ramo automóvel -->
+            <!-- Elemento section com atributo class="app-table-group" agrupando a tabela de um ramo de seguros -->
             <section class="app-table-group">
+                <!-- Elemento div com atributo class="app-table-label automovel" que ser estilo de rótulo e classe automovel para cor específica -->
                 <div class="app-table-label automovel">Automóvel</div>
-                <!-- Contentor que ajuda na organização visual da tabela -->
+                <!-- Elemento div com atributo class="app-table-wrap" que envolve a tabela com scroll horizontal se necessário -->
                 <div class="app-table-wrap">
                     <table class="app-table">
                         <thead>
-                            <!-- Cabeçalho com as colunas da carteira automóvel -->
+                            <!-- Elemento tr que representa uma linha da tabela com és as colunas de cabeçalho -->
                             <tr>
                                 <th>Apelido</th>
                                 <th>Nome</th>
@@ -41,13 +42,15 @@
                                 <th>Estado</th>
                             </tr>
                         </thead>
+                        <!-- Elemento tbody com atributo id="listaAutomovel" que agrupa as linhas de dados, id para identificação e possivelmente preenchido via JavaScript -->
                         <tbody id="listaAutomovel"></tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- Grupo de tabela do ramo vida -->
+            <!-- Elemento section com atributo class="app-table-group" agrupando a tabela do ramo de vida -->
             <section class="app-table-group">
+                <!-- Elemento div com atributo class="app-table-label vida" que define rótulo com estilo e classe vida para cor específica -->
                 <div class="app-table-label vida">Vida</div>
                 <div class="app-table-wrap">
                     <table class="app-table">
@@ -61,6 +64,7 @@
                                 <th>Estado</th>
                             </tr>
                         </thead>
+                <!-- Elemento tbody com atributo id="listaVida" que agrupa as linhas de dados, id para identificação e possivelmente preenchido via JavaScript -->
                         <tbody id="listaVida"></tbody>
                     </table>
                 </div>

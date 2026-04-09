@@ -24,15 +24,16 @@
                 <p>Pesquise todas as apólices digitando o nome do cliente ou filtre diretamente pelo estado da apólice.</p>
             </div>
 
-            <!-- Área que explica os dois tipos de pesquisa disponíveis -->
+            <!-- Elemento div com atributo class="search-empty-state" exibindo uma mensagem informativa sobre os tipos de pesquisa disponíveis -->
             <div class="search-empty-state">Pode pesquisar por nome do cliente ou, se preferir, selecionar apenas o estado da apólice para ver os resultados.</div>
 
-            <!-- Formulário do modo de pesquisa por nome ou apólice -->
+            <!-- Elemento form com atributo class="app-form-grid" criando um grid para organizar campos, id="form-pesquisa-nome" identificando o formulário de pesquisa por nome -->
             <form class="app-form-grid" id="form-pesquisa-nome">
                 <div class="search-result-card app-field-full">
                     <div class="app-form-grid app-form-grid-2">
                         <label class="app-field">
                             <span>Pesquisa por nome ou apólice</span>
+                    <!-- Elemento input com atributo type="text" para texto, id="campoPesquisaNome" para identificação em JavaScript, name="query" parâmetro, placeholder="Digite o nome do cliente ou nº da apólice" -->
                             <input type="text" id="campoPesquisaNome" name="query" placeholder="Digite o nome do cliente ou nº da apólice">
                         </label>
 
@@ -43,12 +44,13 @@
                 </div>
             </form>
 
-            <!-- Formulário do modo de pesquisa por estado -->
+            <!-- Elemento form com atributo class="app-form-grid" criando um grid, id="form-pesquisa-estado" identificando o formulário de pesquisa por estado -->
             <form class="app-form-grid" id="form-pesquisa-estado">
                 <div class="search-result-card app-field-full">
                     <div class="app-form-grid app-form-grid-2">
                         <label class="app-field">
                             <span>Pesquisa por estado</span>
+                            <!-- Elemento select com atributo id="selectEstadoPesquisa" para acesso em JavaScript, name="status" parâmetro, criando lista de opções de estado -->
                             <select id="selectEstadoPesquisa" name="status">
                                 <option value="todas">Todas as apólices</option>
                                 <option value="ativo">Ativo</option>

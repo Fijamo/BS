@@ -24,10 +24,11 @@
                 <p>Defina o tipo do relatório, a periodicidade, a data e a seguradora para preparar o ficheiro final.</p>
             </div>
 
-            <!-- Formulário principal do relatório -->
+            <!-- Elemento form com atributo class="app-form-grid app-form-grid-2" criando grid com 2 colunas, id="form-relatorio" identificando o formulário -->
             <form class="app-form-grid app-form-grid-2" id="form-relatorio">
                 <label class="app-field">
                     <span>Tipo de relatório</span>
+                    <!-- Elemento select com atributo id="tipoRelatorio" para acesso em JavaScript, required=true obrigando seleção -->
                     <select id="tipoRelatorio" required>
                         <option value="todos">Todos os seguros</option>
                         <option value="ativos">Seguros ativos</option>
@@ -38,6 +39,7 @@
 
                 <label class="app-field">
                     <span>Periodicidade</span>
+                    <!-- Elemento select com atributo id="periodicidadeRelatorio" para acesso em JavaScript, required=true obrigando seleção -->
                     <select id="periodicidadeRelatorio" required>
                         <option value="diario">Diário</option>
                         <option value="semanal">Semanal</option>
@@ -47,11 +49,13 @@
 
                 <label class="app-field">
                     <span>Data de referência</span>
+                    <!-- Elemento input com atributo type="date" para data, id="dataReferenciaRelatorio" para acesso em JavaScript, required=true obrigando preenchimento -->
                     <input type="date" id="dataReferenciaRelatorio" required>
                 </label>
 
                 <label class="app-field">
                     <span>Seguradora</span>
+                    <!-- Elemento select com atributo id="seguradoraRelatorio" para acesso em JavaScript, sem required permitindo opção geral -->
                     <select id="seguradoraRelatorio">
                         <option value="geral">Geral</option>
                         <option value="Emose">Emose</option>
@@ -61,15 +65,17 @@
                 </label>
 
                 <div class="app-form-actions app-field-full">
+                    <!-- Elemento button com atributo type="submit" que envia formulário, class="app-btn app-btn-success" para estilo verde, id="btnGerarRelatorio" para acesso em JavaScript -->
                     <button type="submit" class="app-btn app-btn-success">Gerar relatório</button>
+                    <!-- Elemento button com atributo type="button" que não envia formulário, class="app-btn app-btn-secondary" para estilo cinzento, id="btnLimparRelatorio" para acesso em JavaScript -->
                     <button type="button" class="app-btn app-btn-secondary" id="btnLimparRelatorio">Limpar</button>
                 </div>
             </form>
 
-            <!-- Área reservada para mostrar o retorno da geração -->
+            <!-- Elemento div com atributo class="app-inline-status" exibindo mensagem de estado, id="resultadoRelatorio" para acesso em JavaScript -->
             <div class="app-inline-status" id="resultadoRelatorio">Preencha os campos e clique em gerar relatório.</div>
 
-            <!-- Ações finais de download do relatório -->
+            <!-- Elemento div com atributo class="app-form-actions app-field-full" agrupando botões de ação, id="acoesDownloadRelatorio" para identificação, style="display: none;" ocultando inicialmente -->
             <div class="app-form-actions app-field-full" id="acoesDownloadRelatorio" style="display: none;">
                 <button type="button" class="app-btn app-btn-dark" id="btnBaixarPdf">Baixar PDF</button>
                 <button type="button" class="app-btn app-btn-primary" id="btnBaixarExcel">Baixar Excel</button>
