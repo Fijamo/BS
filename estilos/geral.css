@@ -640,6 +640,8 @@ body.pagina-inicio {
 }
 
 .pagina-inicio .nav-shell {
+    /* position: relative – permite que elementos filhos com position:absolute fiquem posicionados relativamente */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -656,9 +658,14 @@ body.pagina-inicio {
 }
 
 .pagina-inicio .nav-menu {
+    /* display: flex – ativa flexbox para organizar itens em linha */
     display: flex;
+    /* align-items: center – alinha itens verticalmente ao centro */
     align-items: center;
+    /* gap: 0.5rem – espaço entre nav-links e botão login */
     gap: 0.5rem;
+    /* margin-left: auto – empurra o menu totalmente para a direita */
+    margin-left: auto;
 }
 
 .pagina-inicio .nav-links {
@@ -697,6 +704,46 @@ body.pagina-inicio {
     background: #ffffff;
     color: #061624;
     box-shadow: 0 12px 24px rgba(255, 255, 255, 0.12);
+}
+
+/* Botão hamburguer para menu mobile */
+.pagina-inicio .nav-toggle {
+    /* display: none – oculta o botão por padrão em desktop */
+    display: none;
+    /* flex-direction: column – alinha as três linhas verticalmente */
+    flex-direction: column;
+    /* align-items: center – centraliza as linhas horizontalmente */
+    align-items: center;
+    /* justify-content: center – centraliza as linhas verticalmente */
+    justify-content: center;
+    /* gap: 0.5rem – espaço entre as linhas do hamburguer */
+    gap: 0.5rem;
+    /* background: transparent – fundo transparente */
+    background: transparent;
+    /* border: none – remove borda padrão */
+    border: none;
+    /* cursor: pointer – muda o cursor para mão (clicável) */
+    cursor: pointer;
+    /* padding: 0.5rem – espaço interno ao redor do botão */
+    padding: 0.5rem;
+    /* z-index: 11 – fica acima do menu */
+    z-index: 11;
+}
+
+/* Estilo das três linhas horizontais do ícone hamburguer */
+.pagina-inicio .nav-toggle span {
+    /* display: block – faz de cada linha um bloco */
+    display: block;
+    /* width: 25px – largura de cada linha */
+    width: 25px;
+    /* height: 3px – altura de cada linha */
+    height: 3px;
+    /* background: #ffffff – cor branca das linhas */
+    background: #ffffff;
+    /* border-radius: 2px – arredonda ligeiramente as extremidades das linhas */
+    border-radius: 2px;
+    /* transition: all 0.3s ease – suaviza transformações (rotação, escala) */
+    transition: all 0.3s ease;
 }
 
 .pagina-inicio .btn-primary {
@@ -1310,7 +1357,6 @@ body.pagina-index {
 
 @media (max-width: 991px) {
     .pagina-inicio .nav-shell,
-    .pagina-inicio .nav-menu,
     .pagina-inicio .nav-links {
         flex-direction: column;
         align-items: stretch;
@@ -1320,7 +1366,6 @@ body.pagina-index {
         padding: 1rem 0;
     }
 
-    .pagina-inicio .nav-menu,
     .pagina-inicio .nav-links {
         width: 100%;
     }
@@ -1369,6 +1414,89 @@ body.pagina-index {
 }
 
 @media (max-width: 767px) {
+    /* Mostra o botão hamburguer em mobile */
+    .pagina-inicio .nav-toggle {
+        /* display: flex – faz o botão aparecer em mobile */
+        display: flex;
+        /* margin-left: auto – empurra o botão para a direita */
+        margin-left: auto;
+        /* padding: 0.5rem 1rem – espaço interno */
+        padding: 0.5rem 1rem;
+        /* transform: translateY(-4px) – puxa o botão um pouco para cima */
+        transform: translateY(-4px);
+    }
+
+    /* Posiciona o menu como dropdown em mobile */
+    .pagina-inicio .nav-menu {
+        /* position: absolute – posiciona relativamente ao nav-shell pai */
+        position: absolute;
+        /* top: 100% – coloca o menu logo abaixo do nav-shell */
+        top: 100%;
+        /* right: 0 – alinha o menu ao lado direito */
+        right: 0;
+        /* background: rgba(6, 22, 36, 0.95) – fundo semi-escuro */
+        background: rgba(6, 22, 36, 0.95);
+        /* backdrop-filter: blur(14px) – efeito de vidro desfocado */
+        backdrop-filter: blur(14px);
+        /* flex-direction: column – empilha os items verticalmente */
+        flex-direction: column;
+        /* align-items: stretch – itens ocupam a largura do menu */
+        align-items: stretch;
+        /* gap: 0 – remove espaço entre items */
+        gap: 0;
+        /* padding: 0 – sem padding no início */
+        padding: 0;
+        /* width: auto – largura automática baseada no conteúdo */
+        width: auto;
+        /* min-width: 220px – largura mínima de 220px */
+        min-width: 220px;
+        /* max-height: 0 – altura inicial zero (oculto) */
+        max-height: 0;
+        /* overflow: hidden – esconde conteúdo que ultrapassa */
+        overflow: hidden;
+        /* transition: max-height 0.3s ease – suaviza abertura/fechamento */
+        transition: max-height 0.3s ease;
+        /* z-index: 100 – fica acima de tudo */
+        z-index: 100;
+    }
+
+    /* Quando o menu tem classe "ativa", mostra-se */
+    .pagina-inicio .nav-menu.ativa {
+        /* max-height: 500px – altura máxima quando ativo */
+        max-height: 500px;
+    }
+
+    /* Estilos dos links dentro do menu mobile */
+    .pagina-inicio .nav-links {
+        /* flex-direction: column – items em coluna */
+        flex-direction: column;
+        /* margin: 0 – sem margem */
+        margin: 0;
+    }
+
+    .pagina-inicio .nav-link {
+        /* padding: 1rem – espaço interno */
+        padding: 1rem;
+        /* border-bottom: 1px solid rgba(255, 255, 255, 0.1) – linha separadora */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* white-space: nowrap – texto sem quebra */
+        white-space: nowrap;
+        /* text-align: left – alinha texto à esquerda */
+        text-align: left;
+    }
+
+    /* Estilo do botão login dentro do menu mobile */
+    .pagina-inicio .nav-menu .btn-nav {
+        /* padding: 1rem – espaço interno */
+        padding: 1rem;
+        /* margin: 0 – sem margem */
+        margin: 0;
+        /* width: auto – largura automática */
+        width: auto;
+        /* border-radius: 4px – cantos ligeiramente arredondados */
+        border-radius: 4px;
+    }
+
     .pagina-inicio .section {
         padding: 4rem 0;
     }

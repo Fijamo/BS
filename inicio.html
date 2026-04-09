@@ -22,8 +22,15 @@
         <div class="container nav-shell">
             <!-- Elemento a com atributo class="navbar-brand" e href="#inicio" que é o link da marca que aponta para a seção início -->
             <a class="navbar-brand" href="#inicio">BS Seguros</a>
-            <!-- Elemento div com atributo class="nav-menu" que contém o menu de navegação -->
-            <div class="nav-menu">
+            <!-- Elemento button com atributo class="nav-toggle" que é o botão hamburguer para menu mobile, aria-label="Abrir menu de navegação" fornece acessibilidade, aria-controls="nav-menu" relaciona o botão ao menu -->
+            <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-controls="nav-menu">
+                <!-- Três spans que formam as linhas do ícone hamburguer -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Elemento div com atributo class="nav-menu" que contém o menu de navegação, id="nav-menu" permitindo identificação pelo button hamburguer -->
+            <div class="nav-menu" id="nav-menu">
                 <!-- Elemento nav com atributo class="nav-links" e aria-label="Navegação principal" que agrupa os links de navegação e fornece rótulo para acessibilidade -->
                 <nav class="nav-links" aria-label="Navegação principal">
                     <!-- Elemento a com atributo class="nav-link" e href="#inicio" que linka para a seção início da página -->
@@ -255,5 +262,25 @@
             <p>&copy; 2026 BS Seguros | Todos os direitos reservados</p>
         </div>
     </footer>
+
+    <!-- Script para ativar/desativar o menu mobile quando clica no botão hamburguer -->
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('ativa');
+            // Muda o atributo aria-expanded para acessibilidade
+            const isOpen = menu.classList.contains('ativa');
+            this.setAttribute('aria-expanded', isOpen);
+        });
+        
+        // Fecha o menu quando clica num link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const menu = document.getElementById('nav-menu');
+                menu.classList.remove('ativa');
+                document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
