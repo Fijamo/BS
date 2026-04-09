@@ -1,160 +1,286 @@
-<!-- Define que este ficheiro usa o padrão HTML5 -->
+﻿<!-- Declaração DOCTYPE para HTML5 -->
 <!DOCTYPE html>
+<!-- Elemento raiz HTML com atributo lang="pt" que define o idioma como português -->
 <html lang="pt">
+<!-- Seção head que contém metadados da página -->
 <head>
-    <!-- Define a codificação do documento para suportar acentos -->
+    <!-- Meta tag com atributo charset="UTF-8" que define a codificação de caracteres da página como UTF-8 -->
     <meta charset="UTF-8">
-    <!-- Faz a página adaptar-se a diferentes tamanhos de ecrã -->
+    <!-- Meta tag com atributo name="viewport" e content="width=device-width, initial-scale=1.0" que define a viewport para design responsivo, ajustando a largura ao dispositivo e escala inicial a 1.0 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Define o título da aba do navegador -->
-    <title>BS Seguros | Painel</title>
-    <!-- Liga a página ao ficheiro CSS externo -->
+    <!-- Elemento title que define o título da página exibido na aba do navegador -->
+    <title>BS Seguros | Início</title>
+    <!-- Elemento link com atributo rel="stylesheet" e href="estilos/geral.css" que vincula a folha de estilos externa -->
     <link rel="stylesheet" href="estilos/geral.css">
+<!-- Fim da seção head -->
 </head>
-<body class="pagina-index">
-    <!-- Elemento principal que concentra o conteúdo da página -->
-    <main class="index-shell">
-        <!-- Secção de abertura do painel -->
-        <section class="index-hero">
-            <!-- Contentor central da secção hero -->
-            <div class="container index-hero-grid">
-                <!-- Bloco textual principal do painel -->
-                <div class="index-copy">
-                    <!-- Pequena etiqueta que identifica o tipo de ecrã -->
-                    <span class="index-kicker">Painel operacional</span>
+<!-- Elemento body com atributo class="pagina-inicio" que aplica estilos específicos para a página inicial -->
+<body class="pagina-inicio">
+    <!-- Elemento header com atributo class="navbar" que define a barra de navegação -->
+    <header class="navbar">
+        <!-- Elemento div com atributo class="container nav-shell" que centraliza e limita a largura do conteúdo da navegação -->
+        <div class="container nav-shell">
+            <!-- Elemento a com atributo class="navbar-brand" e href="#inicio" que é o link da marca que aponta para a seção início -->
+            <a class="navbar-brand" href="#inicio">BS Seguros</a>
+            <!-- Elemento button com atributo class="nav-toggle" que é o botão hamburguer para menu mobile, aria-label="Abrir menu de navegação" fornece acessibilidade, aria-controls="nav-menu" relaciona o botão ao menu -->
+            <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-controls="nav-menu">
+                <!-- Três spans que formam as linhas do ícone hamburguer -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Elemento div com atributo class="nav-menu" que contém o menu de navegação, id="nav-menu" permitindo identificação pelo button hamburguer -->
+            <div class="nav-menu" id="nav-menu">
+                <!-- Elemento nav com atributo class="nav-links" e aria-label="Navegação principal" que agrupa os links de navegação e fornece rótulo para acessibilidade -->
+                <nav class="nav-links" aria-label="Navegação principal">
+                    <!-- Elemento a com atributo class="nav-link" e href="#inicio" que linka para a seção início da página -->
+                    <a class="nav-link" href="#inicio">Início</a>
+                    <!-- Elemento a com atributo class="nav-link" e href="#sobre" que linka para a seção sobre da página -->
+                    <a class="nav-link" href="#sobre">Sobre</a>
+                    <!-- Elemento a com atributo class="nav-link" e href="#servicos" que linka para a seção serviços da página -->
+                    <a class="nav-link" href="#servicos">Serviços</a>
+                    <!-- Elemento a com atributo class="nav-link" e href="#contato" que linka para a seção contato da página -->
+                    <a class="nav-link" href="#contato">Contato</a>
+                </nav>
+                <!-- Elemento a com atributo class="btn btn-nav" e href="login.html" que é um botão de link para a página de login -->
+                <a class="btn btn-nav" href="login.html">Login</a>
+            </div>
+        </div>
+    </header>
 
-                    <!-- Título principal do painel -->
-                    <h1>Centro de controlo da BS Seguros</h1>
+    <!-- Elemento main que contém o conteúdo principal da página -->
+    <main>
+        <!-- Elemento section com atributo id="inicio" e class="hero" que define a seção hero com id para âncora e classe para estilização -->
+        <section id="inicio" class="hero">
+            <!-- Elemento img com atributo class="hero-image", src="img/img.jpg" e alt="Família protegida pelos serviços da BS Seguros" que exibe a imagem de fundo do hero com descrição alternativa -->
+            <img class="hero-image" src="img/img.jpg" alt="Família protegida pelos serviços da BS Seguros">
+            <!-- Elemento div com atributo class="container hero-content" que centraliza o conteúdo do hero -->
+            <div class="container hero-content">
+                <!-- Elemento span com atributo class="eyebrow" que exibe o texto de destaque -->
+                <span class="eyebrow">Sistema BS Seguros</span>
+                <!-- Elemento h1 que contém o título principal da página -->
+                <h1>Protegemos o que é importante para você</h1>
+                <!-- Elemento p com atributo class="hero-text" que contém o texto descritivo do hero -->
+                <p class="hero-text">
+                    Plataforma digital para consultoras e corretoras de seguros com controlo de clientes,
+                    apólices e sinistros num único fluxo de trabalho.
+                </p>
+                <!-- Elemento div com atributo class="hero-actions" que agrupa os botões de ação do hero -->
+                <div class="hero-actions">
+                    <!-- Elemento a com atributo class="btn btn-primary" e href="login.html" que é o botão primário para acessar o sistema -->
+                    <a class="btn btn-primary" href="login.html">Acessar ao sistema</a>
+                    <!-- Elemento a com atributo class="btn btn-secondary" e href="#servicos" que é o botão secundário para ver serviços -->
+                    <a class="btn btn-secondary" href="#servicos">Ver serviços</a>
+                </div>
+                <!-- Elemento div com atributo class="hero-stats" que agrupa as estatísticas do hero -->
+                <div class="hero-stats">
+                    <!-- Elemento article com atributo class="stat-card" que representa um cartão de estatística independente -->
+                    <article class="stat-card">
+                        <!-- Elemento strong que destaca o número da estatística com negrito -->
+                        <strong>+1200</strong>
+                        <!-- Elemento span que contém o texto descritivo da estatística -->
+                        <span>Clientes acompanhados</span>
+                    </article>
+                    <!-- Elemento article com atributo class="stat-card" que representa um cartão de estatística independente -->
+                    <article class="stat-card">
+                        <!-- Elemento strong que destaca o número da estatística com negrito -->
+                        <strong>98%</strong>
+                        <!-- Elemento span que contém o texto descritivo da estatística -->
+                        <span>Taxa de retenção anual</span>
+                    </article>
+                    <!-- Elemento article com atributo class="stat-card" que representa um cartão de estatística independente -->
+                    <article class="stat-card">
+                        <!-- Elemento strong que destaca o número da estatística com negrito -->
+                        <strong>24/7</strong>
+                        <!-- Elemento span que contém o texto descritivo da estatística -->
+                        <span>Suporte operacional</span>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Texto de apresentação do painel -->
+        <!-- Elemento section com atributo id="sobre" e class="section section-white" que define a seção sobre com id para âncora e classes para estilização -->
+        <section id="sobre" class="section section-white">
+            <!-- Elemento div com atributo class="container" que centraliza e limita a largura do conteúdo -->
+            <div class="container">
+                <!-- Elemento div com atributo class="section-title" que agrupa o título da seção -->
+                <div class="section-title">
+                    <!-- Elemento span que contém o texto de destaque do título -->
+                    <span>Sobre nós</span>
+                    <!-- Elemento h2 que contém o título principal da seção -->
+                    <h2>BS Seguros para gestão moderna de corretoras</h2>
+                    <!-- Elemento p que contém o texto descritivo da seção -->
                     <p>
-                        Acompanhe clientes, apólices, sinistros e alertas num único painel,
-                        com acesso rápido às tarefas mais importantes do dia.
+                        A BS Seguros foi desenvolvida para dar mais organização, previsibilidade e confiança
+                        no acompanhamento de cada cliente e de cada apólice.
                     </p>
+                </div>
 
-                    <!-- Elemento form com atributo class="index-search" que agrupa campos de pesquisa, action="pesquisar-cliente.html" especificando para onde enviar, method="GET" usando método GET -->
-                    <form class="index-search" action="pesquisar-cliente.html" method="GET">
-                        <!-- Elemento label com atributo class="index-field" agrupando o rótulo e campo, criando uma relação de acessibilidade -->
-                        <label class="index-field">
-                            <span>Pesquisar cliente</span>
-                            <!-- Elemento input com atributo type="text" para entrada de texto, name="query" identificando o parmetro, placeholder="Pesquisar cliente ou nº da apólice" exibindo texto de ajuda -->
-                            <input type="text" name="query" placeholder="Pesquisar cliente ou nº da apólice">
-                        </label>
-
-                        <!-- Elemento label com atributo class="index-field" agrupando o rótulo e campo select de filtro de estado -->
-                        <label class="index-field">
-                            <span>Estado da apólice</span>
-                            <!-- Elemento select com atributo name="status" identificando o par em nome-valor, criando uma lista de opções para filtro -->
-                            <select name="status">
-                                <!-- Elemento option com atributo value="todas" especificando o valor a enviar, sendo a opção padrão para todas as apólices -->
-                                <option value="todas">Todas as apólices</option>
-                                <!-- Elemento option com atributo value="ativo" para apólices ativas -->
-                                <option value="ativo">Ativa</option>
-                                <!-- Elemento option com atributo value="vencido" para apólices vencidas -->
-                                <option value="vencido">Vencida</option>
-                            </select>
-                        </label>
-
-                        <!-- Botão que envia a pesquisa para a página de pesquisa de clientes -->
-                        <div class="app-form-actions">
-                            <button type="submit" class="app-btn app-btn-primary">Pesquisar agora</button>
+                <!-- Elemento div com atributo class="grid grid-2-uneven" que cria um layout em grid com duas colunas de tamanhos diferentes -->
+                <!-- Elemento div com atributo class="grid grid-2-uneven" que cria um layout em grid com duas colunas de tamanhos diferentes -->
+                <div class="grid grid-2-uneven">
+                    <!-- Elemento article com atributo class="panel" que representa um painel de conteúdo independente -->
+                    <!-- Elemento article com atributo class="panel" que representa um painel de conteúdo independente -->
+                    <article class="panel">
+                        <!-- Elemento h3 que contém o subtítulo do painel -->
+                        <!-- Elemento h3 que contém o subtítulo do painel -->
+                        <h3>Porque existimos</h3>
+                        <!-- Elemento p com atributo class="info-text" que contém o texto informativo do painel -->
+                        <p class="info-text">
+                            Criamos um ambiente único para equipas comerciais e operacionais registarem dados,
+                            controlarem vencimentos e manterem um histórico claro das interações.
+                        </p>
+                        <!-- Elemento div com atributo class="feature-list" que agrupa a lista de funcionalidades -->
+                        <!-- Elemento div com atributo class="feature-list" que agrupa a lista de funcionalidades -->
+                        <div class="feature-list">
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <div class="feature-item">
+                                <!-- Elemento span com atributo class="symbol" que exibe o símbolo numérico da funcionalidade -->
+                                <!-- Elemento span com atributo class="symbol" que exibe o símbolo numérico da funcionalidade -->
+                                <span class="symbol">1</span>
+                                <!-- Elemento p que descreve a funcionalidade -->
+                                <p>Processos claros para cadastro, consulta e atualização de clientes.</p>
+                            </div>
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <div class="feature-item">
+                                <!-- Elemento span com atributo class="symbol" que exibe o símbolo numérico da funcionalidade -->
+                                <span class="symbol">2</span>
+                                <!-- Elemento p que descreve a funcionalidade -->
+                                <p>Monitorização de apólices ativas, vencidas e em renovação.</p>
+                            </div>
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <div class="feature-item">
+                                <!-- Elemento span com atributo class="symbol" que exibe o símbolo numérico da funcionalidade -->
+                                <span class="symbol">3</span>
+                                <!-- Elemento p que descreve a funcionalidade -->
+                                <p>Base de dados central para melhorar decisões e atendimento.</p>
+                            </div>
                         </div>
-                    </form>
+                    </article>
+
+                    <!-- Elemento aside com atributo class="highlight" que representa conteúdo relacionado mas separado -->
+                    <!-- Elemento aside com atributo class="highlight" que representa conteúdo relacionado mas separado -->
+                    <aside class="highlight">
+                        <!-- Elemento h3 que contém o título da seção missão, visão e valores -->
+                        <!-- Elemento h3 que contém o título da seção missão, visão e valores -->
+                        <h3>Missão, visão e valores</h3>
+                        <!-- Elemento p que contém a descrição da missão, visão e valores -->
+                        <p>
+                            Entregar uma experiência de gestão de seguros que une tecnologia, ética e foco total
+                            no cliente.
+                        </p>
+                        <!-- Elemento div com atributo class="mvv-list" que agrupa a lista de missão, visão e valores -->
+                        <!-- Elemento div com atributo class="mvv-list" que agrupa a lista de missão, visão e valores -->
+                        <div class="mvv-list">
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de missão, visão ou valor -->
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de missão, visão ou valor -->
+                            <article class="mvv-item">
+                                <!-- Elemento h4 que contém o título do item (Missão, Visão, Valores) -->
+                                <!-- Elemento h4 que contém o título do item (Missão, Visão, Valores) -->
+                                <h4>Missão</h4>
+                                <!-- Elemento p que contém a descrição do item -->
+                                <p>Simplificar a operação diária das consultoras com ferramentas práticas e seguras.</p>
+                            </article>
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de missão, visão ou valor -->
+                            <article class="mvv-item">
+                                <!-- Elemento h4 que contém o título do item (Missão, Visão, Valores) -->
+                                <h4>Visão</h4>
+                                <!-- Elemento p que contém a descrição do item -->
+                                <p>Ser referência em gestão de seguros em Moçambique.</p>
+                            </article>
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de missão, visão ou valor -->
+                            <article class="mvv-item">
+                                <!-- Elemento h4 que contém o título do item (Missão, Visão, Valores) -->
+                                <h4>Valores</h4>
+                                <!-- Elemento p que contém a descrição do item -->
+                                <p>Confiança, transparência, ética e compromisso com o cliente.</p>
+                            </article>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        <!-- Secção dos atalhos principais do sistema -->
-        <section class="index-section">
+        <!-- Elemento section com atributo id="servicos" e class="section" que define a seção serviços com id para âncora -->
+        <!-- Elemento section com atributo id="servicos" e class="section" que define a seção serviços com id para âncora -->
+        <section id="servicos" class="section">
+            <!-- Elemento div com atributo class="container" que centraliza e limita a largura do conteúdo -->
+            <!-- Elemento div com atributo class="container" que centraliza e limita a largura do conteúdo -->
             <div class="container">
-                <div class="index-section-head">
-                    <span>Ações rápidas</span>
-                    <h2>Atalhos principais do sistema</h2>
+                <!-- Elemento div com atributo class="section-title" que agrupa o título da seção -->
+                <div class="section-title">
+                    <span>Serviços</span>
+                    <h2>Soluções práticas para a sua operação</h2>
+                    <p>Funcionalidades desenhadas para acelerar processos e reduzir falhas de acompanhamento.</p>
                 </div>
 
-                <div class="index-actions-grid">
-                    <a class="index-action-card" href="cadastrar-cliente.html">
-                        <h3>Cadastrar cliente</h3>
-                    </a>
-
-                    <a class="index-action-card" href="pesquisar-cliente.html">
-                        <h3>Pesquisar cliente</h3>
-                    </a>
-
-                    <a class="index-action-card" href="verificar-seguro.html">
-                        <h3>Verificar seguro</h3>
-                    </a>
-
-                    <a class="index-action-card" href="gerar-relatorio.html">
-                        <h3>Gerar relatórios</h3>
-                    </a>
-
-                    <a class="index-action-card" href="listagem-cliente.html">
-                        <h3>Listagem de clientes</h3>
-                    </a>
-
-                    <a class="index-action-card" href="enviar-lembrete.html">
-                        <h3>Enviar lembrete</h3>
-                    </a>
-
-                    <a class="index-action-card" href="sinistro.html">
-                        <h3>Sinistro</h3>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secção de alertas do sistema -->
-        <section class="index-section index-section-soft">
-            <div class="container">
-                <div class="index-section-head">
-                    <span>Monitorização</span>
-                    <h2>Alertas e métricas do momento</h2>
-                </div>
-
-                <div class="index-alert-grid">
-                    <article class="index-alert-card danger">
-                        <div class="alert-mark">!</div>
-                        <div>
-                            <h3>Apólices vencendo</h3>
-                            <p>3 contratos precisam de atenção imediata.</p>
-                        </div>
+                <div class="grid grid-3">
+                    <article class="card">
+                        <span class="icon-badge">CL</span>
+                        <h3>Gestão de clientes</h3>
+                        <p class="info-text">Cadastro, atualização e histórico completo de clientes.</p>
                     </article>
 
-                    <article class="index-alert-card warning">
-                        <div class="alert-mark">$</div>
-                        <div>
-                            <h3>Pagamentos atrasados</h3>
-                            <p>5 clientes com pendências financeiras.</p>
-                        </div>
+                    <article class="card">
+                        <span class="icon-badge">AP</span>
+                        <h3>Gestão de apólices</h3>
+                        <p class="info-text">Controlo de seguros ativos, vencimentos e renovações.</p>
                     </article>
 
-                    <article class="index-alert-card info">
-                        <div class="alert-mark">+</div>
-                        <div>
-                            <h3>Novos leads</h3>
-                            <p>2 oportunidades recentes aguardam seguimento.</p>
-                        </div>
-                    </article>
-
-                    <article class="index-alert-card success">
-                        <div class="alert-mark">M</div>
-                        <div>
-                            <h3>Mensagens internas</h3>
-                            <p>1 conversa pendente no fluxo interno.</p>
-                        </div>
+                    <article class="card">
+                        <span class="icon-badge">RL</span>
+                        <h3>Relatórios</h3>
+                        <p class="info-text">Indicadores para apoiar decisões comerciais e operacionais.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Secção final com o botão para sair do sistema -->
-        <section class="index-section index-section-compact">
-            <div class="container index-exit-wrap">
-                <!-- Elemento a com atributo href="inicio.html" que redireciona para a página inicial quando clicado, class="index-exit-btn" aplicando estilos de botão de saída -->
-                <a href="inicio.html" class="index-exit-btn">Sair do sistema</a>
+        <section id="contato" class="section section-no-top">
+            <div class="container contact-panel">
+                <div class="contact-grid">
+                    <article class="contact-details">
+                        <h2>Contato</h2>
+                        <p>Estamos disponíveis para apoiar a sua equipa e responder às suas dúvidas.</p>
+                    </article>
+
+                    <article class="contact-copy">
+                        <ul class="contact-list">
+                            <li><span class="symbol">@</span> bonssinais@mail.com</li>
+                            <li><span class="symbol">T</span> +258 87 086 3901 / +258 83 471 2968</li>
+                            <li><span class="symbol">E</span> Cabo Delgado - Pemba, Moçambique</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 BS Seguros | Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Script para ativar/desativar o menu mobile quando clica no botão hamburguer -->
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('ativa');
+            // Muda o atributo aria-expanded para acessibilidade
+            const isOpen = menu.classList.contains('ativa');
+            this.setAttribute('aria-expanded', isOpen);
+        });
+        
+        // Fecha o menu quando clica num link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const menu = document.getElementById('nav-menu');
+                menu.classList.remove('ativa');
+                document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
