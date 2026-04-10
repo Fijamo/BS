@@ -1,4 +1,5 @@
-﻿@charset "UTF-8";
+﻿/*
+@charset "UTF-8";
 /* Base */
 /* =========================================================
    BASE
@@ -393,7 +394,7 @@ img {
    Estas regras controlam a aparência das tabelas, etiquetas
    de ramo e chips de estado das apólices.
 ========================================================= */
-.app-table-group + .app-table-group {
+.app-table-group+.app-table-group {
     margin-top: 1.5rem;
 }
 
@@ -1352,6 +1353,7 @@ body.pagina-index {
 }
 
 @media (max-width: 991px) {
+
     .pagina-inicio .nav-shell,
     .pagina-inicio .nav-links {
         flex-direction: column;
@@ -1394,6 +1396,7 @@ body.pagina-index {
 }
 
 @media (max-width: 900px) {
+
     .pagina-index .index-search,
     .app-form-grid-4,
     .search-toolbar {
@@ -1410,6 +1413,7 @@ body.pagina-index {
 }
 
 @media (max-width: 767px) {
+
     /* Mostra o botão hamburguer em mobile */
     .pagina-inicio .nav-toggle {
         display: flex;
@@ -1419,12 +1423,13 @@ body.pagina-index {
     }
 
     /* Mostra o menu hamburguer quando o input está checked */
-    .pagina-inicio .nav-toggle-input:checked ~ .nav-toggle + .nav-menu {
+    .pagina-inicio .nav-toggle-input:checked~.nav-toggle+.nav-menu {
         max-height: 500px;
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
     }
+
     .pagina-inicio .nav-menu {
         position: absolute;
         top: 100%;
@@ -1495,6 +1500,7 @@ body.pagina-index {
 }
 
 @media (max-width: 700px) {
+
     .pagina-index .index-shell,
     .app-page-shell {
         padding: 1rem 0 3rem;
@@ -1548,12 +1554,12 @@ body.pagina-index {
    PAGINA DE LEMBRETES
    Apoio visual da area de email e do envio agrupado.
 ========================================================= */
-.pagina-lembrete .app-section-title + .app-form-grid,
-.pagina-lembrete .app-section-title + .app-table-wrap {
+.pagina-lembrete .app-section-title+.app-form-grid,
+.pagina-lembrete .app-section-title+.app-table-wrap {
     margin-top: 0.9rem;
 }
 
-.pagina-lembrete .app-table-wrap + .lembrete-form-grouped {
+.pagina-lembrete .app-table-wrap+.lembrete-form-grouped {
     margin-top: 1rem;
 }
 
@@ -1612,6 +1618,7 @@ body.pagina-index {
 }
 
 @media (max-width: 700px) {
+
     .pagina-relatorio .relatorio-highlights,
     .pagina-relatorio .relatorio-summary-grid {
         grid-template-columns: 1fr;
@@ -1811,3 +1818,5 @@ body.pagina-index {
 .pagina-index .index-exit-btn:hover {
     box-shadow: 0 22px 42px rgba(127, 29, 29, 0.34);
 }
+
+*/
