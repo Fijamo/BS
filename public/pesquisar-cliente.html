@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar Cliente</title>
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-pesquisa">
+    <main class="app-page-shell">
+        <section class="app-page-card app-page-card-wide">
+            <div class="app-page-head">
+                <a href="dashboard.html" class="app-back-link">Voltar ao painel</a>
+                <h1>Pesquisar cliente</h1>
+                <p>Pesquise por nome, apelido, numero da apolice ou estado.</p>
+            </div>
+            <form class="app-form-grid" id="form-pesquisa">
+                <div class="search-result-card app-field-full">
+                    <div class="app-form-grid app-form-grid-2">
+                        <label class="app-field">
+                            <span>Pesquisa</span>
+                            <input type="text" id="campoPesquisa" placeholder="Digite o nome ou a apolice">
+                        </label>
+                        <label class="app-field">
+                            <span>Estado</span>
+                            <select id="campoEstado">
+                                <option value="todas">Todas</option>
+                                <option value="Ativa">Ativa</option>
+                                <option value="Vencida">Vencida</option>
+                                <option value="Cancelada">Cancelada</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="app-form-actions">
+                        <button type="submit" class="app-btn app-btn-primary">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+            <div class="app-section-title">Resultados</div>
+            <div class="search-results" id="resultadoPesquisa"></div>
+        </section>
+    </main>
+    <script>
+        const form = document.getElementById("form-pesquisa");
+        const campoPesquisa = document.getElementById("campoPesquisa");
+        const campoEstado = document.getElementById("campoEstado");
+        const resultado = document.getElementById("resultadoPesquisa");
+
+        async function carregar() {
+            resultado.innerHTML = '<div class="search-empty-state">A carregar resultados...</div>';
+
+            try {
+                const params = new URLSearchParams();
+                if (campoPesquisa.value.trim()) params.set("query", campoPesquisa.value.trim());
+                if (campoEstado.value) params.set("status", campoEstado.value);
+
+                const resposta = await fetch(`/api/clientes?${params.toString()}`);
+                const clientes = await resposta.json();
+
+                if (!clientes.length) {
+                    resultado.innerHTML = '<div class="search-empty-state">Nenhum cliente encontrado.</div>';
+                    return;
+                }
+
+                resultado.innerHTML = clientes.map((cliente) => `
+                    <article class="search-result-card">
+                        <h3>${cliente.nome} ${cliente.apelido}</h3>
+                        <p><strong>Ramo:</strong> ${cliente.ramo}</p>
+                        <p><strong>Apolice:</strong> ${cliente.apolice}</p>
+                        <p><strong>Estado:</strong> ${cliente.estado_apolice}</p>
+                    </article>
+                `).join("");
+            } catch (erro) {
+                resultado.innerHTML = '<div class="search-empty-state">Erro ao carregar a pesquisa.</div>';
+            }
+        }
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            carregar();
+        });
+
+        carregar();
+    </script>
+</body>
+</html>

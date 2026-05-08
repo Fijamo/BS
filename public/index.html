@@ -1,0 +1,269 @@
+﻿<!-- Declara��o DOCTYPE para HTML5 -->
+<!DOCTYPE html>
+<!-- Elemento raiz HTML com atributo lang="pt" que define o idioma como portugu�s -->
+<html lang="pt">
+<!-- Se��o head que cont�m metadados da p�gina -->
+<head>
+    <!-- Meta tag com atributo charset="UTF-8" que define a codifica��o de caracteres da p�gina como UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Meta tag com atributo name="viewport" e content="width=device-width, initial-scale=1.0" que define a viewport para design responsivo, ajustando a largura ao dispositivo e escala inicial a 1.0 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Elemento title que define o t�tulo da p�gina exibido na aba do navegador -->
+    <title>BS Seguros | In�cio</title>
+    <!-- Elemento link com atributo rel="stylesheet" e href="estilos/geral.css" que vincula a folha de estilos externa -->
+    <link rel="stylesheet" href="estilos/geral.css">
+<!-- Fim da se��o head -->
+</head>
+<!-- Elemento body com atributo class="pagina-inicio" que aplica estilos espec�ficos para a p�gina inicial -->
+<body class="pagina-inicio">
+    <!-- Elemento header com atributo class="navbar" que define a barra de navega��o -->
+    <header class="navbar">
+        <!-- Elemento div com atributo class="container nav-shell" que centraliza e limita a largura do conte�do da navega��o -->
+        <div class="container nav-shell">
+            <!-- Elemento a com atributo class="navbar-brand" e href="#inicio" que � o link da marca que aponta para a se��o in�cio -->
+            <a class="navbar-brand" href="#inicio">BONS SINAIS</a>
+            <!-- Input checkbox escondido que controla o estado do menu hamburguer -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Abrir menu de navega��o" />
+            <!-- Label estilizado como bot�o hamburguer -->
+            <label for="nav-toggle" class="nav-toggle" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <!-- Elemento div com atributo class="nav-menu" que cont�m o menu de navega��o, id="nav-menu" permitindo identifica��o pelo button hamburguer -->
+            <div class="nav-menu" id="nav-menu">
+                <!-- Elemento nav com atributo class="nav-links" e aria-label="Navega��o principal" que agrupa os links de navega��o e fornece r�tulo para acessibilidade -->
+                <nav class="nav-links" aria-label="Navega��o principal">
+                    <!-- Elemento a com atributo class="nav-link" e href="#inicio" que linka para a se��o in�cio da p�gina -->
+                    <a class="nav-link" href="#inicio">In�cio</a>
+                    <!-- Elemento a com atributo class="nav-link" e href="#sobre" que linka para a se��o sobre da p�gina -->
+                    <a class="nav-link" href="#sobre">Sobre</a>
+                    <!-- Elemento a com atributo class="nav-link" e href="#servicos" que linka para a se��o servi�os da p�gina -->
+                    <a class="nav-link" href="#servicos">Servi�os</a>
+                    <!-- Elemento a com atributo class="nav-link" e href="#contato" que linka para a se��o contato da p�gina -->
+                    <a class="nav-link" href="#contato">Contato</a>
+                </nav>
+                <!-- Elemento a com atributo class="btn btn-nav" e href="login.html" que � um bot�o de link para a p�gina de login -->
+                <a class="btn btn-nav" href="login.html">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Elemento main que cont�m o conte�do principal da p�gina -->
+    <main>
+        <!-- Elemento section com atributo id="inicio" e class="hero" que define a se��o hero com id para �ncora e classe para estiliza��o -->
+        <section id="inicio" class="hero">
+            <!-- Elemento img com atributo class="hero-image", src="img/img.jpg" e alt="Fam�lia protegida pelos servi�os da BS Seguros" que exibe a imagem de fundo do hero com descri��o alternativa -->
+            <img class="hero-image" src="img/img.jpg" alt="Fam�lia protegida pelos servi�os da BS Seguros">
+            <!-- Elemento div com atributo class="container hero-content" que centraliza o conte�do do hero -->
+            <div class="container hero-content">
+                <!-- Elemento span com atributo class="eyebrow" que exibe o texto de destaque -->
+                <span class="eyebrow">Sistema BS</span>
+                <!-- Elemento h1 que cont�m o t�tulo principal da p�gina -->
+                <h1>Prote��o com orienta��o especializada</h1>
+                <!-- Elemento p com atributo class="hero-text" que cont�m o texto descritivo do hero -->
+                <p class="hero-text">
+                    Plataforma digital para consultoras e corretoras de seguros com controlo de clientes,
+                    ap�lices e sinistros num �nico fluxo de trabalho.
+                </p>
+                <!-- Elemento div com atributo class="hero-actions" que agrupa os bot�es de a��o do hero -->
+                <div class="hero-actions">
+                    <!-- Elemento a com atributo class="btn btn-primary" e href="login.html" que � o bot�o prim�rio para acessar o sistema -->
+                    <a class="btn btn-primary" href="login.html">Acessar ao sistema</a>
+                    <!-- Elemento a com atributo class="btn btn-secondary" e href="#servicos" que � o bot�o secund�rio para ver servi�os -->
+                    <a class="btn btn-secondary" href="#servicos">Ver servi�os</a>
+                </div>
+                <!-- Elemento div com atributo class="hero-stats" que agrupa as estat�sticas do hero -->
+                <div class="hero-stats">
+                    <!-- Elemento article com atributo class="stat-card" que representa um cart�o de estat�stica independente -->
+                    <article class="stat-card">
+                        <!-- Elemento strong que destaca o n�mero da estat�stica com negrito -->
+                        <strong>+1200</strong>
+                        <!-- Elemento span que cont�m o texto descritivo da estat�stica -->
+                        <span>Clientes acompanhados</span>
+                    </article>
+                    <!-- Elemento article com atributo class="stat-card" que representa um cart�o de estat�stica independente -->
+                    <article class="stat-card">
+                        <!-- Elemento strong que destaca o n�mero da estat�stica com negrito -->
+                        <strong>98%</strong>
+                        <!-- Elemento span que cont�m o texto descritivo da estat�stica -->
+                        <span>Taxa de reten��o anual</span>
+                    </article>
+                    <!-- Elemento article com atributo class="stat-card" que representa um cart�o de estat�stica independente -->
+                    <article class="stat-card">
+                        <!-- Elemento strong que destaca o n�mero da estat�stica com negrito -->
+                        <strong>24/7</strong>
+                        <!-- Elemento span que cont�m o texto descritivo da estat�stica -->
+                        <span>Suporte operacional</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elemento section com atributo id="sobre" e class="section section-white" que define a se��o sobre com id para �ncora e classes para estiliza��o -->
+        <section id="sobre" class="section section-white">
+            <!-- Elemento div com atributo class="container" que centraliza e limita a largura do conte�do -->
+            <div class="container">
+                <!-- Elemento div com atributo class="section-title" que agrupa o t�tulo da se��o -->
+                <div class="section-title">
+                    <!-- Elemento span que cont�m o texto de destaque do t�tulo -->
+                    <span>Sobre n�s</span>
+                    <!-- Elemento h2 que cont�m o t�tulo principal da se��o -->
+                    <h2>BS � Consultora e Corretora de Seguros</h2>
+                    <!-- Elemento p que cont�m o texto descritivo da se��o -->
+                    <p>
+                        A BS Seguros foi desenvolvida para dar mais organiza��o, previsibilidade e confian�a
+                        no acompanhamento de cada cliente e de cada ap�lice.
+                    </p>
+                </div>
+
+                <!-- Elemento div com atributo class="grid grid-2-uneven" que cria um layout em grid com duas colunas de tamanhos diferentes -->
+                <!-- Elemento div com atributo class="grid grid-2-uneven" que cria um layout em grid com duas colunas de tamanhos diferentes -->
+                <div class="grid grid-2-uneven">
+                    <!-- Elemento article com atributo class="panel" que representa um painel de conte�do independente -->
+                    <!-- Elemento article com atributo class="panel" que representa um painel de conte�do independente -->
+                    <article class="panel">
+                        <!-- Elemento h3 que cont�m o subt�tulo do painel -->
+                        <!-- Elemento h3 que cont�m o subt�tulo do painel -->
+                        <h3>Porque existimos</h3>
+                        <!-- Elemento p com atributo class="info-text" que cont�m o texto informativo do painel -->
+                        <p class="info-text">
+                            Criamos um ambiente �nico para equipas comerciais e operacionais registarem dados,
+                            controlarem vencimentos e manterem um hist�rico claro das intera��es.
+                        </p>
+                        <!-- Elemento div com atributo class="feature-list" que agrupa a lista de funcionalidades -->
+                        <!-- Elemento div com atributo class="feature-list" que agrupa a lista de funcionalidades -->
+                        <div class="feature-list">
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <div class="feature-item">
+                                <!-- Elemento span com atributo class="symbol" que exibe o s�mbolo num�rico da funcionalidade -->
+                                <!-- Elemento span com atributo class="symbol" que exibe o s�mbolo num�rico da funcionalidade -->
+                                <span class="symbol">1</span>
+                                <!-- Elemento p que descreve a funcionalidade -->
+                                <p>Processos claros para cadastro, consulta e atualiza��o de clientes.</p>
+                            </div>
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <div class="feature-item">
+                                <!-- Elemento span com atributo class="symbol" que exibe o s�mbolo num�rico da funcionalidade -->
+                                <span class="symbol">2</span>
+                                <!-- Elemento p que descreve a funcionalidade -->
+                                <p>Monitoriza��o de ap�lices ativas, vencidas e em renova��o.</p>
+                            </div>
+                            <!-- Elemento div com atributo class="feature-item" que representa um item da lista de funcionalidades -->
+                            <div class="feature-item">
+                                <!-- Elemento span com atributo class="symbol" que exibe o s�mbolo num�rico da funcionalidade -->
+                                <span class="symbol">3</span>
+                                <!-- Elemento p que descreve a funcionalidade -->
+                                <p>Base de dados central para melhorar decis�es e atendimento.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Elemento aside com atributo class="highlight" que representa conte�do relacionado mas separado -->
+                    <!-- Elemento aside com atributo class="highlight" que representa conte�do relacionado mas separado -->
+                    <aside class="highlight">
+                        <!-- Elemento h3 que cont�m o t�tulo da se��o miss�o, vis�o e valores -->
+                        <!-- Elemento h3 que cont�m o t�tulo da se��o miss�o, vis�o e valores -->
+                        <h3>Miss�o, vis�o e valores</h3>
+                        <!-- Elemento p que cont�m a descri��o da miss�o, vis�o e valores -->
+                        <p>
+                            Entregar uma experi�ncia de gest�o de seguros que une tecnologia, �tica e foco total
+                            no cliente.
+                        </p>
+                        <!-- Elemento div com atributo class="mvv-list" que agrupa a lista de miss�o, vis�o e valores -->
+                        <!-- Elemento div com atributo class="mvv-list" que agrupa a lista de miss�o, vis�o e valores -->
+                        <div class="mvv-list">
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de miss�o, vis�o ou valor -->
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de miss�o, vis�o ou valor -->
+                            <article class="mvv-item">
+                                <!-- Elemento h4 que cont�m o t�tulo do item (Miss�o, Vis�o, Valores) -->
+                                <!-- Elemento h4 que cont�m o t�tulo do item (Miss�o, Vis�o, Valores) -->
+                                <h4>Miss�o</h4>
+                                <!-- Elemento p que cont�m a descri��o do item -->
+                                <p>Simplificar a opera��o di�ria das consultoras com ferramentas pr�ticas e seguras.</p>
+                            </article>
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de miss�o, vis�o ou valor -->
+                            <article class="mvv-item">
+                                <!-- Elemento h4 que cont�m o t�tulo do item (Miss�o, Vis�o, Valores) -->
+                                <h4>Vis�o</h4>
+                                <!-- Elemento p que cont�m a descri��o do item -->
+                                <p>Ser refer�ncia em gest�o de seguros em Mo�ambique.</p>
+                            </article>
+                            <!-- Elemento article com atributo class="mvv-item" que representa um item de miss�o, vis�o ou valor -->
+                            <article class="mvv-item">
+                                <!-- Elemento h4 que cont�m o t�tulo do item (Miss�o, Vis�o, Valores) -->
+                                <h4>Valores</h4>
+                                <!-- Elemento p que cont�m a descri��o do item -->
+                                <p>Confian�a, transpar�ncia, �tica e compromisso com o cliente.</p>
+                            </article>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elemento section com atributo id="servicos" e class="section" que define a se��o servi�os com id para �ncora -->
+        <!-- Elemento section com atributo id="servicos" e class="section" que define a se��o servi�os com id para �ncora -->
+        <section id="servicos" class="section">
+            <!-- Elemento div com atributo class="container" que centraliza e limita a largura do conte�do -->
+            <!-- Elemento div com atributo class="container" que centraliza e limita a largura do conte�do -->
+            <div class="container">
+                <!-- Elemento div com atributo class="section-title" que agrupa o t�tulo da se��o -->
+                <div class="section-title">
+                    <span>Servi�os</span>
+                    <h2>Solu��es pr�ticas para a sua opera��o</h2>
+                    <p>Funcionalidades desenhadas para acelerar processos e reduzir falhas de acompanhamento.</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <article class="card">
+                        <span class="icon-badge">CL</span>
+                        <h3>Gest�o de clientes</h3>
+                        <p class="info-text">Cadastro, atualiza��o e hist�rico completo de clientes.</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="icon-badge">AP</span>
+                        <h3>Gest�o de ap�lices</h3>
+                        <p class="info-text">Controlo de seguros ativos, vencimentos e renova��es.</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="icon-badge">RL</span>
+                        <h3>Relat�rios</h3>
+                        <p class="info-text">Indicadores para apoiar decis�es comerciais e operacionais.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section section-no-top">
+            <div class="container contact-panel">
+                <div class="contact-grid">
+                    <article class="contact-details">
+                        <h2>Contato</h2>
+                        <p>Estamos dispon�veis para apoiar a sua equipa e responder �s suas d�vidas.</p>
+                    </article>
+
+                    <article class="contact-copy">
+                        <ul class="contact-list">
+                            <li><span class="symbol">@</span> bonssinais@mail.com</li>
+                            <li><span class="symbol">T</span> +258 87 086 3901 / +258 83 471 2968</li>
+                            <li><span class="symbol">E</span> Cabo Delgado - Pemba, Mo�ambique</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 BONS SINAIS | Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+   
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Clientes</title>
+    <link rel="stylesheet" href="estilos/geral.css">
+</head>
+<body class="pagina-listagem">
+    <main class="app-page-shell">
+        <section class="app-page-card app-page-card-wide">
+            <div class="app-page-head">
+                <a href="dashboard.html" class="app-back-link">Voltar ao painel</a>
+                <h1>Listagem de clientes</h1>
+                <p>Clientes registados na base de dados MySQL.</p>
+            </div>
+            <div id="mensagem-listagem" class="search-empty-state" style="display: none;"></div>
+            <div class="app-table-wrap">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Apelido</th>
+                            <th>Nome</th>
+                            <th>Ramo</th>
+                            <th>Apolice</th>
+                            <th>Matricula</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaClientes"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script>
+        const paramsListagem = new URLSearchParams(window.location.search);
+        const caixa = document.getElementById("mensagem-listagem");
+        const corpo = document.getElementById("listaClientes");
+
+        if (paramsListagem.get("sucesso")) {
+            caixa.style.display = "block";
+            caixa.textContent = "Cliente guardado com sucesso.";
+        }
+
+        fetch("/api/clientes")
+            .then((resposta) => resposta.json())
+            .then((clientes) => {
+                if (!clientes.length) {
+                    corpo.innerHTML = '<tr><td colspan="6">Sem clientes registados.</td></tr>';
+                    return;
+                }
+
+                corpo.innerHTML = clientes.map((cliente) => `
+                    <tr>
+                        <td>${cliente.apelido}</td>
+                        <td>${cliente.nome}</td>
+                        <td>${cliente.ramo}</td>
+                        <td>${cliente.apolice}</td>
+                        <td>${cliente.matricula || "-"}</td>
+                        <td>${cliente.estado_apolice}</td>
+                    </tr>
+                `).join("");
+            })
+            .catch(() => {
+                corpo.innerHTML = '<tr><td colspan="6">Erro ao carregar clientes.</td></tr>';
+            });
+    </script>
+</body>
+</html>

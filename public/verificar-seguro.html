@@ -1,6 +1,3 @@
-<!--
-ARQUIVO TODO COMENTADO
-
 <!-- Define o documento como HTML5 -->
 <!DOCTYPE html>
 <html lang="pt">
@@ -56,6 +53,46 @@ ARQUIVO TODO COMENTADO
             <div class="app-inline-status" id="resultado"></div>
         </section>
     </main>
+    <script>
+        const form = document.getElementById("form-verificar-seguro");
+        const tipoPesquisa = document.getElementById("tipoPesquisaSeguro");
+        const valorPesquisa = document.getElementById("valorPesquisaSeguro");
+        const resultado = document.getElementById("resultado");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            resultado.innerHTML = "A verificar...";
+
+            try {
+                const params = new URLSearchParams();
+                if (tipoPesquisa.value === "apolice") {
+                    params.set("query", valorPesquisa.value.trim());
+                } else {
+                    params.set("query", valorPesquisa.value.trim());
+                }
+
+                const resposta = await fetch(`/api/clientes?${params.toString()}`);
+                const clientes = await resposta.json();
+
+                if (!clientes.length) {
+                    resultado.innerHTML = '<div class="status-error">Nenhum seguro encontrado com os critérios fornecidos.</div>';
+                    return;
+                }
+
+                const cliente = clientes[0]; // Assuming first match
+                resultado.innerHTML = `
+                    <div class="status-success">
+                        <h3>Seguro encontrado</h3>
+                        <p><strong>Cliente:</strong> ${cliente.nome} ${cliente.apelido}</p>
+                        <p><strong>Apólice:</strong> ${cliente.apolice}</p>
+                        <p><strong>Estado:</strong> ${cliente.estado_apolice}</p>
+                        <p><strong>Seguradora:</strong> ${cliente.seguradora}</p>
+                    </div>
+                `;
+            } catch (erro) {
+                resultado.innerHTML = '<div class="status-error">Erro ao verificar o seguro.</div>';
+            }
+        });
+    </script>
 </body>
 </html>
--->

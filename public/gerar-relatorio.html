@@ -1,64 +1,61 @@
-ï»¿<!--
-ARQUIVO TODO COMENTADO
-
-<!-- Define o uso do padrÃ£o HTML5 -->
+<!-- Define o uso do padrão HTML5 -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <!-- Define a codificaÃ§Ã£o do documento -->
+    <!-- Define a codificação do documento -->
     <meta charset="UTF-8">
-    <!-- Faz a pÃ¡gina adaptar-se a diferentes tamanhos de ecrÃ£ -->
+    <!-- Faz a página adaptar-se a diferentes tamanhos de ecrã -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Define o tÃ­tulo mostrado na aba do navegador -->
-    <title>Gerar RelatÃ³rio</title>
-    <!-- Liga esta pÃ¡gina ao ficheiro CSS principal -->
+    <!-- Define o título mostrado na aba do navegador -->
+    <title>Gerar Relatório</title>
+    <!-- Liga esta página ao ficheiro CSS principal -->
     <link rel="stylesheet" href="estilos/geral.css">
 </head>
 <body class="pagina-formulario pagina-relatorio">
-    <!-- Ãrea principal da pÃ¡gina -->
+    <!-- Área principal da página -->
     <main class="app-page-shell">
-        <!-- CartÃ£o central da funcionalidade -->
+        <!-- Cartão central da funcionalidade -->
         <section class="app-page-card">
-            <!-- CabeÃ§alho da pÃ¡gina -->
+            <!-- Cabeçalho da página -->
             <div class="app-page-head">
                 <a href="dashboard.html" class="app-back-link">Voltar ao painel</a>
             
-                <h1>Gerar relatÃ³rio</h1>
-                <p>Defina o tipo do relatÃ³rio, a periodicidade, a data e a seguradora para preparar o ficheiro final.</p>
+                <h1>Gerar relatório</h1>
+                <p>Defina o tipo do relatório, a periodicidade, a data e a seguradora para preparar o ficheiro final.</p>
             </div>
 
-            <!-- Elemento form com atributo class="app-form-grid app-form-grid-2" criando grid com 2 colunas, id="form-relatorio" identificando o formulÃ¡rio -->
+            <!-- Elemento form com atributo class="app-form-grid app-form-grid-2" criando grid com 2 colunas, id="form-relatorio" identificando o formulário -->
             <form class="app-form-grid app-form-grid-2" id="form-relatorio">
                 <label class="app-field">
-                    <span>Tipo de relatÃ³rio</span>
-                    <!-- Elemento select com atributo id="tipoRelatorio" para acesso em JavaScript, required=true obrigando seleÃ§Ã£o -->
+                    <span>Tipo de relatório</span>
+                    <!-- Elemento select com atributo id="tipoRelatorio" para acesso em JavaScript, required=true obrigando seleção -->
                     <select id="tipoRelatorio" required>
                         <option value="todos">Todos os seguros</option>
                         <option value="ativos">Seguros ativos</option>
                         <option value="vencidos">Seguros vencidos</option>
-                        <option value="proximos">PrÃ³ximos do vencimento</option>
+                        <option value="proximos">Próximos do vencimento</option>
                     </select>
                 </label>
 
                 <label class="app-field">
                     <span>Periodicidade</span>
-                    <!-- Elemento select com atributo id="periodicidadeRelatorio" para acesso em JavaScript, required=true obrigando seleÃ§Ã£o -->
+                    <!-- Elemento select com atributo id="periodicidadeRelatorio" para acesso em JavaScript, required=true obrigando seleção -->
                     <select id="periodicidadeRelatorio" required>
-                        <option value="diario">DiÃ¡rio</option>
+                        <option value="diario">Diário</option>
                         <option value="semanal">Semanal</option>
                         <option value="mensal">Mensal</option>
                     </select>
                 </label>
 
                 <label class="app-field">
-                    <span>Data de referÃªncia</span>
+                    <span>Data de referência</span>
                     <!-- Elemento input com atributo type="date" para data, id="dataReferenciaRelatorio" para acesso em JavaScript, required=true obrigando preenchimento -->
                     <input type="date" id="dataReferenciaRelatorio" required>
                 </label>
 
                 <label class="app-field">
                     <span>Seguradora</span>
-                    <!-- Elemento select com atributo id="seguradoraRelatorio" para acesso em JavaScript, sem required permitindo opÃ§Ã£o geral -->
+                    <!-- Elemento select com atributo id="seguradoraRelatorio" para acesso em JavaScript, sem required permitindo opção geral -->
                     <select id="seguradoraRelatorio">
                         <option value="geral">Geral</option>
                         <option value="Emose">Emose</option>
@@ -68,17 +65,17 @@ ARQUIVO TODO COMENTADO
                 </label>
 
                 <div class="app-form-actions app-field-full">
-                    <!-- Elemento button com atributo type="submit" que envia formulÃ¡rio, class="app-btn app-btn-success" para estilo verde, id="btnGerarRelatorio" para acesso em JavaScript -->
-                    <button type="submit" class="app-btn app-btn-success">Gerar relatÃ³rio</button>
-                    <!-- Elemento button com atributo type="button" que nÃ£o envia formulÃ¡rio, class="app-btn app-btn-secondary" para estilo cinzento, id="btnLimparRelatorio" para acesso em JavaScript -->
+                    <!-- Elemento button com atributo type="submit" que envia formulário, class="app-btn app-btn-success" para estilo verde, id="btnGerarRelatorio" para acesso em JavaScript -->
+                    <button type="submit" class="app-btn app-btn-success">Gerar relatório</button>
+                    <!-- Elemento button com atributo type="button" que não envia formulário, class="app-btn app-btn-secondary" para estilo cinzento, id="btnLimparRelatorio" para acesso em JavaScript -->
                     <button type="button" class="app-btn app-btn-secondary" id="btnLimparRelatorio">Limpar</button>
                 </div>
             </form>
 
             <!-- Elemento div com atributo class="app-inline-status" exibindo mensagem de estado, id="resultadoRelatorio" para acesso em JavaScript -->
-            <div class="app-inline-status" id="resultadoRelatorio">Preencha os campos e clique em gerar relatÃ³rio.</div>
+            <div class="app-inline-status" id="resultadoRelatorio">Preencha os campos e clique em gerar relatório.</div>
 
-            <!-- Elemento div com atributo class="app-form-actions app-field-full" agrupando botÃµes de aÃ§Ã£o, id="acoesDownloadRelatorio" para identificaÃ§Ã£o, style="display: none;" ocultando inicialmente -->
+            <!-- Elemento div com atributo class="app-form-actions app-field-full" agrupando botões de ação, id="acoesDownloadRelatorio" para identificação, style="display: none;" ocultando inicialmente -->
             <div class="app-form-actions app-field-full" id="acoesDownloadRelatorio" style="display: none;">
                 <button type="button" class="app-btn app-btn-dark" id="btnBaixarPdf">Baixar PDF</button>
                 <button type="button" class="app-btn app-btn-primary" id="btnBaixarExcel">Baixar Excel</button>
@@ -87,4 +84,3 @@ ARQUIVO TODO COMENTADO
     </main>
 </body>
 </html>
--->

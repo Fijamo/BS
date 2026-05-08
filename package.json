@@ -1,0 +1,32 @@
+{
+  "name": "sistema-bs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mssql": "^11.0.0"
+  },
+  "description": "��#\u0000 \u0000S\u0000i\u0000s\u0000t\u0000e\u0000m\u0000a\u0000 \u0000B\u0000S\u0000\r\u0000 \u0000#\u0000 \u0000S\u0000i\u0000s\u0000t\u0000e\u0000m\u0000a\u0000 \u0000B\u0000O\u0000o\u0000n\u0000s\u0000 \u0000S\u0000i\u0000n\u0000a\u0000i\u0000s\u0000\r\u0000 \u0000#\u0000 \u0000S\u0000i\u0000s\u0000t\u0000e\u0000m\u0000a\u0000 \u0000B\u0000O\u0000o\u0000n\u0000s\u0000 \u0000S\u0000i\u0000n\u0000a\u0000i\u0000s\u0000\r\u0000 \u0000",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fijamo/BS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fijamo/BS/issues"
+  },
+  "homepage": "https://github.com/Fijamo/BS#readme"
+}
