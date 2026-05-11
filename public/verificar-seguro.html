@@ -64,12 +64,15 @@
             resultado.innerHTML = "A verificar...";
 
             try {
-                const params = new URLSearchParams();
-                if (tipoPesquisa.value === "apolice") {
-                    params.set("query", valorPesquisa.value.trim());
-                } else {
-                    params.set("query", valorPesquisa.value.trim());
+                const valor = valorPesquisa.value.trim();
+                if (!valor) {
+                    resultado.innerHTML = '<div class="status-error">Informe um valor para pesquisa.</div>';
+                    return;
                 }
+
+                const params = new URLSearchParams();
+                params.set("query", valor);
+                params.set("type", tipoPesquisa.value);
 
                 const resposta = await fetch(`/api/clientes?${params.toString()}`);
                 const clientes = await resposta.json();
@@ -79,16 +82,18 @@
                     return;
                 }
 
-                const cliente = clientes[0]; // Assuming first match
-                resultado.innerHTML = `
+                resultado.innerHTML = clientes.map((cliente) => `
                     <div class="status-success">
                         <h3>Seguro encontrado</h3>
                         <p><strong>Cliente:</strong> ${cliente.nome} ${cliente.apelido}</p>
                         <p><strong>Apólice:</strong> ${cliente.apolice}</p>
                         <p><strong>Estado:</strong> ${cliente.estado_apolice}</p>
                         <p><strong>Seguradora:</strong> ${cliente.seguradora}</p>
+                        <p><strong>Contacto:</strong> ${cliente.contacto_principal || '-'}${cliente.contacto_alternativo ? ' / ' + cliente.contacto_alternativo : ''}</p>
+                        <p><strong>Data de início:</strong> ${cliente.data_inicio || '-'}</p>
+                        <p><strong>Data de fim:</strong> ${cliente.data_fim || '-'}</p>
                     </div>
-                `;
+                `).join('');
             } catch (erro) {
                 resultado.innerHTML = '<div class="status-error">Erro ao verificar o seguro.</div>';
             }

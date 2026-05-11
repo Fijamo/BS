@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="estilos/geral.css">
 </head>
+
 <body class="pagina-login">
     <main class="login-shell">
         <section class="login-panel">
             <span class="login-kicker">BS Seguros</span>
             <h1>Aceder ao sistema</h1>
             <p>Entre com as suas credenciais para abrir o painel operacional.</p>
+
             <div id="mensagem-login" class="search-empty-state" style="display: none;"></div>
-            <form action="/api/login" method="POST" class="login-form">
+
+            <!-- CORRIGIDO: /api/login → /login -->
+            <form action="/login" method="POST" class="login-form">
+
                 <label class="app-field">
                     <span>Email</span>
                     <input type="email" name="email" placeholder="Digite o seu email" required>
                 </label>
+
                 <label class="app-field">
                     <span>Senha</span>
                     <input type="password" name="senha" placeholder="Digite a sua senha" required>
                 </label>
-                <button type="submit" class="app-btn app-btn-dark login-submit">Entrar</button>
+
+                <button type="submit" class="app-btn app-btn-dark login-submit">
+                    Entrar
+                </button>
+
             </form>
         </section>
     </main>
+
     <script>
         const params = new URLSearchParams(window.location.search);
         const erro = params.get("erro");
         const caixa = document.getElementById("mensagem-login");
+
         const mensagens = {
             campos: "Preencha o email e a senha.",
-            credenciais: "Credenciais invalidas.",
+            credenciais: "Credenciais inválidas.",
             servidor: "Erro ao comunicar com o servidor."
         };
 
@@ -42,4 +55,5 @@
         }
     </script>
 </body>
+
 </html>

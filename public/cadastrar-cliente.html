@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Cliente</title>
     <link rel="stylesheet" href="estilos/geral.css">
 </head>
+
 <body class="pagina-formulario pagina-cadastro-cliente">
     <main class="app-page-shell">
         <section class="app-page-card app-page-card-wide">
@@ -15,7 +17,7 @@
                 <p>Registe dados do segurado, da apolice e das informacoes de contacto.</p>
             </div>
             <div id="mensagem-cadastro" class="search-empty-state" style="display: none;"></div>
-            <form class="app-form-grid app-form-grid-4" action="/api/clientes" method="POST">
+            <form class="app-form-grid app-form-grid-4" action="/clientes" method="POST">
                 <label class="app-field app-span-2">
                     <span>Apelido</span>
                     <input type="text" name="apelido" required>
@@ -179,4 +181,5 @@
         }
     </script>
 </body>
+
 </html>

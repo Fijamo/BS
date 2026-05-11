@@ -41,3 +41,9 @@ SELECT 'Administrador', 'admin@bsseguros.co.mz', '1234'
 WHERE NOT EXISTS (
   SELECT 1 FROM usuarios WHERE email = 'admin@bsseguros.co.mz'
 );
+
+INSERT INTO usuarios (nome, email, senha)
+SELECT 'DuarteFijamo', 'fijamo@bsseguros.co.mz', '1234'
+WHERE NOT EXISTS (
+  SELECT 2 FROM usuarios WHERE email = 'fijamo@bsseguros.co.mz'
+);

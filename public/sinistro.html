@@ -2,138 +2,138 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <!-- Define a codificação do documento -->
+    <!-- Define a codificaï¿½ï¿½o do documento -->
     <meta charset="UTF-8">
-    <!-- Faz a página adaptar-se ao tamanho do ecrã -->
+    <!-- Faz a pï¿½gina adaptar-se ao tamanho do ecrï¿½ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Define o título mostrado na aba do navegador -->
+    <!-- Define o tï¿½tulo mostrado na aba do navegador -->
     <title>Painel de Sinistro</title>
-    <!-- Liga esta página ao ficheiro CSS principal -->
+    <!-- Liga esta pï¿½gina ao ficheiro CSS principal -->
     <link rel="stylesheet" href="estilos/geral.css">
 </head>
 <body class="pagina-formulario pagina-sinistro">
-    <!-- Área principal da página de registo de sinistro -->
+    <!--rea principal da pgina de registo de sinistro -->
     <main class="app-page-shell">
-        <!-- Cartão que concentra o formulário e os destaques da tela -->
+        <!-- Carto que concentra o formulrio e os destaques da tela -->
         <section class="app-page-card">
-            <!-- Cabeçalho da funcionalidade -->
+            <!-- Cabeï¿½alho da funcionalidade -->
             <div class="app-page-head">
                 <a href="index.html" class="app-back-link">Voltar ao painel</a>
   
-                <h1>Painel de sinistro e perícia</h1>
-                <p>Registe a ocorrência, detalhe a perícia e anexe documentos de suporte para seguimento.</p>
+                <h1>Painel de sinistro e perï¿½cia</h1>
+                <p>Registe a ocorrï¿½ncia, detalhe a perï¿½cia e anexe documentos de suporte para seguimento.</p>
             </div>
 
-            <!-- Cartões rápidos que resumem os blocos mais importantes do processo -->
+            <!-- Cartï¿½es rï¿½pidos que resumem os blocos mais importantes do processo -->
             <div class="sinistro-highlights">
                 <article class="sinistro-highlight-card">
-                    <strong>Ocorrência</strong>
+                    <strong>Ocorrï¿½ncia</strong>
                     <span>Registe data, hora, local e tipo do sinistro com clareza.</span>
                 </article>
                 <article class="sinistro-highlight-card">
                     <strong>Envolvidos</strong>
-                    <span>Inclua dados da outra parte para facilitar a análise e o contacto.</span>
+                    <span>Inclua dados da outra parte para facilitar a anï¿½lise e o contacto.</span>
                 </article>
                 <article class="sinistro-highlight-card">
                     <strong>Anexos</strong>
-                    <span>Junte vários documentos e imagens numa única submissão.</span>
+                    <span>Junte vï¿½rios documentos e imagens numa ï¿½nica submissï¿½o.</span>
                 </article>
             </div>
 
-            <!-- Elemento form com atributo action="../Backand/processar_sinistro.php" especificando para onde enviar os dados, method="POST" usando método POST para dados, enctype="multipart/form-data" permitindo envio de ficheiros, class="app-form-grid app-form-grid-2" criando grid com 2 colunas -->
+            <!-- Elemento form com atributo action="../Backand/processar_sinistro.php" especificando para onde enviar os dados, method="POST" usando mï¿½todo POST para dados, enctype="multipart/form-data" permitindo envio de ficheiros, class="app-form-grid app-form-grid-2" criando grid com 2 colunas -->
             <form action="../Backand/processar_sinistro.php" method="POST" enctype="multipart/form-data" class="app-form-grid app-form-grid-2">
-                <!-- Título visual da primeira secção do formulário -->
+                <!-- Tï¿½tulo visual da primeira secï¿½ï¿½o do formulï¿½rio -->
                 <div class="app-section-title app-field-full">Dados do sinistro</div>
 
-                <!-- Dados principais do cliente e do tipo de ocorrência -->
+                <!-- Dados principais do cliente e do tipo de ocorrï¿½ncia -->
                 <label class="app-field">
                     <span>Cliente</span>
-                <!-- Elemento input com atributo type="text" para texto, name="cliente" identificando o parâmetro, placeholder="Nome do cliente" texto de ajuda, required=true obrigando preenchimento -->
+                <!-- Elemento input com atributo type="text" para texto, name="cliente" identificando o parï¿½metro, placeholder="Nome do cliente" texto de ajuda, required=true obrigando preenchimento -->
                     <input type="text" name="cliente" placeholder="Nome do cliente" required>
                 </label>
 
-                <!-- Campo para identificar a apólice relacionada ao sinistro -->
+                <!-- Campo para identificar a apï¿½lice relacionada ao sinistro -->
                 <label class="app-field">
-                    <span>Nº da apólice</span>
-                    <!-- Elemento input com atributo type="text" para texto, name="apolice" identificando o parâmetro, placeholder="Número da apólice" texto de ajuda -->
-                    <input type="text" name="apolice" placeholder="Número da apólice">
+                    <span>Nï¿½ da apï¿½lice</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="apolice" identificando o parï¿½metro, placeholder="Nï¿½mero da apï¿½lice" texto de ajuda -->
+                    <input type="text" name="apolice" placeholder="Nï¿½mero da apï¿½lice">
                 </label>
 
-                <!-- Lista do tipo de ocorrência registada -->
+                <!-- Lista do tipo de ocorrï¿½ncia registada -->
                 <label class="app-field">
                     <span>Tipo de sinistro</span>
-                    <!-- Elemento select com atributo name="tipo" identificando o parâmetro, criando lista de tipos de sinistro -->
+                    <!-- Elemento select com atributo name="tipo" identificando o parï¿½metro, criando lista de tipos de sinistro -->
                     <select name="tipo">
                         <option>Acidente</option>
                         <option>Roubo</option>
-                        <option>Incêndio</option>
+                        <option>Incï¿½ndio</option>
                         <option>Outro</option>
                     </select>
                 </label>
 
-                <!-- Campo obrigatório para registar a data da ocorrência -->
+                <!-- Campo obrigatï¿½rio para registar a data da ocorrï¿½ncia -->
                 <label class="app-field">
                     <span>Data do sinistro</span>
-                    <!-- Elemento input com atributo type="date" para data, name="data_sinistro" identificando o parâmetro, required=true obrigando preenchimento -->
+                    <!-- Elemento input com atributo type="date" para data, name="data_sinistro" identificando o parï¿½metro, required=true obrigando preenchimento -->
                     <input type="date" name="data_sinistro" required>
                 </label>
 
-                <!-- Campo opcional para complementar a ocorrência com a hora -->
+                <!-- Campo opcional para complementar a ocorrï¿½ncia com a hora -->
                 <label class="app-field">
                     <span>Hora do sinistro</span>
-                    <!-- Elemento input com atributo type="time" para hora, name="hora_sinistro" identificando o parâmetro -->
+                    <!-- Elemento input com atributo type="time" para hora, name="hora_sinistro" identificando o parï¿½metro -->
                     <input type="time" name="hora_sinistro">
                 </label>
 
-                <!-- Campo para identificar o local principal da ocorrência -->
+                <!-- Campo para identificar o local principal da ocorrï¿½ncia -->
                 <label class="app-field">
                     <span>Local do sinistro</span>
-                    <!-- Elemento input com atributo type="text" para texto, name="local_sinistro" identificando o parâmetro, placeholder="Onde ocorreu o sinistro" texto de ajuda -->
+                    <!-- Elemento input com atributo type="text" para texto, name="local_sinistro" identificando o parï¿½metro, placeholder="Onde ocorreu o sinistro" texto de ajuda -->
                     <input type="text" name="local_sinistro" placeholder="Onde ocorreu o sinistro">
                 </label>
 
-                <!-- Campo auxiliar para cidade, bairro ou referência -->
+                <!-- Campo auxiliar para cidade, bairro ou referï¿½ncia -->
                 <label class="app-field">
                     <span>Cidade ou bairro</span>
-                    <!-- Elemento input com atributo type="text" para texto, name="zona_sinistro" identificando o parâmetro, placeholder="Cidade, bairro ou referência" texto de ajuda -->
-                    <input type="text" name="zona_sinistro" placeholder="Cidade, bairro ou referência">
+                    <!-- Elemento input com atributo type="text" para texto, name="zona_sinistro" identificando o parï¿½metro, placeholder="Cidade, bairro ou referï¿½ncia" texto de ajuda -->
+                    <input type="text" name="zona_sinistro" placeholder="Cidade, bairro ou referï¿½ncia">
                 </label>
 
                 <!-- Select para indicar se alguma autoridade foi acionada -->
                 <label class="app-field">
                     <span>Autoridade acionada</span>
-                    <!-- Elemento select com atributo name="autoridade_acionada" identificando o parâmetro, criando lista de gestão de autoridades -->
+                    <!-- Elemento select com atributo name="autoridade_acionada" identificando o parï¿½metro, criando lista de gestï¿½o de autoridades -->
                     <select name="autoridade_acionada">
-                        <option>Não</option>
-                        <option>Polícia</option>
+                        <option>Nï¿½o</option>
+                        <option>Polï¿½cia</option>
                         <option>Bombeiros</option>
-                        <option>Ambulância</option>
+                        <option>Ambulï¿½ncia</option>
                         <option>Outra</option>
                     </select>
                 </label>
 
-                <!-- Campo para guardar o número do auto ou da ocorrência oficial -->
+                <!-- Campo para guardar o nï¿½mero do auto ou da ocorrï¿½ncia oficial -->
                 <label class="app-field">
-                    <span>Nº do auto ou ocorrência</span>
-                    <input type="text" name="auto_ocorrencia" placeholder="Número do auto, se existir">
+                    <span>Nï¿½ do auto ou ocorrï¿½ncia</span>
+                    <input type="text" name="auto_ocorrencia" placeholder="Nï¿½mero do auto, se existir">
                 </label>
 
                 <!-- Campo amplo para descrever o que aconteceu -->
                 <label class="app-field app-field-full">
-                    <span>Descrição</span>
-                    <textarea name="descricao" rows="4" placeholder="Descreva a ocorrência"></textarea>
+                    <span>Descriï¿½ï¿½o</span>
+                    <textarea name="descricao" rows="4" placeholder="Descreva a ocorrï¿½ncia"></textarea>
                 </label>
 
-                <!-- Título visual da secção de análise e acompanhamento -->
-                <div class="app-section-title app-field-full">Perícia e acompanhamento</div>
+                <!-- Tï¿½tulo visual da secï¿½ï¿½o de anï¿½lise e acompanhamento -->
+                <div class="app-section-title app-field-full">Perï¿½cia e acompanhamento</div>
 
-                <!-- Campo para registar as conclusões da perícia -->
+                <!-- Campo para registar as conclusï¿½es da perï¿½cia -->
                 <label class="app-field app-field-full">
-                    <span>Resultado da perícia</span>
-                    <textarea name="resultado" rows="4" placeholder="Indique as conclusões da perícia"></textarea>
+                    <span>Resultado da perï¿½cia</span>
+                    <textarea name="resultado" rows="4" placeholder="Indique as conclusï¿½es da perï¿½cia"></textarea>
                 </label>
 
-                <!-- Campo numérico para estimar o prejuízo -->
+                <!-- Campo numï¿½rico para estimar o prejuï¿½zo -->
                 <label class="app-field">
                     <span>Valor estimado (MZN)</span>
                     <input type="number" name="valor" placeholder="Valor estimado">
@@ -141,7 +141,7 @@
 
                 <!-- Campo para identificar o processo interno -->
                 <label class="app-field">
-                    <span>Número do processo</span>
+                    <span>Nï¿½mero do processo</span>
                     <input type="text" name="processo" placeholder="Ex.: SIN-2026-001">
                 </label>
 
@@ -149,27 +149,27 @@
                 <label class="app-field">
                     <span>Estado do processo</span>
                     <select name="estado_processo">
-                        <option>Em análise</option>
+                        <option>Em anï¿½lise</option>
                         <option>Aguardando documentos</option>
-                        <option>Em perícia</option>
+                        <option>Em perï¿½cia</option>
                         <option>Aprovado</option>
                         <option>Recusado</option>
                     </select>
                 </label>
 
-                <!-- Campo para indicar o responsável técnico -->
+                <!-- Campo para indicar o responsï¿½vel tï¿½cnico -->
                 <label class="app-field">
-                    <span>Perito responsável</span>
-                    <input type="text" name="perito" placeholder="Nome do perito ou técnico">
+                    <span>Perito responsï¿½vel</span>
+                    <input type="text" name="perito" placeholder="Nome do perito ou tï¿½cnico">
                 </label>
 
-                <!-- Campo interno para observações de seguimento -->
+                <!-- Campo interno para observaï¿½ï¿½es de seguimento -->
                 <label class="app-field app-field-full">
-                    <span>Observações internas</span>
+                    <span>Observaï¿½ï¿½es internas</span>
                     <textarea name="observacoes_internas" rows="3" placeholder="Notas de acompanhamento para uso interno"></textarea>
                 </label>
 
-                <!-- Título visual da secção da outra parte envolvida -->
+                <!-- Tï¿½tulo visual da secï¿½ï¿½o da outra parte envolvida -->
                 <div class="app-section-title app-field-full">Dados da outra pessoa envolvida</div>
 
                 <!-- Campo para o nome da outra parte envolvida -->
@@ -184,31 +184,31 @@
                     <input type="tel" name="envolvido_contacto" placeholder="Telefone ou celular">
                 </label>
 
-                <!-- Documento de identificação da outra parte -->
+                <!-- Documento de identificaï¿½ï¿½o da outra parte -->
                 <label class="app-field">
-                    <span>Número do documento</span>
+                    <span>Nï¿½mero do documento</span>
                     <input type="text" name="envolvido_documento" placeholder="BI, passaporte ou outro documento">
                 </label>
 
-                <!-- Informação do veículo ou identificação semelhante -->
+                <!-- Informaï¿½ï¿½o do veï¿½culo ou identificaï¿½ï¿½o semelhante -->
                 <label class="app-field">
-                    <span>Veículo ou matrícula</span>
-                    <input type="text" name="envolvido_veiculo" placeholder="Matrícula ou identificação do veículo">
+                    <span>Veï¿½culo ou matrï¿½cula</span>
+                    <input type="text" name="envolvido_veiculo" placeholder="Matrï¿½cula ou identificaï¿½ï¿½o do veï¿½culo">
                 </label>
 
-                <!-- Seguradora associada à outra parte, quando existir -->
+                <!-- Seguradora associada ï¿½ outra parte, quando existir -->
                 <label class="app-field">
                     <span>Seguradora da outra parte</span>
                     <input type="text" name="envolvido_seguradora" placeholder="Nome da seguradora, se existir">
                 </label>
 
-                <!-- Área livre para detalhes adicionais da outra parte -->
+                <!-- ï¿½rea livre para detalhes adicionais da outra parte -->
                 <label class="app-field app-field-full">
-                    <span>Observações sobre a outra parte</span>
-                    <textarea name="envolvido_observacoes" rows="3" placeholder="Detalhes adicionais sobre a pessoa ou o veículo envolvido"></textarea>
+                    <span>Observaï¿½ï¿½es sobre a outra parte</span>
+                    <textarea name="envolvido_observacoes" rows="3" placeholder="Detalhes adicionais sobre a pessoa ou o veï¿½culo envolvido"></textarea>
                 </label>
 
-                <!-- Título visual da secção de testemunhas e documentos -->
+                <!-- Tï¿½tulo visual da secï¿½ï¿½o de testemunhas e documentos -->
                 <div class="app-section-title app-field-full">Testemunhas e apoio documental</div>
 
                 <!-- Campo para a principal testemunha do processo -->
@@ -223,31 +223,31 @@
                     <input type="tel" name="testemunha_contacto" placeholder="Telefone da testemunha">
                 </label>
 
-                <!-- Área de anexos com suporte a múltiplos ficheiros -->
+                <!-- ï¿½rea de anexos com suporte a mï¿½ltiplos ficheiros -->
                 <div class="app-section-title app-field-full">Documentos anexos</div>
 
-                <!-- Caixa destacada para facilitar o envio de vários documentos -->
+                <!-- Caixa destacada para facilitar o envio de vï¿½rios documentos -->
                 <div class="sinistro-upload-box app-field-full">
                     <label class="app-field">
                         <span>Anexar documentos</span>
-                        <!-- Permite selecionar vários documentos do computador numa única ação -->
+                        <!-- Permite selecionar vï¿½rios documentos do computador numa ï¿½nica aï¿½ï¿½o -->
                         <input type="file" name="arquivos[]" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple>
-                        <small class="app-field-help">Pode anexar relatório, fotos, auto da ocorrência, cópia de documentos e outros ficheiros de suporte.</small>
+                        <small class="app-field-help">Pode anexar relatï¿½rio, fotos, auto da ocorrï¿½ncia, cï¿½pia de documentos e outros ficheiros de suporte.</small>
                     </label>
 
-                    <!-- Etiquetas visuais com exemplos de anexos úteis para o processo -->
+                    <!-- Etiquetas visuais com exemplos de anexos ï¿½teis para o processo -->
                     <div class="sinistro-upload-tags">
                         <span class="sinistro-tag">Fotos do local</span>
                         <span class="sinistro-tag">BI / Documento</span>
-                        <span class="sinistro-tag">Auto da polícia</span>
-                        <span class="sinistro-tag">Relatório pericial</span>
+                        <span class="sinistro-tag">Auto da polï¿½cia</span>
+                        <span class="sinistro-tag">Relatï¿½rio pericial</span>
                     </div>
                 </div>
 
-                <!-- Botões principais do formulário -->
+                <!-- Botï¿½es principais do formulï¿½rio -->
                 <div class="app-form-actions app-field-full">
                     <button type="button" class="app-btn app-btn-secondary">Guardar rascunho</button>
-                    <button type="submit" class="app-btn app-btn-success">Enviar relatório</button>
+                    <button type="submit" class="app-btn app-btn-success">Enviar relatï¿½rio</button>
                 </div>
             </form>
         </section>
