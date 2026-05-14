@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="estilos/geral.css">
+    <link rel="stylesheet" href="stylesheets/geral.css">
 </head>
 
 <body class="pagina-login">
@@ -18,8 +18,7 @@
             <div id="mensagem-login" class="search-empty-state" style="display: none;"></div>
 
             <!-- CORRIGIDO: /api/login → /login -->
-            <form action="/login" method="POST" class="login-form">
-
+<form action="/api/login" method="POST" class="login-form">
                 <label class="app-field">
                     <span>Email</span>
                     <input type="email" name="email" placeholder="Digite o seu email" required>

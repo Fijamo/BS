@@ -1,119 +1,94 @@
-```html
-<!-- Define o uso do padrão HTML5 -->
 <!DOCTYPE html>
 <html lang="pt">
 
 <head>
-    <!-- Define a codificação do documento -->
     <meta charset="UTF-8">
-
-    <!-- Faz a página adaptar-se a diferentes tamanhos de ecrã -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Define o título mostrado na aba do navegador -->
     <title>Gerar Relatório</title>
-
-    <!-- Liga esta página ao ficheiro CSS principal -->
     <link rel="stylesheet" href="stylesheets/geral.css">
 </head>
 
 <body class="pagina-formulario pagina-relatorio">
-    <!-- Área principal da página -->
-    <main class="app-page-shell">
 
-        <!-- Cartão central da funcionalidade -->
-        <section class="app-page-card">
+<main class="app-page-shell">
 
-            <!-- Cabeçalho da página -->
-            <div class="app-page-head">
-                <a href="dashboard.html" class="app-back-link">Voltar ao painel</a>
+<section class="app-page-card">
 
-                <h1>Gerar relatório</h1>
-                <p>
-                    Defina o tipo do relatório, a periodicidade, a data e a seguradora
-                    para preparar o ficheiro final.
-                </p>
-            </div>
+    <div class="app-page-head">
+        <a href="dashboard.html" class="app-back-link">Voltar ao painel</a>
 
-            <!-- Formulário principal -->
-            <form class="app-form-grid app-form-grid-2" id="form-relatorio">
+        <h1>Gerar relatório</h1>
+        <p>Filtre os dados e faça download do relatório.</p>
+    </div>
 
-                <label class="app-field">
-                    <span>Tipo de relatório</span>
+    <form class="app-form-grid app-form-grid-2" id="form-relatorio">
 
-                    <!-- Campo select do tipo de relatório -->
-                    <select id="tipoRelatorio" required>
-                        <option value="todos">Todos os seguros</option>
-                        <option value="ativos">Seguros ativos</option>
-                        <option value="vencidos">Seguros vencidos</option>
-                        <option value="proximos">Próximos do vencimento</option>
-                    </select>
-                </label>
+        <!--  PERÍODO -->
+        <label class="app-field">
+            <span>Data inicial</span>
+            <input type="date" id="dataInicio" required>
+        </label>
 
-                <label class="app-field">
-                    <span>Periodicidade</span>
+        <label class="app-field">
+            <span>Data final</span>
+            <input type="date" id="dataFim" required>
+        </label>
 
-                    <!-- Campo select da periodicidade -->
-                    <select id="periodicidadeRelatorio" required>
-                        <option value="diario">Diário</option>
-                        <option value="semanal">Semanal</option>
-                        <option value="mensal">Mensal</option>
-                    </select>
-                </label>
+        <!--  ESTADO DA APÓLICE -->
+        <label class="app-field">
+            <span>Estado da apólice</span>
+            <select id="estadoApolice">
+                <option value="todos">Todos</option>
+                <option value="Ativa">Ativa</option>
+                <option value="Vencida">Vencida</option>
+                <option value="Cancelada">Cancelada</option>
+            </select>
+        </label>
 
-                <label class="app-field">
-                    <span>Data de referência</span>
+        <!--  SEGURADORA -->
+        <label class="app-field">
+            <span>Seguradora</span>
+            <select id="seguradora">
+                <option value="geral">Geral</option>
+                <option value="Emose">Emose</option>
+                <option value="Indico">Indico</option>
+                <option value="Horizonte">Horizonte</option>
+            </select>
+        </label>
 
-                    <!-- Campo de data -->
-                    <input type="date" id="dataReferenciaRelatorio" required>
-                </label>
+        <!-- BOTÃO -->
+        <div class="app-form-actions app-field-full">
+            <button type="button" class="app-btn app-btn-dark" id="btnBaixarRelatorio">
+                Baixar relatório
+            </button>
+        </div>
 
-                <label class="app-field">
-                    <span>Seguradora</span>
+    </form>
 
-                    <!-- Campo select da seguradora -->
-                    <select id="seguradoraRelatorio">
-                        <option value="geral">Geral</option>
-                        <option value="Emose">Emose</option>
-                        <option value="Indico">Indico</option>
-                        <option value="Horizonte">Horizonte</option>
-                    </select>
-                </label>
+    <div class="app-inline-status" id="statusRelatorio">
+        Configure os filtros e gere o relatório.
+    </div>
 
-                <!-- Área dos botões -->
-                <div class="app-form-actions app-field-full">
+</section>
 
-                    <!-- Botão para gerar relatório -->
-                    <button type="submit" class="app-btn app-btn-success">
-                        Gerar relatório
-                    </button>
+</main>
 
-                    <!-- Botão para limpar formulário -->
-                    <button type="button" class="app-btn app-btn-secondary" id="btnLimparRelatorio">
-                        Limpar
-                    </button>
-                </div>
-            </form>
+<!-- SCRIPT INTERNO DE TESTE -->
+<script>
+document.getElementById('btnBaixarRelatorio').addEventListener('click', () => {
 
-            <!-- Área de mensagens -->
-            <div class="app-inline-status" id="resultadoRelatorio">
-                Preencha os campos e clique em gerar relatório.
-            </div>
+    const inicio = document.getElementById('dataInicio').value;
+    const fim = document.getElementById('dataFim').value;
+    const estado = document.getElementById('estadoApolice').value;
+    const seguradora = document.getElementById('seguradora').value;
 
-            <!-- Área dos downloads -->
-            <div class="app-form-actions app-field-full" id="acoesDownloadRelatorio" style="display: none;">
+    const url =
+        `/api/relatorio/excel?inicio=${inicio}&fim=${fim}&estado=${estado}&seguradora=${seguradora}`;
 
-                <button type="button" class="app-btn app-btn-dark" id="btnBaixarPdf">
-                    Baixar PDF
-                </button>
+    window.location.href = url;
 
-                <button type="button" class="app-btn app-btn-primary" id="btnBaixarExcel">
-                    Baixar Excel
-                </button>
-            </div>
-        </section>
-    </main>
+});
+</script>
+
 </body>
-
 </html>
-```

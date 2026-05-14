@@ -4,12 +4,16 @@ const db = require('./db');
 
 console.log('Rotas.js carregado');
 
+
+
 /* =========================
    TESTE
 ========================= */
 router.get('/teste', (req, res) => {
   res.send('Servidor funcionando');
 });
+
+
 
 /* =========================
    USUÁRIOS
@@ -39,6 +43,8 @@ router.post('/usuarios', (req, res) => {
   );
 });
 
+
+
 // Listar usuários
 router.get('/usuarios', (req, res) => {
 
@@ -52,6 +58,7 @@ router.get('/usuarios', (req, res) => {
     res.json(resultados);
   });
 });
+
 
 // Buscar usuário por ID
 router.get('/usuarios/:id', (req, res) => {
@@ -72,6 +79,9 @@ router.get('/usuarios/:id', (req, res) => {
     }
   );
 });
+
+
+
 
 /* =========================
    LOGIN
@@ -116,6 +126,9 @@ router.post('/login', (req, res) => {
     return res.redirect('/dashboard.html');
   });
 });
+
+
+
 
 /* =========================
    CLIENTES
@@ -301,6 +314,115 @@ router.post('/clientes', (req, res) => {
       });
     }
   );
+});
+
+
+
+/* =========================
+   RELATÓRIO
+========================= */
+
+router.get('/relatorio', (req, res) => {
+
+    const { inicio, fim, estado, seguradora, formato } = req.query;
+
+    console.log("Filtros do relatório:", req.query);
+
+    let sql = "SELECT * FROM clientes WHERE data_inicio BETWEEN ? AND ?";
+    let params = [inicio, fim];
+
+    // filtro estado
+    if (estado && estado !== "todos") {
+        sql += " AND estado_apolice = ?";
+        params.push(estado);
+    }
+
+    // filtro seguradora
+    if (seguradora && seguradora !== "geral") {
+        sql += " AND seguradora = ?";
+        params.push(seguradora);
+    }
+
+    db.query(sql, params, (err, resultados) => {
+
+        if (err) {
+            console.log(err);
+            return res.status(500).send("Erro ao gerar relatório");
+        }
+
+        // ⚠️ aqui ainda NÃO gera ficheiro real (só retorna dados)
+        res.json(resultados);
+    });
+});
+
+
+
+
+
+
+
+router.get('/relatorio/excel', (req, res) => {
+
+    const { inicio, fim, estado, seguradora } = req.query;
+
+    let sql = `
+        SELECT * 
+        FROM clientes
+        WHERE data_inicio BETWEEN ? AND ?
+    `;
+
+    let params = [inicio, fim];
+
+    if (estado && estado !== 'todos') {
+        sql += " AND estado_apolice = ?";
+        params.push(estado);
+    }
+
+    if (seguradora && seguradora !== 'geral') {
+        sql += " AND seguradora = ?";
+        params.push(seguradora);
+    }
+
+    db.query(sql, params, (err, dados) => {
+
+        if (err) {
+          console.log("ERRO SQL DETALHADO:", err);
+return res.status(500).send(err.message);
+        }
+
+        console.log("CLIENTES ENCONTRADOS:", dados);
+
+        const ExcelJS = require('exceljs');
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet('Clientes');
+
+        worksheet.columns = [
+            { header: 'Nome', key: 'nome', width: 20 },
+            { header: 'Apólice', key: 'apolice', width: 20 },
+            { header: 'Seguradora', key: 'seguradora', width: 20 },
+            { header: 'Estado', key: 'estado_apolice', width: 20 },
+            { header: 'Data Início', key: 'data_inicio', width: 25 },
+            { header: 'Data Fim', key: 'data_fim', width: 25 }
+        ];
+
+        dados.forEach(item => {
+            worksheet.addRow(item);
+        });
+
+        res.setHeader(
+            'Content-Type',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        );
+
+        res.setHeader(
+            'Content-Disposition',
+            'attachment; filename=relatorio.xlsx'
+        );
+
+        workbook.xlsx.write(res).then(() => res.end());
+
+    });
+
 });
 
 module.exports = router;

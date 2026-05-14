@@ -4,39 +4,94 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// IMPORTAÇÃO DAS ROTAS
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./Rotas');
 
 var app = express();
 
+/* =====================================
+   CONFIGURAÇÃO DAS VIEWS
+===================================== */
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+/* =====================================
+   MIDDLEWARES
+===================================== */
+
 app.use(logger('dev'));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+app.use(express.urlencoded({
+  extended: true
+}));
+
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ROTAS
+/* =====================================
+   ROTAS PRINCIPAIS
+===================================== */
+
+// Página inicial
 app.use('/', indexRouter);
+
+// Usuários
 app.use('/users', usersRouter);
 
-// 🔥 CORREÇÃO PRINCIPAL AQUI
+// API DO SISTEMA
+// LOGIN
+// CLIENTES
+// PESQUISA
+// CADASTRO
 app.use('/api', apiRouter);
 
-console.log('Rotas carregadas com sucesso');
+console.log('✅ Rotas carregadas com sucesso');
 
-app.use(function (req, res, next) {
+/* =====================================
+   TESTE DO SERVIDOR
+===================================== */
+
+app.get('/teste', (req, res) => {
+  res.send('Servidor funcionando corretamente');
+});
+
+/* =====================================
+   ERRO 404
+===================================== */
+
+app.use((req, res, next) => {
+
+  console.log('❌ Rota não encontrada:', req.originalUrl);
+
   next(createError(404));
+
 });
 
-app.use(function (err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+/* =====================================
+   TRATAMENTO DE ERROS
+===================================== */
+
+app.use((err, req, res, next) => {
+
+  console.error('ERRO:', err.message);
+
   res.status(err.status || 500);
-  res.render('error');
+
+  res.send(`
+    <h1>Erro ${err.status || 500}</h1>
+    <p>${err.message}</p>
+    <p>URL: ${req.originalUrl}</p>
+  `);
+
 });
+
+
+app.use(express.static('public'));
 
 module.exports = app;

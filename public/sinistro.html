@@ -1,139 +1,143 @@
 <!-- Define o uso do HTML5 -->
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-    <!-- Define a codifica��o do documento -->
+    <!-- Define a codificação do documento -->
     <meta charset="UTF-8">
-    <!-- Faz a p�gina adaptar-se ao tamanho do ecr� -->
+    <!-- Faz a pagina adaptar-se ao tamanho do ecra -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Define o t�tulo mostrado na aba do navegador -->
+    <!-- Define o titulo mostrado na aba do navegador -->
     <title>Painel de Sinistro</title>
-    <!-- Liga esta p�gina ao ficheiro CSS principal -->
-    <link rel="stylesheet" href="estilos/geral.css">
+    <!-- Liga esta pagina ao ficheiro CSS principal -->
+    <link rel="stylesheet" href="stylesheets/geral.css">
 </head>
+
 <body class="pagina-formulario pagina-sinistro">
     <!--rea principal da pgina de registo de sinistro -->
     <main class="app-page-shell">
         <!-- Carto que concentra o formulrio e os destaques da tela -->
         <section class="app-page-card">
-            <!-- Cabe�alho da funcionalidade -->
+            <!-- Cabeçalho da funcionalidade -->
             <div class="app-page-head">
                 <a href="index.html" class="app-back-link">Voltar ao painel</a>
-  
-                <h1>Painel de sinistro e per�cia</h1>
-                <p>Registe a ocorr�ncia, detalhe a per�cia e anexe documentos de suporte para seguimento.</p>
+
+                <h1>Painel de sinistro e pericia</h1>
+                <p>Registe a ocorrencia, detalhe a pericia e anexe documentos de suporte para seguimento.</p>
             </div>
 
-            <!-- Cart�es r�pidos que resumem os blocos mais importantes do processo -->
+            <!-- Cartões rapidos que resumem os blocos mais importantes do processo -->
             <div class="sinistro-highlights">
                 <article class="sinistro-highlight-card">
-                    <strong>Ocorr�ncia</strong>
+                    <strong>Ocorrencia</strong>
                     <span>Registe data, hora, local e tipo do sinistro com clareza.</span>
                 </article>
+
                 <article class="sinistro-highlight-card">
                     <strong>Envolvidos</strong>
-                    <span>Inclua dados da outra parte para facilitar a an�lise e o contacto.</span>
+                    <span>Inclua dados da outra parte para facilitar a analise e o contacto.</span>
                 </article>
                 <article class="sinistro-highlight-card">
                     <strong>Anexos</strong>
-                    <span>Junte v�rios documentos e imagens numa �nica submiss�o.</span>
+                    <span>Junte varios documentos e imagens numa unica submissõo.</span>
                 </article>
             </div>
 
             <!-- Elemento form com atributo action="../Backand/processar_sinistro.php" especificando para onde enviar os dados, method="POST" usando m�todo POST para dados, enctype="multipart/form-data" permitindo envio de ficheiros, class="app-form-grid app-form-grid-2" criando grid com 2 colunas -->
-            <form action="../Backand/processar_sinistro.php" method="POST" enctype="multipart/form-data" class="app-form-grid app-form-grid-2">
-                <!-- T�tulo visual da primeira sec��o do formul�rio -->
+            <form action="../Backand/processar_sinistro.php" method="POST" enctype="multipart/form-data"
+                class="app-form-grid app-form-grid-2">
+                <!-- Titulo visual da primeira secção do formulario -->
                 <div class="app-section-title app-field-full">Dados do sinistro</div>
 
-                <!-- Dados principais do cliente e do tipo de ocorr�ncia -->
+                <!-- Dados principais do cliente e do tipo de ocorrencia -->
                 <label class="app-field">
                     <span>Cliente</span>
-                <!-- Elemento input com atributo type="text" para texto, name="cliente" identificando o par�metro, placeholder="Nome do cliente" texto de ajuda, required=true obrigando preenchimento -->
+                    <!-- Elemento input com atributo type="text" para texto, name="cliente" identificando o par�metro, placeholder="Nome do cliente" texto de ajuda, required=true obrigando preenchimento -->
                     <input type="text" name="cliente" placeholder="Nome do cliente" required>
                 </label>
 
-                <!-- Campo para identificar a ap�lice relacionada ao sinistro -->
+                <!-- Campo para identificar a apolice relacionada ao sinistro -->
                 <label class="app-field">
-                    <span>N� da ap�lice</span>
-                    <!-- Elemento input com atributo type="text" para texto, name="apolice" identificando o par�metro, placeholder="N�mero da ap�lice" texto de ajuda -->
-                    <input type="text" name="apolice" placeholder="N�mero da ap�lice">
+                    <span>Nº da apolice</span>
+                    <!-- Elemento input com atributo type="text" para texto, name="apolice" identificando o parametro, placeholder="Numero da apolice" texto de ajuda -->
+                    <input type="text" name="apolice" placeholder="Numero da apolice">
                 </label>
 
-                <!-- Lista do tipo de ocorr�ncia registada -->
+                <!-- Lista do tipo de ocorrencia registada -->
                 <label class="app-field">
                     <span>Tipo de sinistro</span>
                     <!-- Elemento select com atributo name="tipo" identificando o par�metro, criando lista de tipos de sinistro -->
                     <select name="tipo">
                         <option>Acidente</option>
                         <option>Roubo</option>
-                        <option>Inc�ndio</option>
+                        <option>Incendio</option>
                         <option>Outro</option>
                     </select>
                 </label>
 
-                <!-- Campo obrigat�rio para registar a data da ocorr�ncia -->
+                <!-- Campo obrigatorio para registar a data da ocorrencia -->
                 <label class="app-field">
                     <span>Data do sinistro</span>
-                    <!-- Elemento input com atributo type="date" para data, name="data_sinistro" identificando o par�metro, required=true obrigando preenchimento -->
+                    <!-- Elemento input com atributo type="date" para data, name="data_sinistro" identificando o parametro, required=true obrigando preenchimento -->
                     <input type="date" name="data_sinistro" required>
                 </label>
 
-                <!-- Campo opcional para complementar a ocorr�ncia com a hora -->
+                <!-- Campo opcional para complementar a ocorrencia com a hora -->
                 <label class="app-field">
                     <span>Hora do sinistro</span>
-                    <!-- Elemento input com atributo type="time" para hora, name="hora_sinistro" identificando o par�metro -->
+                    <!-- Elemento input com atributo type="time" para hora, name="hora_sinistro" identificando o parametro -->
                     <input type="time" name="hora_sinistro">
                 </label>
 
-                <!-- Campo para identificar o local principal da ocorr�ncia -->
+                <!-- Campo para identificar o local principal da ocorrencia -->
                 <label class="app-field">
                     <span>Local do sinistro</span>
-                    <!-- Elemento input com atributo type="text" para texto, name="local_sinistro" identificando o par�metro, placeholder="Onde ocorreu o sinistro" texto de ajuda -->
+                    <!-- Elemento input com atributo type="text" para texto, name="local_sinistro" identificando o parametro, placeholder="Onde ocorreu o sinistro" texto de ajuda -->
                     <input type="text" name="local_sinistro" placeholder="Onde ocorreu o sinistro">
                 </label>
 
-                <!-- Campo auxiliar para cidade, bairro ou refer�ncia -->
+                <!-- Campo auxiliar para cidade, bairro ou referencia -->
                 <label class="app-field">
                     <span>Cidade ou bairro</span>
-                    <!-- Elemento input com atributo type="text" para texto, name="zona_sinistro" identificando o par�metro, placeholder="Cidade, bairro ou refer�ncia" texto de ajuda -->
-                    <input type="text" name="zona_sinistro" placeholder="Cidade, bairro ou refer�ncia">
+                    <!-- Elemento input com atributo type="text" para texto, name="zona_sinistro" identificando o parametro, placeholder="Cidade, bairro ou referencia" texto de ajuda -->
+                    <input type="text" name="zona_sinistro" placeholder="Cidade, bairro ou referencia">
                 </label>
 
                 <!-- Select para indicar se alguma autoridade foi acionada -->
                 <label class="app-field">
                     <span>Autoridade acionada</span>
-                    <!-- Elemento select com atributo name="autoridade_acionada" identificando o par�metro, criando lista de gest�o de autoridades -->
+                    <!-- Elemento select com atributo name="autoridade_acionada" identificando o parametro, criando lista de gestão de autoridades -->
                     <select name="autoridade_acionada">
-                        <option>N�o</option>
-                        <option>Pol�cia</option>
+                        <option>Não</option>
+                        <option>Policia</option>
                         <option>Bombeiros</option>
-                        <option>Ambul�ncia</option>
+                        <option>Ambulancia</option>
                         <option>Outra</option>
                     </select>
                 </label>
 
-                <!-- Campo para guardar o n�mero do auto ou da ocorr�ncia oficial -->
+                <!-- Campo para guardar o numero do auto ou da ocorroncia oficial -->
                 <label class="app-field">
-                    <span>N� do auto ou ocorr�ncia</span>
-                    <input type="text" name="auto_ocorrencia" placeholder="N�mero do auto, se existir">
+                    <span>Nº do auto ou ocorrencia</span>
+                    <input type="text" name="auto_ocorrencia" placeholder="Numero do auto, se existir">
                 </label>
 
                 <!-- Campo amplo para descrever o que aconteceu -->
                 <label class="app-field app-field-full">
-                    <span>Descri��o</span>
-                    <textarea name="descricao" rows="4" placeholder="Descreva a ocorr�ncia"></textarea>
+                    <span>Descrição</span>
+                    <textarea name="descricao" rows="4" placeholder="Descreva a ocorrencia"></textarea>
                 </label>
 
-                <!-- T�tulo visual da sec��o de an�lise e acompanhamento -->
-                <div class="app-section-title app-field-full">Per�cia e acompanhamento</div>
+                <!-- Titulo visual da secção de analise e acompanhamento -->
+                <div class="app-section-title app-field-full">Perecia e acompanhamento</div>
 
-                <!-- Campo para registar as conclus�es da per�cia -->
+                <!-- Campo para registar as conclusões da pericia -->
                 <label class="app-field app-field-full">
-                    <span>Resultado da per�cia</span>
-                    <textarea name="resultado" rows="4" placeholder="Indique as conclus�es da per�cia"></textarea>
+                    <span>Resultado da perecia</span>
+                    <textarea name="resultado" rows="4" placeholder="Indique as conclusões da pericia"></textarea>
                 </label>
 
-                <!-- Campo num�rico para estimar o preju�zo -->
+                <!-- Campo numerico para estimar o prejuizo -->
                 <label class="app-field">
                     <span>Valor estimado (MZN)</span>
                     <input type="number" name="valor" placeholder="Valor estimado">
@@ -141,7 +145,7 @@
 
                 <!-- Campo para identificar o processo interno -->
                 <label class="app-field">
-                    <span>N�mero do processo</span>
+                    <span>Numero do processo</span>
                     <input type="text" name="processo" placeholder="Ex.: SIN-2026-001">
                 </label>
 
@@ -149,27 +153,28 @@
                 <label class="app-field">
                     <span>Estado do processo</span>
                     <select name="estado_processo">
-                        <option>Em an�lise</option>
+                        <option>Em analise</option>
                         <option>Aguardando documentos</option>
-                        <option>Em per�cia</option>
+                        <option>Em pericia</option>
                         <option>Aprovado</option>
                         <option>Recusado</option>
                     </select>
                 </label>
 
-                <!-- Campo para indicar o respons�vel t�cnico -->
+                <!-- Campo para indicar o responsavel tecnico -->
                 <label class="app-field">
-                    <span>Perito respons�vel</span>
-                    <input type="text" name="perito" placeholder="Nome do perito ou t�cnico">
+                    <span>Perito responsavel</span>
+                    <input type="text" name="perito" placeholder="Nome do perito ou tecnico">
                 </label>
 
-                <!-- Campo interno para observa��es de seguimento -->
+                <!-- Campo interno para observaçóes de seguimento -->
                 <label class="app-field app-field-full">
-                    <span>Observa��es internas</span>
-                    <textarea name="observacoes_internas" rows="3" placeholder="Notas de acompanhamento para uso interno"></textarea>
+                    <span>Observações internas</span>
+                    <textarea name="observacoes_internas" rows="3"
+                        placeholder="Notas de acompanhamento para uso interno"></textarea>
                 </label>
 
-                <!-- T�tulo visual da sec��o da outra parte envolvida -->
+                <!-- Titulo visual da secção da outra parte envolvida -->
                 <div class="app-section-title app-field-full">Dados da outra pessoa envolvida</div>
 
                 <!-- Campo para o nome da outra parte envolvida -->
@@ -184,31 +189,32 @@
                     <input type="tel" name="envolvido_contacto" placeholder="Telefone ou celular">
                 </label>
 
-                <!-- Documento de identifica��o da outra parte -->
+                <!-- Documento de identificação da outra parte -->
                 <label class="app-field">
-                    <span>N�mero do documento</span>
+                    <span>Numero do documento</span>
                     <input type="text" name="envolvido_documento" placeholder="BI, passaporte ou outro documento">
                 </label>
 
-                <!-- Informa��o do ve�culo ou identifica��o semelhante -->
+                <!-- Informação do veiculo ou identificação semelhante -->
                 <label class="app-field">
-                    <span>Ve�culo ou matr�cula</span>
-                    <input type="text" name="envolvido_veiculo" placeholder="Matr�cula ou identifica��o do ve�culo">
+                    <span>Veiculo ou matricula</span>
+                    <input type="text" name="envolvido_veiculo" placeholder="Matricula ou identificação do veiculo">
                 </label>
 
-                <!-- Seguradora associada � outra parte, quando existir -->
+                <!-- Seguradora associada a outra parte, quando existir -->
                 <label class="app-field">
                     <span>Seguradora da outra parte</span>
                     <input type="text" name="envolvido_seguradora" placeholder="Nome da seguradora, se existir">
                 </label>
 
-                <!-- �rea livre para detalhes adicionais da outra parte -->
+                <!-- area livre para detalhes adicionais da outra parte -->
                 <label class="app-field app-field-full">
-                    <span>Observa��es sobre a outra parte</span>
-                    <textarea name="envolvido_observacoes" rows="3" placeholder="Detalhes adicionais sobre a pessoa ou o ve�culo envolvido"></textarea>
+                    <span>Observações sobre a outra parte</span>
+                    <textarea name="envolvido_observacoes" rows="3"
+                        placeholder="Detalhes adicionais sobre a pessoa ou o veiculo envolvido"></textarea>
                 </label>
 
-                <!-- T�tulo visual da sec��o de testemunhas e documentos -->
+                <!-- Titulo visual da secção de testemunhas e documentos -->
                 <div class="app-section-title app-field-full">Testemunhas e apoio documental</div>
 
                 <!-- Campo para a principal testemunha do processo -->
@@ -223,34 +229,36 @@
                     <input type="tel" name="testemunha_contacto" placeholder="Telefone da testemunha">
                 </label>
 
-                <!-- �rea de anexos com suporte a m�ltiplos ficheiros -->
+                <!-- area de anexos com suporte a multiplos ficheiros -->
                 <div class="app-section-title app-field-full">Documentos anexos</div>
 
-                <!-- Caixa destacada para facilitar o envio de v�rios documentos -->
+                <!-- Caixa destacada para facilitar o envio de varios documentos -->
                 <div class="sinistro-upload-box app-field-full">
                     <label class="app-field">
                         <span>Anexar documentos</span>
-                        <!-- Permite selecionar v�rios documentos do computador numa �nica a��o -->
+                        <!-- Permite selecionar vrios documentos do computador numa nica ao -->
                         <input type="file" name="arquivos[]" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple>
-                        <small class="app-field-help">Pode anexar relat�rio, fotos, auto da ocorr�ncia, c�pia de documentos e outros ficheiros de suporte.</small>
+                        <small class="app-field-help">Pode anexar relatario, fotos, auto da ocorrencia, copia de
+                            documentos e outros ficheiros de suporte.</small>
                     </label>
 
-                    <!-- Etiquetas visuais com exemplos de anexos �teis para o processo -->
+                    <!-- Etiquetas visuais com exemplos de anexos uteis para o processo -->
                     <div class="sinistro-upload-tags">
                         <span class="sinistro-tag">Fotos do local</span>
                         <span class="sinistro-tag">BI / Documento</span>
-                        <span class="sinistro-tag">Auto da pol�cia</span>
-                        <span class="sinistro-tag">Relat�rio pericial</span>
+                        <span class="sinistro-tag">Auto da policia</span>
+                        <span class="sinistro-tag">Relatorio pericial</span>
                     </div>
                 </div>
 
-                <!-- Bot�es principais do formul�rio -->
+                <!-- Botões principais do formulario -->
                 <div class="app-form-actions app-field-full">
                     <button type="button" class="app-btn app-btn-secondary">Guardar rascunho</button>
-                    <button type="submit" class="app-btn app-btn-success">Enviar relat�rio</button>
+                    <button type="submit" class="app-btn app-btn-success">Enviar relatorio</button>
                 </div>
             </form>
         </section>
     </main>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 <!-- Define o documento como HTML5 -->
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <!-- Define a codificação do documento -->
     <meta charset="UTF-8">
@@ -9,8 +10,9 @@
     <!-- Define o título mostrado na aba do navegador -->
     <title>Verificar Seguro</title>
     <!-- Liga esta página ao ficheiro CSS principal -->
-    <link rel="stylesheet" href="estilos/geral.css">
+    <link rel="stylesheet" href="stylesheets/geral.css">
 </head>
+
 <body class="pagina-formulario pagina-verificar-seguro">
     <!-- Área principal da funcionalidade de verificação -->
     <main class="app-page-shell">
@@ -19,9 +21,10 @@
             <!-- Cabeçalho da página com contexto e navegação -->
             <div class="app-page-head">
                 <a href="dashboard.html" class="app-back-link">Voltar ao painel</a>
-               
+
                 <h1>Verificar seguro</h1>
-                <p>Consulte rapidamente o estado de uma apólice pesquisando por nome do cliente ou pelo número da apólice.</p>
+                <p>Consulte rapidamente o estado de uma apólice pesquisando por nome do cliente ou pelo número da
+                    apólice.</p>
             </div>
 
             <!-- Elemento form com atributo class="app-form-grid app-form-grid-2" criando grid com 2 colunas, id="form-verificar-seguro" identificando o formulário -->
@@ -40,7 +43,8 @@
                 <label class="app-field">
                     <span>Valor da pesquisa</span>
                     <!-- Elemento input com atributo type="text" para texto, id="valorPesquisaSeguro" para acesso em JavaScript, placeholder="Digite o número da apólice ou o nome do cliente", required=true obrigando preenchimento -->
-                    <input type="text" id="valorPesquisaSeguro" placeholder="Digite o número da apólice ou o nome do cliente" required>
+                    <input type="text" id="valorPesquisaSeguro"
+                        placeholder="Digite o número da apólice ou o nome do cliente" required>
                 </label>
 
                 <!-- Área de ações do formulário -->
@@ -100,4 +104,5 @@
         });
     </script>
 </body>
+
 </html>
